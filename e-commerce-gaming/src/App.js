@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Games from './Games.js'
-import {games, consoles} from './Store'; 
+import {games, consoles} from './ListOfGames'; 
 
 class App extends Component {
     
