@@ -6,6 +6,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Games from './Components/Games.jsx'
+import SelectedGamesComponent from './Components/SelectedGamesComponent'
 import {games} from './ListOfGames'; 
 
 class App extends Component {
@@ -44,7 +45,7 @@ class App extends Component {
 
           </AppBar>
       </MuiThemeProvider>
-      <Games games={games}/>
+      <SelectedGamesComponent/>
       </Fragment>     
     );
   }
