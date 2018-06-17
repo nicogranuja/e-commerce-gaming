@@ -4,8 +4,21 @@ import Tab from '@material-ui/core/Tab';
 
 class ConsoleButtons extends React.Component {
 
-    render() {
+    // handleHomeClick = (e) => {
+    //
+    //     const element = (
+    //         <div className="Home">
+    //             <Home/>
+    //         </div>
+    //     )
+    //     ReactDOM.render(element, document.getElementById('pageView'));
+    //
+    // };
 
+    
+    
+    render() {
+        
         return (
             <Tabs
 
@@ -24,6 +37,11 @@ class ConsoleButtons extends React.Component {
 
     }
 
+// <Tab label="Xbox One" onClick={(e) => this.handleHomeClick(e)} />
+// <Tab label="PS 4" onClick={(e) => this.handleHomeClick(e)}/>
+// <Tab label="Nintendo" onClick={(e) => this.handleHomeClick(e)}/>
+// <Tab label="Computer" onClick={(e) => this.handleHomeClick(e)}/>
+// <Tab label="Game Boy" onClick={(e) => this.handleHomeClick(e)}/>
 
 }
 

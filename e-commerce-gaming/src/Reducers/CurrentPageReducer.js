@@ -1,7 +1,6 @@
 import flowState from '../Constants/flowstates'
-
 function CurrentPageReducer(state = flowState.MAINPAGE, action) {
-
+console.log("the page reducer action is " + action.type)
     switch(action.type) {
         case 'COMPUTER_PAGE_ACTION':
             return action.computerState;
@@ -14,6 +13,7 @@ function CurrentPageReducer(state = flowState.MAINPAGE, action) {
         case 'XBOX_PAGE_ACTION':
             return action.xboxState;
         default :
+
             return state;
     }
 }
