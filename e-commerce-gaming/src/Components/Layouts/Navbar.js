@@ -5,8 +5,7 @@ import {
   Toolbar,
   Typography,
   Button,
-  IconButton,
-  Icon
+  IconButton
 } from '@material-ui/core';
 
 const styles = {
