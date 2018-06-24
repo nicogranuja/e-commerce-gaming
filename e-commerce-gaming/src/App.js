@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import ConsoleButtons from './Components/ConsoleButtons';
-import MuiThemeProvider from  '@material-ui/core/styles/MuiThemeProvider';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import Games from './Games'
 import { games } from './Store'; 
@@ -10,6 +10,7 @@ class App extends Component {
   state = {
     games
   };
+  
 
   getGamesbyConsoleCategory() {
     return Object.entries(
@@ -27,10 +28,11 @@ class App extends Component {
         
   render() {
     const games = this.getGamesbyConsoleCategory();
+    const muiTheme = createMuiTheme();
 
     return (
       <Fragment>
-        <MuiThemeProvider>
+        <MuiThemeProvider theme={muiTheme}>
             <AppBar position="static" color="default">
                 <Toolbar>
                     <Typography variant="title" color="inherit">
