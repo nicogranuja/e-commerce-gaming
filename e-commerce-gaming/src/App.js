@@ -1,50 +1,46 @@
 import React, { Component, Fragment } from 'react';
 import ConsoleButtons from './Components/ConsoleButtons';
-import MuiThemeProvider from  '@material-ui/core/styles/MuiThemeProvider'
+import MuiThemeProvider from  '@material-ui/core/styles/MuiThemeProvider';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import Games from './Games'
+import { games } from './Store'; 
 import './App.css';
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Games from './Games.js'
-import {games, consoles} from './Store'; 
 
 class App extends Component {
-    
-      state ={
-          games
-      };
+  state = {
+    games
+  };
 
-      getGamesbyConsoleCategory() {
-        return Object.entries(
-          this.state.games.reduce((games, game) => {
-            const {console} = game
-    
-            games[console] = games[console]
-              ? [...games[console], game]
-              : [game]
-    
-            return games
-          }, {})
-        )
-      }
+  getGamesbyConsoleCategory() {
+    return Object.entries(
+      this.state.games.reduce((games, game) => {
+        const {console} = game
+
+        games[console] = games[console]
+          ? [...games[console], game]
+          : [game]
+
+        return games
+      }, {})
+    )
+  }
         
   render() {
-   const games = this.getGamesbyConsoleCategory();
+    const games = this.getGamesbyConsoleCategory();
+
     return (
-        <Fragment>
-      <MuiThemeProvider>
-          <AppBar position="static" color="default">
-              <Toolbar>
-                  <Typography variant="title" color="inherit">
+      <Fragment>
+        <MuiThemeProvider>
+            <AppBar position="static" color="default">
+                <Toolbar>
+                    <Typography variant="title" color="inherit">
                       Games E - Commerce
-                  </Typography>
-              </Toolbar>
-              <ConsoleButtons/>
-
-
-          </AppBar>
-      </MuiThemeProvider>
-      <Games games={games}/>
+                    </Typography>
+                </Toolbar>
+                <ConsoleButtons/>
+            </AppBar>
+        </MuiThemeProvider>
+        <Games games={games}/>
       </Fragment>     
     );
   }
