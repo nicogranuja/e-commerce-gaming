@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import ConsoleButtons from './Components/ConsoleButtons';
+import ConsoleButtons from './Components/Layouts/ConsoleButtons';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Games from './Games'
 import { games } from './Store'; 
@@ -30,13 +30,11 @@ class App extends Component {
     const muiTheme = createMuiTheme();
 
     return (
-      <Fragment>
-        <MuiThemeProvider theme={muiTheme}>
+      <MuiThemeProvider theme={muiTheme}>
             <Navbar />
             <ConsoleButtons/>
-        </MuiThemeProvider>
-        <Games games={games}/>
-      </Fragment>     
+          <Games games={games}/>     
+      </MuiThemeProvider>
     );
   }
 }
