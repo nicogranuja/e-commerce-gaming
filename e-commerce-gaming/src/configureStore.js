@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import currentPage from './Reducers/CurrentPageReducer';
+import combinedReducers from './Reducers/combinerReducers'
 import thunk from 'redux-thunk';
 
 
@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 
 export default function configureStore() {
     return createStore (
-        currentPage,
+        combinedReducers,
         applyMiddleware(thunk)
 
 

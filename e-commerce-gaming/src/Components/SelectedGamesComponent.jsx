@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
 import FLOW_STATE from '../Constants/flowstates'
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import mainPageState from '../Actions/MainPageAction'
 
 
@@ -17,13 +17,16 @@ const styles = {
 };
 
 class SelectedGamesComponent extends React.Component {
-   componentWillMount() {
-       this.props.initialState();
-   }
+   // componentWillMount() {
+   //     this.props.initialState();
+   // }
+    
 
     render() {
-        console.log("The state in select component is  is  " + this.props.state);
-        if(this.props.state === FLOW_STATE.MAINPAGE) {
+        console.log("The state in SelectedGamesComponentJSX is ");
+        console.log(this.props.state);
+
+        if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return (
                 <div>
 
@@ -39,7 +42,7 @@ class SelectedGamesComponent extends React.Component {
                 </Grid>
                  </div>
             )
-        } else if (this.props.state === FLOW_STATE.COMPUTERPAGE) {
+        } else if (this.props.state.currentPageState === FLOW_STATE.COMPUTERPAGE) {
             return (
                 <div>
                 <Grid container>
@@ -54,7 +57,7 @@ class SelectedGamesComponent extends React.Component {
                 </Grid>
                     </div>
             )
-        } else if (this.props.state === FLOW_STATE.HANDHELDPAGE) {
+        } else if (this.props.state.currentPageState === FLOW_STATE.HANDHELDPAGE) {
             return(
                 <div>
             <Grid container>
@@ -69,7 +72,7 @@ class SelectedGamesComponent extends React.Component {
             </Grid>
                     </div>
             )
-        } else if (this.props.state === FLOW_STATE.XBOXPAGE) {
+        } else if (this.props.state.currentPageState === FLOW_STATE.XBOXPAGE) {
             return(
                 <div>
                     <Grid container>
@@ -84,7 +87,7 @@ class SelectedGamesComponent extends React.Component {
                     </Grid>
                 </div>
             )
-        } else if (this.props.state === FLOW_STATE.PS4PAGE) {
+        } else if (this.props.state.currentPageState === FLOW_STATE.PS4PAGE) {
             return(
                 <div>
                     <Grid container>
@@ -118,14 +121,16 @@ class SelectedGamesComponent extends React.Component {
     }
 }
 
-SelectedGamesComponent.PropTypes= {
-    state: PropTypes.string.isRequired
-};
+// SelectedGamesComponent.PropTypes= {
+//     currentState: PropTypes.string.isRequired
+// };
 
-const mapStateToProps = (state) => {
-    console.log("The map stated is " + state);
+const mapStateToProps = (currentPageState) => {
+    // console.log("The mapStateTpProps in SelectedGamesComponent is " + currentPage);
+    console.log(currentPageState);
+
     return {
-        state: state,
+        state: currentPageState,
     };
 };
 

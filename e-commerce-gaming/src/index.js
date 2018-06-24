@@ -6,18 +6,19 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux'
 import configureStore from './configureStore';
 import MuiThemeProvider from  '@material-ui/core/styles/MuiThemeProvider'
+import createMuiTheme from  '@material-ui/core/styles/createMuiTheme'
 
 
 const mainStore = configureStore();
-
+const theme = createMuiTheme();
 
 ReactDOM.render(
 
-    <MuiThemeProvider>
+    <MuiThemeProvider theme={theme}>
     <Provider store={mainStore}>
         <App/>
     </Provider>,
-     </MuiThemeProvider>,
+    </MuiThemeProvider>,
 
 
     document.getElementById('root')
