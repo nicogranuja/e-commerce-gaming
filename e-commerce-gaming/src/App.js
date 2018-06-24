@@ -1,39 +1,19 @@
-import React, { Component, Fragment } from 'react';
-import ConsoleButtons from './Components/Layouts/ConsoleButtons';
+import React, { Component } from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Games from './Games'
-import { games } from './Store'; 
 import './App.css';
+import ConsoleButtons from './Components/Layouts/ConsoleButtons';
 import Navbar from './Components/Layouts/Navbar';
+import Games from './Components/Games'
 
 class App extends Component {
-  state = {
-    games
-  };
-  
-  getGamesbyConsoleCategory() {
-    return Object.entries(
-      this.state.games.reduce((games, game) => {
-        const {console} = game
-
-        games[console] = games[console]
-          ? [...games[console], game]
-          : [game]
-
-        return games
-      }, {})
-    )
-  }
-        
   render() {
-    const games = this.getGamesbyConsoleCategory();
     const muiTheme = createMuiTheme();
 
     return (
       <MuiThemeProvider theme={muiTheme}>
-            <Navbar />
-            <ConsoleButtons/>
-          <Games games={games}/>     
+        <Navbar />
+        <ConsoleButtons/>
+        <Games />     
       </MuiThemeProvider>
     );
   }
