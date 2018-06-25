@@ -1,5 +1,5 @@
-import  React,{ Fragment } from 'react';
-import  ListItem from '@material-ui/core/ListItem';
+import React,{ Fragment } from 'react';
+import ListItem from '@material-ui/core/ListItem';
 import ListItemText  from '@material-ui/core/ListItemText';
 import List from'@material-ui/core/List';
 import Grid from '@material-ui/core/Grid'; 
@@ -14,7 +14,6 @@ const styles = {
     height: 500, 
     overflowY: 'auto'}
 };
-
 
 class Games extends React.Component {
   state = {
@@ -78,7 +77,7 @@ class Games extends React.Component {
           </Paper>
         </Grid>
       </Grid>
-    )
+    );
   }
 }
 

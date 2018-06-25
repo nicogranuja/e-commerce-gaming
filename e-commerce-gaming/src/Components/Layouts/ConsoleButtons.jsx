@@ -27,7 +27,7 @@ class ConsoleButtons extends React.Component {
 					<Tab label="Game Boy" />
 				</Tabs>
 			</div>
-		)
+		);
 	}
 }
 

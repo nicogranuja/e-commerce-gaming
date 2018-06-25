@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import NavbarButtons from './NavbarButtons/NavbarButtons';
+import NavbarButtons from './NavbarElements/NavbarButtons';
+import SearchBar from './NavbarElements/SearchBar';
 import {
   AppBar,
   Toolbar,
@@ -17,16 +18,19 @@ const styles = {
 
 class Navbar extends Component {
   render() {
-    return <div>
+    return (
+      <div>
         <AppBar position="static" style={styles.root}>
           <Toolbar>
             <Typography variant="title" color="inherit" style={styles.title}>
               Games E-Commerce
             </Typography>
+            <SearchBar />
             <NavbarButtons />
           </Toolbar>
         </AppBar>
-      </div>;
+      </div>
+    );
   }
 }
 
