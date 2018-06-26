@@ -12,7 +12,6 @@ class ConsoleButtons extends React.Component {
 
     render() {
 
-
         return (
             
             <Tabs
@@ -25,7 +24,7 @@ class ConsoleButtons extends React.Component {
                 <Button label="PS 4" onClick={this.props.playStationClick}/>
                 <Button label="Nintendo" onClick={this.props.nintendoClick}/>
                 <Button label="Computer" onClick={this.props.computerClick}/>
-                <Button label="Game Boy" onClick={this.props.handHeldClick()}/>
+                <Button label="Game Boy" onClick={this.props.handHeldClick}/>
             </Tabs>
         )
 
@@ -37,28 +36,20 @@ class ConsoleButtons extends React.Component {
 
 }
 
-// ConsoleButtons.propTypes = {
-//     xboxOneSelected: PropTypes.func,
-//     selectPS4: PropTypes.func,
-//     selectHandHeld: PropTypes.func,
-//     selectMainPage: PropTypes.func
-//
-//
-// }
 
 
-// const mapStateToProps = (state) => {
-//     console.log("The mapStateToProps in ConsoleButtons is " + state);
-//     return {
-//         state: state,
-//     };
-// };
+const mapStateToProps = (state) => {
+    console.log("The mapStateToProps in ConsoleButtons is " + state);
+    return {
+        state: state,
+    };
+};
 
 function mapDispatchToProps(dispatch) {
     return {
         xBoxClick: () => dispatch(xBoxClick(FLOW_STATE.XBOXPAGEBUTTON)),
         playStationClick: () => dispatch(playStationClick(FLOW_STATE.PS4PAGEBUTTON)),
-        nintendoClick: () => dispatch(nintendoClick(FLOW_STATE.HANDHELDPAGEBUTTON)),
+        nintendoClick: () => dispatch(nintendoClick(FLOW_STATE.NINTENDOBUTTON)),
         computerClick: () => dispatch(computerClick(FLOW_STATE.COMPUTERPAGEBUTTON)),
         handHeldClick: () => dispatch(handHeldClick(FLOW_STATE.HANDHELDPAGEBUTTON)),
         

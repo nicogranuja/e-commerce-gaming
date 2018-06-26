@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
 import FLOW_STATE from '../Constants/flowstates'
-//import PropTypes from 'prop-types';
+import BUTTON_STATE from '../Constants/buttonStates'
 import mainPageState from '../Actions/MainPageAction'
 
 
@@ -20,44 +20,34 @@ class SelectedGamesComponent extends React.Component {
    // componentWillMount() {
    //     this.props.initialState();
    // }
-    
+
 
     render() {
-        console.log("The state in SelectedGamesComponentJSX is ");
-        console.log(this.props.state);
+        console.log("----- The state in SelectedGamesComponentJSX is ------");
+        console.log(this.props.state.mainButtonState);
 
-        if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+        if(this.props.state.mainButtonState == null) {}
+        console.log("The button state is");
+        console.log(this.props.state.mainButtonState);
+        if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+            console.log("We are hitting the computer page button again")
             return (
                 <div>
+                    <Grid container>
+                        <Grid item sm>
+                            <Paper style={styles.Paper}>
+                                <div>
+                                    Inside the computer page.
+                                </div>
+                            </Paper>
+                        </Grid>
 
-                <Grid container>
-                    <Grid item sm>
-                        <Paper style={styles.Paper}>
-                            <div>
-                                Inside the main page for unselected console.
-                            </div>
-                        </Paper>
                     </Grid>
-
-                </Grid>
-                 </div>
+                </div>
             )
-        } else if (this.props.state.currentPageState === FLOW_STATE.COMPUTERPAGE) {
-            return (
-                <div>
-                <Grid container>
-                    <Grid item sm>
-                        <Paper style={styles.Paper}>
-                            <div>
-                                Inside the computer page.
-                            </div>
-                        </Paper>
-                    </Grid>
+        }
 
-                </Grid>
-                    </div>
-            )
-        } else if (this.props.state.currentPageState === FLOW_STATE.HANDHELDPAGE) {
+        if (this.props.state.currentPageState === FLOW_STATE.HANDHELDPAGE && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
             <Grid container>
@@ -72,7 +62,8 @@ class SelectedGamesComponent extends React.Component {
             </Grid>
                     </div>
             )
-        } else if (this.props.state.currentPageState === FLOW_STATE.XBOXPAGE) {
+        }
+        if (this.props.state.currentPageState === FLOW_STATE.XBOXPAGE && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
                     <Grid container>
@@ -87,7 +78,8 @@ class SelectedGamesComponent extends React.Component {
                     </Grid>
                 </div>
             )
-        } else if (this.props.state.currentPageState === FLOW_STATE.PS4PAGE) {
+        }
+        if (this.props.state.currentPageState === FLOW_STATE.PS4PAGE && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
                     <Grid container>
@@ -102,7 +94,8 @@ class SelectedGamesComponent extends React.Component {
                     </Grid>
                 </div>
             )
-        } else  {
+        }
+        if(this.props.state.currentPageState === undefined) {
             return(
                 <div>
                     <Grid container>
@@ -110,6 +103,23 @@ class SelectedGamesComponent extends React.Component {
                             <Paper style={styles.Paper}>
                                 <div>
                                     No page was selected or there was an error. Check state.
+                                </div>
+                            </Paper>
+                        </Grid>
+
+                    </Grid>
+                </div>
+            )
+        }
+        if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+            return (
+                <div>
+
+                    <Grid container>
+                        <Grid item sm>
+                            <Paper style={styles.Paper}>
+                                <div>
+                                    Inside the main page for unselected console.
                                 </div>
                             </Paper>
                         </Grid>
@@ -136,9 +146,9 @@ const mapStateToProps = (currentPageState) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        initialState() {
-            dispatch(mainPageState(FLOW_STATE.MAINPAGE));
-        }
+        initialState: () =>
+            dispatch(mainPageState(FLOW_STATE.MAINPAGE))
+
     }
 }
 

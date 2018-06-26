@@ -1,8 +1,8 @@
 
 
-export function handHeldState(handHeldState) {
+export function handHeldState(click) {
     return {
         type: 'HANDHELD_PAGE_ACTION',
-        handHeldState
+        click
     }
 }

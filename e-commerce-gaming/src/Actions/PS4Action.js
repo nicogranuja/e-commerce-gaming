@@ -1,8 +1,8 @@
 
 
-export function ps4Action(ps4State) {
+export function ps4Action(click) {
     return {
         type: 'PS4_PAGE_ACTION',
-        ps4State
+        click
     }
 }

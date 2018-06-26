@@ -1,8 +1,8 @@
 
 
-export default function mainPageState(mainPageState) {
+export default function mainPageState(click) {
     return {
         type: 'MAIN_PAGE_ACTION',
-        mainPageState
+        click
     }
 }
