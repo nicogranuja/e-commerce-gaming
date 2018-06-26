@@ -24,11 +24,14 @@ class SelectedGamesComponent extends React.Component {
 
     render() {
         console.log("----- The state in SelectedGamesComponentJSX is ------");
-        console.log(this.props.state.mainButtonState);
 
-        if(this.props.state.mainButtonState == null) {}
+
+
         console.log("The button state is");
         console.log(this.props.state.mainButtonState);
+        console.log(BUTTON_STATE.NINTENDOBUTTON)
+        console.log("The current page state is");
+        console.log(this.props.state.currentPageState);
         if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             console.log("We are hitting the computer page button again")
             return (
@@ -47,7 +50,7 @@ class SelectedGamesComponent extends React.Component {
             )
         }
 
-        if (this.props.state.currentPageState === FLOW_STATE.HANDHELDPAGE && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+        if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
             <Grid container>
@@ -63,14 +66,14 @@ class SelectedGamesComponent extends React.Component {
                     </div>
             )
         }
-        if (this.props.state.currentPageState === FLOW_STATE.XBOXPAGE && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+        if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
                     <Grid container>
                         <Grid item sm>
                             <Paper style={styles.Paper}>
                                 <div>
-                                    Inside Hand Held Page.
+                                    Inside the nintendo page.
                                 </div>
                             </Paper>
                         </Grid>
@@ -79,7 +82,23 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
-        if (this.props.state.currentPageState === FLOW_STATE.PS4PAGE && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+        if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+            return(
+                <div>
+                    <Grid container>
+                        <Grid item sm>
+                            <Paper style={styles.Paper}>
+                                <div>
+                                    Inside Xbox state
+                                </div>
+                            </Paper>
+                        </Grid>
+
+                    </Grid>
+                </div>
+            )
+        }
+        if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
                     <Grid container>

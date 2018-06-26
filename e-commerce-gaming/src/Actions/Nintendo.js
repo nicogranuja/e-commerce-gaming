@@ -1,6 +1,6 @@
 export function nintendoState(click) {
     return {
-        type: 'COMPUTER_PAGE_ACTION',
+        type: 'NINTENDO_PAGE_ACTION',
         click
     }
 }

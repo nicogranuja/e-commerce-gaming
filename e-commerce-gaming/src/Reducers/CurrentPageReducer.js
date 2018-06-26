@@ -15,7 +15,7 @@ function CurrentPageReducer(state = flowState.MAINPAGE, action) {
         case 'PS4_PAGE_ACTION':
             newState = action.click;
             return newState;
-        case 'XBOX_PAGE_ACTION':
+        case 'NINTENDO_PAGE_ACTION':
             newState = action.click;
             return newState;
         default :
