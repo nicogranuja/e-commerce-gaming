@@ -13,7 +13,8 @@ class ConsoleButtons extends React.Component {
 		return (
 			<div style={styles.root}>
 				<Tabs
-					value={0}
+          // Value will be linked to the redux store in the future
+					value={0} 
 					indicatorColor="primary"
 					textColor="inherit"
 					fullWidth
