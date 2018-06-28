@@ -1,35 +1,60 @@
 import React from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
-const styles = {
-  root: {
-		marginTop: 5
-  }
-};
+import Button from '@material-ui/core/Tab';
+import {connect } from 'react-redux'
+import {playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick} from '../../Actions/MainButtonAction';
+import FLOW_STATE from '../../Constants/buttonStates'
+import PropTypes from 'prop-types';
 
 class ConsoleButtons extends React.Component {
+
+
 	render() {
+
 		return (
-			<div style={styles.root}>
-				<Tabs
-          // Value will be linked to the redux store in the future
-					value={0} 
-					indicatorColor="primary"
-					textColor="inherit"
-					fullWidth
-					centered
-				>
-					<Tab label="All" />            
-					<Tab label="Xbox One" />
-					<Tab label="PS 4" />
-					<Tab label="Nintendo" />
-					<Tab label="Computer" />
-					<Tab label="Game Boy" />
-				</Tabs>
-			</div>
-		);
+
+			<Tabs
+
+				indicatorColor="primary"
+				textColor="primary"
+				fullWidth
+			>
+				<Button label="Xbox One" onClick={this.props.xBoxClick}/>
+				<Button label="PS 4" onClick={this.props.playStationClick}/>
+				<Button label="Nintendo" onClick={this.props.nintendoClick}/>
+				<Button label="Computer" onClick={this.props.computerClick}/>
+				<Button label="Game Boy" onClick={this.props.handHeldClick}/>
+			</Tabs>
+		)
+
+
+	}
+
+
+
+
+}
+
+
+
+const mapStateToProps = (state) => {
+	console.log("The mapStateToProps in ConsoleButtons is " + state);
+	return {
+		state: state,
+	};
+};
+
+function mapDispatchToProps(dispatch) {
+	return {
+		xBoxClick: () => dispatch(xBoxClick(FLOW_STATE.XBOXPAGEBUTTON)),
+		playStationClick: () => dispatch(playStationClick(FLOW_STATE.PS4PAGEBUTTON)),
+		nintendoClick: () => dispatch(nintendoClick(FLOW_STATE.NINTENDOBUTTON)),
+		computerClick: () => dispatch(computerClick(FLOW_STATE.COMPUTERPAGEBUTTON)),
+		handHeldClick: () => dispatch(handHeldClick(FLOW_STATE.HANDHELDPAGEBUTTON)),
+
 	}
 }
 
-export default ConsoleButtons;
+export default connect(null,mapDispatchToProps)(ConsoleButtons);
+

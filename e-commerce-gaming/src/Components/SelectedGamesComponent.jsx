@@ -23,7 +23,7 @@ class SelectedGamesComponent extends React.Component {
 
 
     render() {
-        console.log("----- The state in SelectedGamesComponentJSX is ------");
+        console.log("----- The State in SelectedGamesComponentJSX is ------");
 
 
 
@@ -89,7 +89,7 @@ class SelectedGamesComponent extends React.Component {
                         <Grid item sm>
                             <Paper style={styles.Paper}>
                                 <div>
-                                    Inside Xbox state
+                                    Inside Xbox page
                                 </div>
                             </Paper>
                         </Grid>

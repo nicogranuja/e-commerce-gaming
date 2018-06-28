@@ -2,6 +2,9 @@ import buttonState from '../Constants/buttonStates'
 function CurrentButtonReducer(state = {}, action) {
    
     let newState = Object.assign({},state);
+    console.log("The button state is ");
+    console.log(state)
+
     switch(action.type) {
         case 'XBOX_BUTTON_SELECTED':
             newState = action.click;

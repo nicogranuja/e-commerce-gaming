@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import Grid from '@material-ui/core/Grid';
 import { Paper, Typography } from '@material-ui/core';
 import { games } from '../TempListOfGames';
+import SelectedGamesComponent from './SelectedGamesComponent'
 
 const styles = {
   Paper: {
@@ -64,17 +65,9 @@ class Games extends React.Component {
         </Grid>
         <Grid item sm>
           <Paper style={styles.Paper}>
-            <Typography
-              variant="display1"
-            >
-              Welcome!
-            </Typography>
-            <Typography
-              variant="subheading"
-              style={{ marginTop: 20 }}
-            >
-              Please select a game on the left.
-            </Typography>
+
+                <SelectedGamesComponent/>
+
           </Paper>
         </Grid>
       </Grid>

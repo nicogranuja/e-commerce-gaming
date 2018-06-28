@@ -1,7 +1,7 @@
 
 
 export function xBoxClick(click) {
-    console.log("inside the hello click action");
+    
     return {
         type: 'XBOX_BUTTON_SELECTED',
         click
