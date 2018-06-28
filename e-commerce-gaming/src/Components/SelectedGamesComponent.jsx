@@ -40,7 +40,7 @@ class SelectedGamesComponent extends React.Component {
                         <Grid item sm>
                             <Paper style={styles.Paper}>
                                 <div>
-                                    Inside the computer page.
+                                    Inside the computer pages.
                                 </div>
                             </Paper>
                         </Grid>
