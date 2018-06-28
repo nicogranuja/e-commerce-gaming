@@ -29,7 +29,7 @@ class SelectedGamesComponent extends React.Component {
 
         console.log("The button state is");
         console.log(this.props.state.mainButtonState);
-        console.log(BUTTON_STATE.NINTENDOBUTTON)
+
         console.log("The current page state is");
         console.log(this.props.state.currentPageState);
         if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
@@ -105,7 +105,7 @@ class SelectedGamesComponent extends React.Component {
                         <Grid item sm>
                             <Paper style={styles.Paper}>
                                 <div>
-                                    Inside the ps4 page.
+                                    Inside the ps4 page blah blah.
                                 </div>
                             </Paper>
                         </Grid>
