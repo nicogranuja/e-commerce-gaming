@@ -7,45 +7,19 @@ import BUTTON_STATE from '../Constants/buttonStates'
 import mainPageState from '../Actions/MainPageAction'
 
 
-const styles = {
-    Paper: {
-        padding: 20,
-        marginTop: 10,
-        marginBottom: 10,
-        height: 500,
-        overflowY: 'auto'}
-};
+
 
 class SelectedGamesComponent extends React.Component {
-   // componentWillMount() {
-   //     this.props.initialState();
-   // }
 
 
     render() {
-        console.log("----- The State in SelectedGamesComponentJSX is ------");
-
-
-
-        console.log("The button state is");
-        console.log(this.props.state.mainButtonState);
-
-        console.log("The current page state is");
-        console.log(this.props.state.currentPageState);
         if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
-            console.log("We are hitting the computer page button again")
+
             return (
                 <div>
-                    <Grid container>
-                        <Grid item sm>
-                            <Paper style={styles.Paper}>
-                                <div>
-                                    Inside the computer pages.
-                                </div>
-                            </Paper>
-                        </Grid>
 
-                    </Grid>
+                                    Inside the computer pages.
+
                 </div>
             )
         }
@@ -53,80 +27,45 @@ class SelectedGamesComponent extends React.Component {
         if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
-            <Grid container>
-                <Grid item sm>
-                    <Paper style={styles.Paper}>
-                        <div>
-                            Inside Hand Held Page.
-                        </div>
-                    </Paper>
-                </Grid>
 
-            </Grid>
+                            Inside Hand Held Page.
+
                     </div>
             )
         }
         if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
-                    <Grid container>
-                        <Grid item sm>
-                            <Paper style={styles.Paper}>
-                                <div>
-                                    Inside the nintendo page.
-                                </div>
-                            </Paper>
-                        </Grid>
 
-                    </Grid>
+                                    Inside the nintendo page.
+
                 </div>
             )
         }
         if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
-                    <Grid container>
-                        <Grid item sm>
-                            <Paper style={styles.Paper}>
-                                <div>
-                                    Inside Xbox page
-                                </div>
-                            </Paper>
-                        </Grid>
 
-                    </Grid>
+                                    Inside Xbox page
+
                 </div>
             )
         }
         if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON && this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return(
                 <div>
-                    <Grid container>
-                        <Grid item sm>
-                            <Paper style={styles.Paper}>
-                                <div>
-                                    Inside the ps4 page blah blah.
-                                </div>
-                            </Paper>
-                        </Grid>
 
-                    </Grid>
+                                    Inside the ps4 page blah blah.
+
                 </div>
             )
         }
         if(this.props.state.currentPageState === undefined) {
             return(
                 <div>
-                    <Grid container>
-                        <Grid item sm>
-                            <Paper style={styles.Paper}>
-                                <div>
-                                    No page was selected or there was an error. Check state.
-                                </div>
-                            </Paper>
-                        </Grid>
 
-                    </Grid>
+                                    No page was selected or there was an error. Check state.
+
                 </div>
             )
         }
@@ -134,16 +73,9 @@ class SelectedGamesComponent extends React.Component {
             return (
                 <div>
 
-                    <Grid container>
-                        <Grid item sm>
-                            <Paper style={styles.Paper}>
-                                <div>
-                                    Inside the main page for unselected console.
-                                </div>
-                            </Paper>
-                        </Grid>
 
-                    </Grid>
+                                    Inside the main page for unselected console.
+
                 </div>
             )
         }

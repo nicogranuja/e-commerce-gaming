@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import { Paper, Typography } from '@material-ui/core';
 import { games } from '../TempListOfGames';
 import SelectedGamesComponent from './SelectedGamesComponent'
+import GenreButtons from './GenreButtons'
 
 const styles = {
   Paper: {
@@ -18,56 +19,21 @@ const styles = {
 };
 
 class Games extends React.Component {
-  state = {
-    games
-  };
 
-  getGamesbyConsoleCategory() {
-    return Object.entries(
-      this.state.games.reduce((games, game) => {
-        const {
-          console
-        } = game
 
-        games[console] = games[console] ?
-          [...games[console], game] :
-          [game]
-
-        return games
-      }, {})
-    )
-  }
 
   render() {
-    const games = this.getGamesbyConsoleCategory();
+
     return (
       <Grid container>
         <Grid item sm>
           <Paper style={styles.Paper}>
-            {games.map(([group, games]) => (
-              <Fragment>
-                <Typography
-                  variant="headline"
-                  style={{ textTransform: "capitalize" }}
-                >
-                  {group}
-                </Typography>
-                <List component="ul">
-                  {games.map(({ title }) =>
-                    <ListItem button>
-                      <ListItemText primary={title} />
-                    </ListItem>
-                  )}
-                </List>
-              </Fragment>
-            ))}
+            <GenreButtons/>
           </Paper>
         </Grid>
         <Grid item sm>
           <Paper style={styles.Paper}>
-
-                <SelectedGamesComponent/>
-
+              <SelectedGamesComponent/>
           </Paper>
         </Grid>
       </Grid>
