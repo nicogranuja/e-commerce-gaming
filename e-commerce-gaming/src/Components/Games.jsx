@@ -8,14 +8,28 @@ import { games } from '../TempListOfGames';
 import SelectedGamesComponent from './SelectedGamesComponent'
 import GenreButtons from './GenreButtons'
 
-const styles = {
+const stylesRightPane = {
   Paper: {
+      width:200,
     padding: 20,
     marginTop: 10,
     marginBottom: 10,
     height: 500,
-    overflowY: 'auto'
+    overflowY: 'auto',
+      marginLeft:25
   }
+};
+
+const stylesLeftPane = {
+    Paper: {
+        padding: 20,
+        marginTop: 10,
+        marginBottom: 10,
+        height: 500,
+        overflowY: 'auto',
+        width:900,
+        marginRight: 25
+    }
 };
 
 class Games extends React.Component {
@@ -27,12 +41,12 @@ class Games extends React.Component {
     return (
       <Grid container>
         <Grid item sm>
-          <Paper style={styles.Paper}>
+          <Paper style={stylesRightPane.Paper}>
             <GenreButtons/>
           </Paper>
         </Grid>
         <Grid item sm>
-          <Paper style={styles.Paper}>
+          <Paper style={stylesLeftPane.Paper}>
               <SelectedGamesComponent/>
           </Paper>
         </Grid>
