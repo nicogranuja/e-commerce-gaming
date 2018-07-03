@@ -1,10 +1,6 @@
-import React, { Fragment } from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import { Paper, Typography } from '@material-ui/core';
-import { games } from '../TempListOfGames';
+import { Paper} from '@material-ui/core';
 import SelectedGamesComponent from './SelectedGamesComponent'
 import GenreButtons from './GenreButtons'
 
