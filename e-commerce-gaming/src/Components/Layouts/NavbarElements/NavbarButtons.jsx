@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  AccountBox,
-  SupervisorAccount,
-  ShoppingCart
-} from '@material-ui/icons';
+import { ShoppingCart } from '@material-ui/icons';
 import { Button } from '@material-ui/core';
 
 const styles = {
@@ -21,14 +17,6 @@ class NavbarButtons extends React.Component {
   render() {
     return (
       <div>
-        <Button variant="contained" size="small" color="inherit" style={styles.button}>
-          Login
-          <AccountBox style={styles.icon} />
-        </Button>
-        <Button variant="contained" size="small" color="inherit" style={styles.button}>
-          Register
-          <SupervisorAccount style={styles.icon} />
-        </Button>
         <Button variant="contained" size="small" color="inherit" style={styles.button}>
           Cart
           <ShoppingCart style={styles.icon} />

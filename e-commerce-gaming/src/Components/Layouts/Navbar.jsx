@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import NavbarButtons from './NavbarElements/NavbarButtons';
+import Login from './NavbarElements/Login';
+import Register from './NavbarElements/Register';
 import SearchBar from './NavbarElements/SearchBar';
-import {
-  AppBar,
-  Toolbar,
-  Typography
-} from '@material-ui/core';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 const styles = {
   root: {
@@ -26,6 +24,8 @@ class Navbar extends Component {
               Games E-Commerce
             </Typography>
             <SearchBar />
+            <Login/>
+            <Register />
             <NavbarButtons />
           </Toolbar>
         </AppBar>
