@@ -79,6 +79,16 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
+        if(this.props.state.currentPageState !== FLOW_STATE.MAINPAGE) {
+            return (
+                <div>
+
+
+                    Looks like we click a button in the nav bar.
+
+                </div>
+            )
+        }
     }
 }
 
