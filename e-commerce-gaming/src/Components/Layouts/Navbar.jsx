@@ -23,7 +23,7 @@ class Navbar extends Component {
         <AppBar position="static" style={styles.root}>
           <Toolbar>
             <Typography variant="title" color="inherit" style={styles.title}>
-              Games E-Commerce
+              Swagoo
             </Typography>
             <SearchBar />
             <NavbarButtons />

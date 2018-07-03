@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
 import FLOW_STATE from '../Constants/flowstates'
 import BUTTON_STATE from '../Constants/buttonStates'
-import mainPageState from '../Actions/MainPageAction'
+import {mainPageState} from '../Actions/MainPageAction'
 
 
 
@@ -75,6 +75,16 @@ class SelectedGamesComponent extends React.Component {
 
 
                                     Inside the main page for unselected console.
+
+                </div>
+            )
+        }
+        if(this.props.state.currentPageState !== FLOW_STATE.MAINPAGE) {
+            return (
+                <div>
+
+
+                    Looks like we click a button in the nav bar.
 
                 </div>
             )
