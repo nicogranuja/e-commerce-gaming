@@ -3,19 +3,19 @@ function CurrentPageReducer(state = flowState.MAINPAGE, action) {
 
     let newState = Object.assign({},state);
     switch(action.type) {
-        case 'XBOX_PAGE_ACTION':
+        case 'LOGIN_PAGE_ACTION':
             newState = action.click;
             return newState;
         case 'COMPUTER_PAGE_ACTION':
             newState = action.click;
             return newState;
-        case 'HANDHELD_PAGE_ACTION':
+        case 'REGISTER_PAGE_ACTION':
             newState = action.click;
             return newState;
-        case 'PS4_PAGE_ACTION':
+        case 'CART_PAGE_ACTION':
             newState = action.click;
             return newState;
-        case 'NINTENDO_PAGE_ACTION':
+        case 'SEARCH_PAGE_ACTION':
             newState = action.click;
             return newState;
         default :

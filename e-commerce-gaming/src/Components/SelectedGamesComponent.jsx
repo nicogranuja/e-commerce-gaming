@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import { Paper } from '@material-ui/core';
 import FLOW_STATE from '../Constants/flowstates'
 import BUTTON_STATE from '../Constants/buttonStates'
-import mainPageState from '../Actions/MainPageAction'
+import {mainPageState} from '../Actions/MainPageAction'
 
 
 
