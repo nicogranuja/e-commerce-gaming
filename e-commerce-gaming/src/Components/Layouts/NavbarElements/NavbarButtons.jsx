@@ -44,7 +44,7 @@ class NavbarButtons extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    console.log("The mapStateToProps in NavBar is " + state);
+    
     return {
         state: state,
     };
