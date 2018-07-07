@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import NavbarButtons from './NavbarElements/NavbarButtons';
 import Login from './NavbarElements/Login';
 import Register from './NavbarElements/Register';
 import SearchBar from './NavbarElements/SearchBar';
+import ShoppingCart from './NavbarElements/ShoppingCart';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 const styles = {
@@ -11,6 +11,14 @@ const styles = {
   },
   title: {
     flex: 1
+  },
+  button: {
+    margin: 10,
+    color: '#FFF',
+    backgroundColor: '#1D8BF1'
+  },
+  icon: {
+    marginLeft: 5
   }
 }
 
@@ -24,9 +32,9 @@ class Navbar extends Component {
               Games E-Commerce
             </Typography>
             <SearchBar />
-            <Login/>
-            <Register />
-            <NavbarButtons />
+            <Login styles={styles}/>
+            <Register styles={styles}/>
+            <ShoppingCart styles={styles}/>
           </Toolbar>
         </AppBar>
       </div>

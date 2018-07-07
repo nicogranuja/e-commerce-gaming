@@ -1,25 +1,16 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import { 
+  Button, 
+  TextField, 
+  Dialog, 
+  DialogActions, 
+  DialogContent, 
+  DialogContentText, 
+  DialogTitle
+} from '@material-ui/core';
 import { SupervisorAccount } from '@material-ui/icons';
 
-const styles = {
-    button: {
-        margin: 10,
-        color: '#FFF',
-        backgroundColor: '#1D8BF1'
-    },
-    icon: {
-        marginLeft: 5
-    }
-}
-
-export default class Register extends React.Component {
+class Register extends React.Component {
   state = {
     open: false,
   };
@@ -33,6 +24,7 @@ export default class Register extends React.Component {
   };
 
   render() {
+    let styles = this.props.styles;
     return (
       <div>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
@@ -65,3 +57,5 @@ export default class Register extends React.Component {
     );
   }
 }
+
+export default Register;

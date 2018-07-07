@@ -8,9 +8,9 @@ import {
   DialogContentText, 
   DialogTitle
 } from '@material-ui/core';
-import { AccountBox } from '@material-ui/icons';
+import { ShoppingCart as ShoppinCartIcon } from '@material-ui/icons';
 
-class Login extends React.Component {
+class ShoppingCart extends React.Component {
   state = {
     open: false,
   };
@@ -22,34 +22,33 @@ class Login extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-  
+
   render() {
     let styles = this.props.styles;
     return (
       <div>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
-          Login
-          <AccountBox style={styles.icon} />
+            Cart
+            <ShoppinCartIcon style={styles.icon} />
         </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Login to Your Account</DialogTitle>
+          <DialogTitle id="form-dialog-title">Shopping Cart</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Please enter your email address followed by the password.
+              Shopping Cart Items List
             </DialogContentText>
-            <TextField autoFocus margin="dense" id="login-login" label="Email Address" type="email" required fullWidth/>
-            <TextField margin="dense" id="password-login" label="Password" type="password" required fullWidth/>
+            <TextField autoFocus margin="dense" id="test" label="Placeholder" type="text" fullWidth/>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              Close
             </Button>
             <Button onClick={this.handleClose} color="primary" variant="contained">
-              Submit
+              Checkout
             </Button>
           </DialogActions>
         </Dialog>
@@ -58,4 +57,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default ShoppingCart;
