@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import NavbarButtons from './NavbarElements/NavbarButtons';
+import Login from './NavbarElements/Login';
+import Register from './NavbarElements/Register';
 import SearchBar from './NavbarElements/SearchBar';
-import {
-  AppBar,
-  Toolbar,
-  Typography
-} from '@material-ui/core';
+import ShoppingCart from './NavbarElements/ShoppingCart';
+import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 const styles = {
   root: {
@@ -13,6 +11,14 @@ const styles = {
   },
   title: {
     flex: 1
+  },
+  button: {
+    margin: 10,
+    color: '#FFF',
+    backgroundColor: '#1D8BF1'
+  },
+  icon: {
+    marginLeft: 5
   }
 }
 
@@ -26,7 +32,9 @@ class Navbar extends Component {
               Swagoo - The Worlds Okayest Online Gaming Retailer
             </Typography>
             <SearchBar />
-            <NavbarButtons />
+            <Login styles={styles}/>
+            <Register styles={styles}/>
+            <ShoppingCart styles={styles}/>
           </Toolbar>
         </AppBar>
       </div>

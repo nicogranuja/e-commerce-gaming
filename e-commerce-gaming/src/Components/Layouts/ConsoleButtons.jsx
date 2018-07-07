@@ -1,13 +1,9 @@
 import React from 'react';
 import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Button from '@material-ui/core/Tab';
-import {connect } from 'react-redux'
-import {playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick} from '../../Actions/MainButtonAction';
+import { connect } from 'react-redux'
+import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick } from '../../Actions/MainButtonAction';
 import FLOW_STATE from '../../Constants/buttonStates'
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
-
 
 const styles = theme => ({
 	button: {

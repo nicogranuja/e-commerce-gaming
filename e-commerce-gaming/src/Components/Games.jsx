@@ -1,6 +1,5 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { Paper} from '@material-ui/core';
+import { Paper, Grid  } from '@material-ui/core';
 import SelectedGamesComponent from './SelectedGamesComponent'
 import GenreButtons from './GenreButtons'
 
