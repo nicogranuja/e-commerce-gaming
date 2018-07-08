@@ -11,9 +11,12 @@ import {
 import { AccountBox } from '@material-ui/icons';
 
 class Login extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -21,6 +24,13 @@ class Login extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+  };
+
+  handleLogin = (e) => {
+    e.preventDefault();
+    let username = document.getElementById('username-login').value;
+    let password = document.getElementById('password-login').value;
+    // TODO login logic 
   };
   
   render() {
@@ -39,16 +49,16 @@ class Login extends React.Component {
           <DialogTitle id="form-dialog-title">Login to Your Account</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Please enter your email address followed by the password.
+              Please enter your username followed by the password.
             </DialogContentText>
-            <TextField autoFocus margin="dense" id="login-login" label="Email Address" type="email" required fullWidth/>
+            <TextField autoFocus margin="dense" id="username-login" label="Username" type="text" required fullWidth/>
             <TextField margin="dense" id="password-login" label="Password" type="password" required fullWidth/>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary" variant="contained">
+            <Button onClick={this.handleLogin} color="primary" variant="contained">
               Submit
             </Button>
           </DialogActions>

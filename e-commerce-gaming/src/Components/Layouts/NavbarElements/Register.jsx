@@ -11,9 +11,12 @@ import {
 import { SupervisorAccount } from '@material-ui/icons';
 
 class Register extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -21,6 +24,15 @@ class Register extends React.Component {
 
   handleClose = () => {
     this.setState({ open: false });
+  };
+
+  handleRegister = (e) => {
+    e.preventDefault();
+    let firstName = document.getElementById('first-name').value;
+    let lastName = document.getElementById('last-name').value;
+    let password = document.getElementById('password-register').value;
+    let passwordConfirm = document.getElementById('password-confirm').value;
+    // TODO register logic 
   };
 
   render() {
@@ -38,17 +50,17 @@ class Register extends React.Component {
             <DialogContentText>
               Please fill out all the fields of the form to complete the registration
             </DialogContentText>
-            <TextField autoFocus margin="dense" id="first-name" label="First Name" type="email" required fullWidth/>
-            <TextField margin="dense" id="last-name" label="Last Name" type="email" required fullWidth/>
-            <TextField margin="dense" id="email-address-register" label="Email Address" type="email" required fullWidth/>
-            <TextField margin="dense" id="password" label="Password" type="password" required fullWidth/>
+            <TextField autoFocus margin="dense" id="first-name" label="First Name" type="text" required fullWidth/>
+            <TextField margin="dense" id="last-name" label="Last Name" type="text" required fullWidth/>
+            <TextField margin="dense" id="username-register" label="Username" type="text" required fullWidth/>
+            <TextField margin="dense" id="password-register" label="Password" type="password" required fullWidth/>
             <TextField margin="dense" id="password-confirm" label="Confirm Password" type="password" required fullWidth/>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary" variant="contained">
+            <Button onClick={this.handleRegister} color="primary" variant="contained">
               Submit
             </Button>
           </DialogActions>
