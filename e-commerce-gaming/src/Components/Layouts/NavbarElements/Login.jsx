@@ -14,7 +14,9 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      username: '',
+      password: ''
     };
   }
 
@@ -26,11 +28,17 @@ class Login extends React.Component {
     this.setState({ open: false });
   };
 
+  handleUsernameChange = (e) => {
+    this.setState({ username: e.target.value })
+  };
+
+  handlePasswordChange = (e) => {
+    this.setState({ password: e.target.value })
+  };
+
   handleLogin = (e) => {
     e.preventDefault();
-    let username = document.getElementById('username-login').value;
-    let password = document.getElementById('password-login').value;
-    // TODO login logic 
+    console.log('username', this.state.username, 'password', this.state.password);
   };
   
   render() {
@@ -51,8 +59,12 @@ class Login extends React.Component {
             <DialogContentText>
               Please enter your username followed by the password.
             </DialogContentText>
-            <TextField autoFocus margin="dense" id="username-login" label="Username" type="text" required fullWidth/>
-            <TextField margin="dense" id="password-login" label="Password" type="password" required fullWidth/>
+            <TextField value={this.state.username} onChange={this.handleUsernameChange} 
+              autoFocus margin="dense" id="username-login" label="Username" type="text" required fullWidth
+            />
+            <TextField value={this.state.password} onChange={this.handlePasswordChange} 
+              margin="dense" id="password-login" label="Password" type="password" required fullWidth
+            />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
