@@ -44,3 +44,12 @@ export function adventureClick(click) {
 
     }
 }
+
+export function racingClick(click) {
+
+    return {
+        type: GENRESTATE.RACINGBUTTON,
+        click
+
+    }
+}
