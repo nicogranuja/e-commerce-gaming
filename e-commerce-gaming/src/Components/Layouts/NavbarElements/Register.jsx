@@ -6,7 +6,8 @@ import {
   DialogActions, 
   DialogContent, 
   DialogContentText, 
-  DialogTitle
+  DialogTitle,
+  Snackbar
 } from '@material-ui/core';
 import { SupervisorAccount } from '@material-ui/icons';
 import Cryptr from 'cryptr';
@@ -16,6 +17,7 @@ class Register extends React.Component {
     super(props);
     this.state = {
       open: false,
+      openSuccessMessage: false,
       name: '',
       nameErr: false,
       username: '',
@@ -25,6 +27,7 @@ class Register extends React.Component {
       passwordConfirm: '',
       passwordConfirmErr: false,
       passwordHelperText: '',
+      usernameHelperText: '',
       encryptionKey: 'myTotalySecretKey' // Maybe replace with a more secure key in the future
     };
   }
@@ -44,6 +47,7 @@ class Register extends React.Component {
       this.setState({ [prop]: false });
     }
     this.setState({ passwordHelperText: '' });
+    this.setState({ usernameHelperText: '' });
   };
 
   clearPasswordFields = () => {
@@ -78,15 +82,13 @@ class Register extends React.Component {
     if (this.thereAreEmptyValuesInForm()) {
       return;
     } else if (this.passwordsAreInvalid()) {
-      return
+      return;
+    } else if (this.usernameAlreadyExists(this.state.username)) {
+      return;
     }
 
-    // Password encryption
-    let hashedPassword = this.encryptPassword(this.state.password);
-
-    // TODO
-    // Save to local stage
-    // Update navbar to show logout and account and my orders
+    this.handleSavingUser();
+    this.updateUIForLoggedUser();
   };
 
   thereAreEmptyValuesInForm = () => {
@@ -114,15 +116,48 @@ class Register extends React.Component {
       this.setState({ passwordHelperText: 'Please use a password that contains more than 8 characters' });
       this.setState({ passwordConfirmErr: true });
       this.setState({ passwordErr: true });
+      isInvalid = true;
     }
     return isInvalid;
+  };
+
+  usernameAlreadyExists = (username) => {
+    let key = 'user' + username;
+    let exists = false;
+    if (window.localStorage.getItem(key) != null) {
+      this.setState({ usernameHelperText: 'Username already exists.' });
+      this.setState({ usernameErr: true });
+      exists = true;
+    }
+    return exists;
   };
 
   encryptPassword = (password) => {
     const cryptr = new Cryptr(this.state.encryptionKey);
     let passEncrypted = cryptr.encrypt(password);
-    return password;
-  }
+    return passEncrypted;
+  };
+
+  handleSavingUser = () => {
+    // Password encryption
+    let hashedPassword = this.encryptPassword(this.state.password);
+
+    // Save user with 'unique' key being user + username
+    let user = { name: this.state.name, username: this.state.username, password: hashedPassword };
+    let key = 'user' + this.state.username;
+    window.localStorage.setItem(key, JSON.stringify(user));
+  };
+
+  updateUIForLoggedUser = () => {
+    // Display success message close dialog
+    this.setState({ openSuccessMessage: true, open: false });
+    setTimeout(() => {
+      this.setState({ openSuccessMessage: false });
+    }, 3000);
+
+    // User logged in
+    this.props.onLoginStatusChange(true);
+  };
 
   render() {
     let styles = this.props.styles;
@@ -141,7 +176,8 @@ class Register extends React.Component {
             </DialogContentText>
             <TextField value={this.state.name} onChange={this.handleFullNameChange} error={this.state.nameErr} 
               autoFocus margin="dense" id="full-name" label="Full Name" type="text" required fullWidth/>
-            <TextField value={this.state.username} onChange={this.handleUsernameChange} error={this.state.usernameErr}
+            <TextField value={this.state.username} onChange={this.handleUsernameChange} 
+              error={this.state.usernameErr} helperText={this.state.usernameHelperText}
               margin="dense" id="username-register" label="Username" type="text" required fullWidth/>
             <TextField value={this.state.password} onChange={this.handlePasswordChange} error={this.state.passwordErr}
               margin="dense" id="password-register" label="Password" type="password" required fullWidth/>
@@ -158,6 +194,17 @@ class Register extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          open={this.state.openSuccessMessage}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Registrtion successful! Welcome { this.state.name }</span>}
+        />
       </div>
     );
   }

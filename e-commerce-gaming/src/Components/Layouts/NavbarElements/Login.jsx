@@ -39,6 +39,9 @@ class Login extends React.Component {
   handleLogin = (e) => {
     e.preventDefault();
     console.log('username', this.state.username, 'password', this.state.password);
+    // TODO get the username from local storage
+    // compare passwords login if succeed
+    // show login message
   };
   
   render() {
