@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Login from './NavbarElements/Login';
 import Register from './NavbarElements/Register';
 import SearchBar from './NavbarElements/SearchBar';
 import ShoppingCart from './NavbarElements/ShoppingCart';
+import Logout from './NavbarElements/Logout';
+import UserAccount from './NavbarElements/UserAccount';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
 
 const styles = {
@@ -22,7 +24,20 @@ const styles = {
   }
 }
 
+
 class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userIsLoggedIn: false
+    };
+  }
+  
+  handleLoginStatusChange = (isLoggedIn) => {
+    this.setState({ userIsLoggedIn: isLoggedIn });
+    // TODO show logged out message
+  };
+
   render() {
     return (
       <div>
@@ -32,8 +47,23 @@ class Navbar extends Component {
               Swagoo - The Worlds Okayest Online Gaming Retailer
             </Typography>
             <SearchBar />
-            <Login styles={styles}/>
-            <Register styles={styles}/>
+            {!this.state.userIsLoggedIn ? (
+              <Fragment>
+                <Login styles={styles}
+                  onLoginStatusChange={this.handleLoginStatusChange}
+                />
+                <Register styles={styles}
+                  onLoginStatusChange={this.handleLoginStatusChange}
+                />
+              </Fragment>
+            ) : (
+              <Fragment>
+                <UserAccount styles={styles}/>
+                <Logout styles={styles}
+                  onLoginStatusChange={this.handleLoginStatusChange}
+                />
+              </Fragment>
+            )}
             <ShoppingCart styles={styles}/>
           </Toolbar>
         </AppBar>
