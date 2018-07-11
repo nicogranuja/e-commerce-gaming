@@ -5,7 +5,7 @@ import SearchBar from './NavbarElements/SearchBar';
 import ShoppingCart from './NavbarElements/ShoppingCart';
 import Logout from './NavbarElements/Logout';
 import UserAccount from './NavbarElements/UserAccount';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, Snackbar } from '@material-ui/core';
 
 const styles = {
   root: {
@@ -30,13 +30,25 @@ class Navbar extends Component {
     super(props);
     this.state = {
       userIsLoggedIn: false,
+      openSuccessMessage: false,
+      loginMessage: '',
       encryptionKey: 'myTotalySecretKey' // Maybe replace with a more secure key in the future
     };
   }
   
-  handleLoginStatusChange = (isLoggedIn) => {
+  handleLoginStatusChange = (isLoggedIn, message) => {
     this.setState({ userIsLoggedIn: isLoggedIn });
     // TODO show logged out message
+    this.handleLoginLogoutPopUpMessage(isLoggedIn, message);
+  };
+
+  handleLoginLogoutPopUpMessage = (isLoggedIn, message) => {
+    if (isLoggedIn) {
+      this.setState({ openSuccessMessage: true, loginMessage: message });
+      setTimeout(() => {
+        this.setState({ openSuccessMessage: false });
+      }, 3000);
+    }
   };
 
   render() {
@@ -67,6 +79,17 @@ class Navbar extends Component {
             )}
             <ShoppingCart styles={styles}/>
           </Toolbar>
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+            open={this.state.openSuccessMessage}
+            ContentProps={{
+              'aria-describedby': 'message-id',
+            }}
+            message={<span id="message-id">{this.state.loginMessage}</span>}
+          />
         </AppBar>
       </div>
     );

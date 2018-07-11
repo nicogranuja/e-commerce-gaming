@@ -6,8 +6,7 @@ import {
   DialogActions, 
   DialogContent, 
   DialogContentText, 
-  DialogTitle,
-  Snackbar
+  DialogTitle
 } from '@material-ui/core';
 import { AccountBox } from '@material-ui/icons';
 import Cryptr from 'cryptr';
@@ -16,15 +15,13 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
       open: false,
       username: '',
       usernameErr: false,
       usernameHelperText: '',
       password: '',
       passwordErr: false,
-      passwordHelperText: '',
-      openSuccessMessage: false
+      passwordHelperText: ''
     };
   }
 
@@ -68,8 +65,7 @@ class Login extends React.Component {
     }
     
     // User login successful
-    this.setState({ name: userObj.name })
-    this.updateUIForLoggedUser();
+    this.updateUIForLoggedUser(userObj.name);
   };
 
   thereAreEmptyValuesInForm = () => {
@@ -95,7 +91,6 @@ class Login extends React.Component {
     const cryptr = new Cryptr(this.props.encryptionKey);
     let storedPassword = cryptr.decrypt(user.password);
     if (storedPassword !== this.state.password) {
-      console.log('comparing with', storedPassword, 'with', this.state.password);
       this.setState({ passwordHelperText: 'Username not found or passwords do not match our records. Please try again.', 
         usernameErr: false, 
         passwordErr: true 
@@ -105,15 +100,10 @@ class Login extends React.Component {
     return false;
   };
 
-  updateUIForLoggedUser = () => {
-    // Display success message close dialog
-    this.setState({ openSuccessMessage: true, open: false });
-    setTimeout(() => {
-      this.setState({ openSuccessMessage: false });
-    }, 3000);
-
-    // User logged in
-    // this.props.onLoginStatusChange(true);
+  updateUIForLoggedUser = (name) => {
+    let message = `Welcome back ${name}!`;
+    this.setState({ open: false });
+    this.props.onLoginStatusChange(true, message);
   };
   
   render() {
@@ -152,17 +142,6 @@ class Login extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
-        <Snackbar
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          open={this.state.openSuccessMessage}
-          ContentProps={{
-            'aria-describedby': 'message-id',
-          }}
-          message={<span id="message-id">Welcome back { this.state.name }!</span>}
-        />
       </div>
     );
   }

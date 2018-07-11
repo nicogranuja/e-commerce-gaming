@@ -6,8 +6,7 @@ import {
   DialogActions, 
   DialogContent, 
   DialogContentText, 
-  DialogTitle,
-  Snackbar
+  DialogTitle
 } from '@material-ui/core';
 import { SupervisorAccount } from '@material-ui/icons';
 import Cryptr from 'cryptr';
@@ -17,7 +16,6 @@ class Register extends React.Component {
     super(props);
     this.state = {
       open: false,
-      openSuccessMessage: false,
       name: '',
       nameErr: false,
       username: '',
@@ -146,14 +144,9 @@ class Register extends React.Component {
   };
 
   updateUIForLoggedUser = () => {
-    // Display success message close dialog
-    this.setState({ openSuccessMessage: true, open: false });
-    setTimeout(() => {
-      this.setState({ openSuccessMessage: false });
-    }, 3000);
-
-    // User logged in
-    this.props.onLoginStatusChange(true);
+    let message = `Registrtion successful! Welcome ${this.state.name}`;
+    this.setState({ open: false });
+    this.props.onLoginStatusChange(true, message);
   };
 
   render() {
@@ -191,17 +184,6 @@ class Register extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
-        <Snackbar
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'center',
-          }}
-          open={this.state.openSuccessMessage}
-          ContentProps={{
-            'aria-describedby': 'message-id',
-          }}
-          message={<span id="message-id">Registrtion successful! Welcome { this.state.name }</span>}
-        />
       </div>
     );
   }
