@@ -28,15 +28,12 @@ class Register extends React.Component {
       passwordConfirmErr: false,
       passwordHelperText: '',
       usernameHelperText: '',
-      encryptionKey: 'myTotalySecretKey' // Maybe replace with a more secure key in the future
     };
   }
 
   handleClickOpen = () => {
     this.resetErrors();
     this.clearPasswordFields();
-
-    // Open dialog
     this.setState({ open: true });
   };
 
@@ -133,7 +130,7 @@ class Register extends React.Component {
   };
 
   encryptPassword = (password) => {
-    const cryptr = new Cryptr(this.state.encryptionKey);
+    const cryptr = new Cryptr(this.props.encryptionKey);
     let passEncrypted = cryptr.encrypt(password);
     return passEncrypted;
   };

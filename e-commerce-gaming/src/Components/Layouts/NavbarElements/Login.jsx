@@ -6,22 +6,42 @@ import {
   DialogActions, 
   DialogContent, 
   DialogContentText, 
-  DialogTitle
+  DialogTitle,
+  Snackbar
 } from '@material-ui/core';
 import { AccountBox } from '@material-ui/icons';
+import Cryptr from 'cryptr';
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: '',
       open: false,
       username: '',
-      password: ''
+      usernameErr: false,
+      usernameHelperText: '',
+      password: '',
+      passwordErr: false,
+      passwordHelperText: '',
+      openSuccessMessage: false
     };
   }
 
   handleClickOpen = () => {
+    this.resetErrors();
+    this.setState({ password: '' });
     this.setState({ open: true });
+  };
+
+  resetErrors = () => {
+    let errorsArr = ['usernameErr', 'passwordErr'];
+    for (let i = 0; i < errorsArr.length; i++) {
+      let prop = errorsArr[i];
+      this.setState({ [prop]: false });
+    }
+    this.setState({ passwordHelperText: '' });
+    this.setState({ usernameHelperText: '' });
   };
 
   handleClose = () => {
@@ -38,10 +58,62 @@ class Login extends React.Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    console.log('username', this.state.username, 'password', this.state.password);
-    // TODO get the username from local storage
-    // compare passwords login if succeed
-    // show login message
+    let usernameKey = 'user' + this.state.username;
+    let user = window.localStorage.getItem(usernameKey);
+    let userObj = JSON.parse(user);
+    if (this.thereAreEmptyValuesInForm()) {
+      return;
+    } else if (this.usernameNotFoundOrWrongPasswordsDontMatch(userObj)) {
+      return;
+    }
+    
+    // User login successful
+    this.setState({ name: userObj.name })
+    this.updateUIForLoggedUser();
+  };
+
+  thereAreEmptyValuesInForm = () => {
+    let hasEmptyValues = false;
+    let valuesToCheck = ['username', 'password'];
+    for (let i = 0; i < valuesToCheck.length; i++) {
+      let propValue = valuesToCheck[i];
+      let errorName = propValue + 'Err';
+      this.setState({ [errorName]: false });
+      if (this.state[propValue] === '') {
+        this.setState({ [errorName]: true });
+        hasEmptyValues = true;
+      }
+    }
+    return hasEmptyValues;
+  };
+
+  usernameNotFoundOrWrongPasswordsDontMatch = (user) => {
+    if (user === null) {
+      this.setState({ usernameHelperText: 'Username not found.', usernameErr: true });
+      return true;
+    } 
+    const cryptr = new Cryptr(this.props.encryptionKey);
+    let storedPassword = cryptr.decrypt(user.password);
+    if (storedPassword !== this.state.password) {
+      console.log('comparing with', storedPassword, 'with', this.state.password);
+      this.setState({ passwordHelperText: 'Username not found or passwords do not match our records. Please try again.', 
+        usernameErr: false, 
+        passwordErr: true 
+      });
+      return true;
+    }
+    return false;
+  };
+
+  updateUIForLoggedUser = () => {
+    // Display success message close dialog
+    this.setState({ openSuccessMessage: true, open: false });
+    setTimeout(() => {
+      this.setState({ openSuccessMessage: false });
+    }, 3000);
+
+    // User logged in
+    // this.props.onLoginStatusChange(true);
   };
   
   render() {
@@ -62,10 +134,12 @@ class Login extends React.Component {
             <DialogContentText>
               Please enter your username followed by the password.
             </DialogContentText>
-            <TextField value={this.state.username} onChange={this.handleUsernameChange} 
+            <TextField value={this.state.username} onChange={this.handleUsernameChange} error={this.state.usernameErr}
+              helperText={this.state.usernameHelperText}
               autoFocus margin="dense" id="username-login" label="Username" type="text" required fullWidth
             />
-            <TextField value={this.state.password} onChange={this.handlePasswordChange} 
+            <TextField value={this.state.password} onChange={this.handlePasswordChange} error={this.state.passwordErr}
+              helperText={this.state.passwordHelperText}
               margin="dense" id="password-login" label="Password" type="password" required fullWidth
             />
           </DialogContent>
@@ -78,6 +152,17 @@ class Login extends React.Component {
             </Button>
           </DialogActions>
         </Dialog>
+        <Snackbar
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'center',
+          }}
+          open={this.state.openSuccessMessage}
+          ContentProps={{
+            'aria-describedby': 'message-id',
+          }}
+          message={<span id="message-id">Welcome back { this.state.name }!</span>}
+        />
       </div>
     );
   }

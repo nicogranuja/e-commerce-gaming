@@ -29,7 +29,8 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userIsLoggedIn: false
+      userIsLoggedIn: false,
+      encryptionKey: 'myTotalySecretKey' // Maybe replace with a more secure key in the future
     };
   }
   
@@ -50,10 +51,10 @@ class Navbar extends Component {
             {!this.state.userIsLoggedIn ? (
               <Fragment>
                 <Login styles={styles}
-                  onLoginStatusChange={this.handleLoginStatusChange}
+                  onLoginStatusChange={this.handleLoginStatusChange} encryptionKey={this.state.encryptionKey}
                 />
                 <Register styles={styles}
-                  onLoginStatusChange={this.handleLoginStatusChange}
+                  onLoginStatusChange={this.handleLoginStatusChange} encryptionKey={this.state.encryptionKey}
                 />
               </Fragment>
             ) : (
