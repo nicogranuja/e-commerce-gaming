@@ -10,7 +10,8 @@ class Logout extends React.Component {
   }
 
   handleLogout = () => {
-    this.props.onLoginStatusChange(true)
+    let message = `Logout successful. Have a nice day!`;
+    this.props.onLoginStatusChange(false, message);
   }
   
   render() {

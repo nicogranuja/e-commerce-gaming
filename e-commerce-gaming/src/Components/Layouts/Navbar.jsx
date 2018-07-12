@@ -30,7 +30,7 @@ class Navbar extends Component {
     super(props);
     this.state = {
       userIsLoggedIn: false,
-      openSuccessMessage: false,
+      openSnackbarMessage: false,
       loginMessage: '',
       encryptionKey: 'myTotalySecretKey' // Maybe replace with a more secure key in the future
     };
@@ -38,17 +38,14 @@ class Navbar extends Component {
   
   handleLoginStatusChange = (isLoggedIn, message) => {
     this.setState({ userIsLoggedIn: isLoggedIn });
-    // TODO show logged out message
-    this.handleLoginLogoutPopUpMessage(isLoggedIn, message);
+    this.handleLoginLogoutPopUpMessage(message);
   };
 
-  handleLoginLogoutPopUpMessage = (isLoggedIn, message) => {
-    if (isLoggedIn) {
-      this.setState({ openSuccessMessage: true, loginMessage: message });
-      setTimeout(() => {
-        this.setState({ openSuccessMessage: false });
-      }, 3000);
-    }
+  handleLoginLogoutPopUpMessage = (message) => {
+    this.setState({ openSnackbarMessage: true, loginMessage: message });
+    setTimeout(() => {
+      this.setState({ openSnackbarMessage: false });
+    }, 5000);
   };
 
   render() {
@@ -84,7 +81,7 @@ class Navbar extends Component {
               vertical: 'top',
               horizontal: 'center',
             }}
-            open={this.state.openSuccessMessage}
+            open={this.state.openSnackbarMessage}
             ContentProps={{
               'aria-describedby': 'message-id',
             }}

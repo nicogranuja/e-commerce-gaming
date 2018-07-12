@@ -144,7 +144,7 @@ class Register extends React.Component {
   };
 
   updateUIForLoggedUser = () => {
-    let message = `Registrtion successful! Welcome ${this.state.name}`;
+    let message = `Registration successful! Welcome ${this.state.name}`;
     this.setState({ open: false });
     this.props.onLoginStatusChange(true, message);
   };
