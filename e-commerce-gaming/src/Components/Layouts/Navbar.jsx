@@ -21,6 +21,9 @@ const styles = {
   },
   icon: {
     marginLeft: 5
+  },
+  snackbarText: {
+    textAlign: 'center'
   }
 }
 
@@ -29,12 +32,16 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userIsLoggedIn: false,
+      userIsLoggedIn: true,
       openSnackbarMessage: false,
       loginMessage: '',
       encryptionKey: 'myTotalySecretKey' // Maybe replace with a more secure key in the future
     };
   }
+
+  handleSnackbarClose = () => {
+    this.setState({openSnackbarMessage: false})
+  };
   
   handleLoginStatusChange = (isLoggedIn, message) => {
     this.setState({ userIsLoggedIn: isLoggedIn });
@@ -43,9 +50,6 @@ class Navbar extends Component {
 
   handleLoginLogoutPopUpMessage = (message) => {
     this.setState({ openSnackbarMessage: true, loginMessage: message });
-    setTimeout(() => {
-      this.setState({ openSnackbarMessage: false });
-    }, 5000);
   };
 
   render() {
@@ -57,6 +61,7 @@ class Navbar extends Component {
               Swagoo - The Worlds Okayest Online Gaming Retailer
             </Typography>
             <SearchBar />
+            <ShoppingCart styles={styles}/>
             {!this.state.userIsLoggedIn ? (
               <Fragment>
                 <Login styles={styles}
@@ -74,17 +79,19 @@ class Navbar extends Component {
                 />
               </Fragment>
             )}
-            <ShoppingCart styles={styles}/>
           </Toolbar>
           <Snackbar
+            open={this.state.openSnackbarMessage}
+            styles={styles.snackbarText}
             anchorOrigin={{
               vertical: 'top',
               horizontal: 'center',
             }}
-            open={this.state.openSnackbarMessage}
             ContentProps={{
               'aria-describedby': 'message-id',
             }}
+            autoHideDuration={5000}
+            onClose={this.handleSnackbarClose}
             message={<span id="message-id">{this.state.loginMessage}</span>}
           />
         </AppBar>
