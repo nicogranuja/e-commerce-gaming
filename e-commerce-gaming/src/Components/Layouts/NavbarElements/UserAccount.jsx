@@ -8,9 +8,9 @@ import {
   DialogContentText, 
   DialogTitle
 } from '@material-ui/core';
-import { ShoppingCart as ShoppinCartIcon } from '@material-ui/icons';
+import { AccountBox } from '@material-ui/icons';
 
-class ShoppingCart extends React.Component {
+class UserAccount extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,24 +25,24 @@ class ShoppingCart extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-
+  
   render() {
     let styles = this.props.styles;
     return (
       <div>
-        <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
-            Cart
-            <ShoppinCartIcon style={styles.icon} />
+        <Button variant="contained" size="small" color="inherit" style={styles.button}>
+          Account
+          <AccountBox style={styles.icon} />
         </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Shopping Cart</DialogTitle>
+          <DialogTitle id="form-dialog-title">My Account</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Shopping Cart Items List
+              Placeholder
             </DialogContentText>
             <TextField autoFocus margin="dense" id="test" label="Placeholder" type="text" fullWidth/>
           </DialogContent>
@@ -50,14 +50,11 @@ class ShoppingCart extends React.Component {
             <Button onClick={this.handleClose} color="primary">
               Close
             </Button>
-            <Button onClick={this.handleClose} color="primary" variant="contained">
-              Checkout
-            </Button>
           </DialogActions>
         </Dialog>
       </div>
-    );
+    )
   }
 }
 
-export default ShoppingCart;
+export default UserAccount;
