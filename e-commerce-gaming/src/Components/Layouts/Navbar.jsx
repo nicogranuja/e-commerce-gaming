@@ -32,7 +32,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userIsLoggedIn: true,
+      userIsLoggedIn: false,
       openSnackbarMessage: false,
       loginMessage: '',
       encryptionKey: 'myTotalySecretKey' // Maybe replace with a more secure key in the future
