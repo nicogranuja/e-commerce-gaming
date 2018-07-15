@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { 
   Button, 
   TextField, 
@@ -26,9 +26,9 @@ class UserSettings extends React.Component {
   
   render() {
     return (
-        <Tab label="Settings" onClick={this.handleTabClick}>
-        
-        </Tab>
+      <Fragment>
+        Orders
+      </Fragment>
     )
   }
 }

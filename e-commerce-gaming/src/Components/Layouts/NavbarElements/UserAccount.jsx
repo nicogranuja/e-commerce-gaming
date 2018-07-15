@@ -31,7 +31,7 @@ class UserAccount extends React.Component {
     this.setState({ open: false });
   };
 
-  handleChangeTab = (selectedTab) => {
+  handleChange = (event, selectedTab) => {
     this.setState({ selectedTab });
   };
   
@@ -49,15 +49,18 @@ class UserAccount extends React.Component {
           aria-labelledby="form-dialog-title"
         >
           <Tabs
-            value={this.state.selectedTab}
-            indicatorColor="primary"
-            textColor="primary"
-            fullWidth
-            centered
+            value={this.state.selectedTab} onChange={this.handleChange}
+            indicatorColor="primary" textColor="primary"
+            fullWidth centered
           >
-            <UserSettings onTabClick={this.handleChangeTab}/>
-            <UserOrders onTabClick={this.handleChangeTab}/>
+            <Tab label="My Settings"/>
+            <Tab label="My Orders"/>
           </Tabs>
+            <DialogContent>
+              { (this.state.selectedTab == 0) ? <UserSettings />
+                : <UserOrders />
+              }
+            </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Close
