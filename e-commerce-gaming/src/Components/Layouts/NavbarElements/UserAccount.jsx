@@ -6,15 +6,20 @@ import {
   DialogActions, 
   DialogContent, 
   DialogContentText, 
-  DialogTitle
+  DialogTitle,
+  Tabs,
+  Tab
 } from '@material-ui/core';
 import { AccountBox } from '@material-ui/icons';
+import UserSettings from './AccountElements/UserSettings';
+import UserOrders from './AccountElements/UserOrders';
 
 class UserAccount extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      selectedTab: 0
     };
   }
 
@@ -25,12 +30,16 @@ class UserAccount extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+
+  handleChangeTab = (selectedTab) => {
+    this.setState({ selectedTab });
+  };
   
   render() {
     let styles = this.props.styles;
     return (
       <div>
-        <Button variant="contained" size="small" color="inherit" style={styles.button}>
+        <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
           Account
           <AccountBox style={styles.icon} />
         </Button>
@@ -39,13 +48,16 @@ class UserAccount extends React.Component {
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">My Account</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Placeholder
-            </DialogContentText>
-            <TextField autoFocus margin="dense" id="test" label="Placeholder" type="text" fullWidth/>
-          </DialogContent>
+          <Tabs
+            value={this.state.selectedTab}
+            indicatorColor="primary"
+            textColor="primary"
+            fullWidth
+            centered
+          >
+            <UserSettings onTabClick={this.handleChangeTab}/>
+            <UserOrders onTabClick={this.handleChangeTab}/>
+          </Tabs>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Close
