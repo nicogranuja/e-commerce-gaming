@@ -10,7 +10,6 @@ import {
   Tabs,
   Tab
 } from '@material-ui/core';
-import { AccountBox } from '@material-ui/icons';
 
 class UserSettings extends React.Component {
   constructor(props) {
@@ -27,7 +26,7 @@ class UserSettings extends React.Component {
   render() {
     return (
       <Fragment>
-        Orders
+        <div style={{ height: 300 }}></div>
       </Fragment>
     )
   }

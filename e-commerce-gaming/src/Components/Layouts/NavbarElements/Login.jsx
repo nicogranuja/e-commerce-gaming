@@ -66,6 +66,7 @@ class Login extends React.Component {
     
     // User login successful
     this.updateUIForLoggedUser(userObj.name);
+    this.props.updateUserObject(userObj);
   };
 
   thereAreEmptyValuesInForm = () => {

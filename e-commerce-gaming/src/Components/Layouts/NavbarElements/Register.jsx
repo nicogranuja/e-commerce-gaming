@@ -141,6 +141,7 @@ class Register extends React.Component {
     let user = { name: this.state.name, username: this.state.username, password: hashedPassword };
     let key = 'user' + this.state.username;
     window.localStorage.setItem(key, JSON.stringify(user));
+    this.props.updateUserObject(user);
   };
 
   updateUIForLoggedUser = () => {
@@ -165,15 +166,19 @@ class Register extends React.Component {
               Please fill out all the fields of the form to complete the registration
             </DialogContentText>
             <TextField value={this.state.name} onChange={this.handleFullNameChange} error={this.state.nameErr} 
-              autoFocus margin="dense" id="full-name" label="Full Name" type="text" required fullWidth/>
+              autoFocus margin="dense" id="full-name" label="Full Name" type="text" required fullWidth
+            />
             <TextField value={this.state.username} onChange={this.handleUsernameChange} 
               error={this.state.usernameErr} helperText={this.state.usernameHelperText}
-              margin="dense" id="username-register" label="Username" type="text" required fullWidth/>
+              margin="dense" id="username-register" label="Username" type="text" required fullWidth
+            />
             <TextField value={this.state.password} onChange={this.handlePasswordChange} error={this.state.passwordErr}
-              margin="dense" id="password-register" label="Password" type="password" required fullWidth/>
+              margin="dense" id="password-register" label="Password" type="password" required fullWidth
+            />
             <TextField value={this.state.passwordConfirm} onChange={this.handlePasswordConfirmChange} 
               error={this.state.passwordConfirmErr} helperText={this.state.passwordHelperText}
-              margin="dense" id="password-confirm" label="Confirm Password" type="password" required fullWidth/>
+              margin="dense" id="password-confirm" label="Confirm Password" type="password" required fullWidth
+            />
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">

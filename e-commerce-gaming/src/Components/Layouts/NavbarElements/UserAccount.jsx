@@ -1,18 +1,21 @@
 import React from 'react';
 import { 
-  Button, 
-  TextField, 
-  Dialog, 
-  DialogActions, 
+  Button,
+  Dialog,
+  DialogActions,
   DialogContent, 
-  DialogContentText, 
-  DialogTitle,
   Tabs,
   Tab
 } from '@material-ui/core';
 import { AccountBox } from '@material-ui/icons';
 import UserSettings from './AccountElements/UserSettings';
 import UserOrders from './AccountElements/UserOrders';
+
+const styles = {
+  tabStyle: {
+    marginBottom: 15
+  }
+}
 
 class UserAccount extends React.Component {
   constructor(props) {
@@ -34,36 +37,46 @@ class UserAccount extends React.Component {
   handleChange = (event, selectedTab) => {
     this.setState({ selectedTab });
   };
+
+  handleUserDeleted = () => {
+    let message = `Sorry to see you go :(`;
+    this.props.onLoginStatusChange(false, message);
+  }
   
   render() {
-    let styles = this.props.styles;
     return (
       <div>
-        <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
+        <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={this.props.styles.button}>
           Account
-          <AccountBox style={styles.icon} />
+          <AccountBox style={this.props.styles.icon}/>
         </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
+          fullWidth
         >
           <Tabs
             value={this.state.selectedTab} onChange={this.handleChange}
             indicatorColor="primary" textColor="primary"
             fullWidth centered
+            style={styles.tabStyle}
           >
-            <Tab label="My Settings"/>
-            <Tab label="My Orders"/>
+            <Tab label="Settings"/>
+            <Tab label="Orders"/>
           </Tabs>
             <DialogContent>
-              { (this.state.selectedTab == 0) ? <UserSettings />
-                : <UserOrders />
+              { (this.state.selectedTab === 0) 
+                ? <UserSettings userObj={this.props.userObj} handleUserDeleted={this.handleUserDeleted}/>
+                : <UserOrders userObj={this.props.userObj} />
               }
             </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Close
+            </Button>
+            <Button onClick={this.handleClose} color="primary" variant="contained">
+              Update
             </Button>
           </DialogActions>
         </Dialog>
