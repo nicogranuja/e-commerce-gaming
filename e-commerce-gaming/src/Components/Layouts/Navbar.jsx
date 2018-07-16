@@ -32,6 +32,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: { name: 'John Doe' },
       userIsLoggedIn: false,
       openSnackbarMessage: false,
       loginMessage: '',
@@ -40,7 +41,7 @@ class Navbar extends Component {
   }
 
   handleSnackbarClose = () => {
-    this.setState({openSnackbarMessage: false})
+    this.setState({ openSnackbarMessage: false });
   };
   
   handleLoginStatusChange = (isLoggedIn, message) => {
@@ -50,6 +51,10 @@ class Navbar extends Component {
 
   handleLoginLogoutPopUpMessage = (message) => {
     this.setState({ openSnackbarMessage: true, loginMessage: message });
+  };
+
+  handleUpdateCurrentUserObj = (userObj) => {
+    this.setState({ user: userObj });
   };
 
   render() {
@@ -66,14 +71,18 @@ class Navbar extends Component {
               <Fragment>
                 <Login styles={styles}
                   onLoginStatusChange={this.handleLoginStatusChange} encryptionKey={this.state.encryptionKey}
+                  updateUserObject={this.handleUpdateCurrentUserObj}
                 />
                 <Register styles={styles}
                   onLoginStatusChange={this.handleLoginStatusChange} encryptionKey={this.state.encryptionKey}
+                  updateUserObject={this.handleUpdateCurrentUserObj}
                 />
               </Fragment>
             ) : (
               <Fragment>
-                <UserAccount styles={styles}/>
+                <UserAccount styles={styles} userObj={this.state.user} 
+                  onLoginStatusChange={this.handleLoginStatusChange}
+                />
                 <Logout styles={styles}
                   onLoginStatusChange={this.handleLoginStatusChange}
                 />
