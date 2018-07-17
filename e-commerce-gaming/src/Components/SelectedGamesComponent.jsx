@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import FLOW_STATE from '../Constants/flowstates'
 import BUTTON_STATE from '../Constants/buttonStates'
 import {mainPageState} from '../Actions/MainPageAction'
-
+import GameCard from './GameCard'
+import GameGrid from './GameGrid'
 
 
 
@@ -85,6 +86,7 @@ class SelectedGamesComponent extends React.Component {
         if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return (
                 <div>
+                    <GameGrid/>
 
                     Inside the main page.
                 </div>
