@@ -1,22 +1,17 @@
-import React, { Fragment } from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import List from '@material-ui/core/List';
-import Grid from '@material-ui/core/Grid';
-import { Paper, Typography } from '@material-ui/core';
-import { games } from '../TempListOfGames';
+import React from 'react';
+import { Paper, Grid  } from '@material-ui/core';
 import SelectedGamesComponent from './SelectedGamesComponent'
 import GenreButtons from './GenreButtons'
 
 const stylesRightPane = {
   Paper: {
-      width:200,
     padding: 20,
     marginTop: 10,
     marginBottom: 10,
     height: 500,
+    width: '10vw',
     overflowY: 'auto',
-      marginLeft:25
+    marginLeft:25
   }
 };
 
@@ -25,9 +20,9 @@ const stylesLeftPane = {
         padding: 20,
         marginTop: 10,
         marginBottom: 10,
-        height: 500,
+        height: 'auto',
+        width: '80vw',
         overflowY: 'auto',
-        width:900,
         marginRight: 25
     }
 };
@@ -39,13 +34,14 @@ class Games extends React.Component {
   render() {
 
     return (
-      <Grid container>
-        <Grid item sm>
-          <Paper style={stylesRightPane.Paper}>
+      <Grid container spacing={24}>
+        <Grid item >
+          <Paper style={stylesRightPane.Paper} >
             <GenreButtons/>
           </Paper>
         </Grid>
-        <Grid item sm>
+        <div width='5vw'/>
+        <Grid item>
           <Paper style={stylesLeftPane.Paper}>
               <SelectedGamesComponent/>
           </Paper>

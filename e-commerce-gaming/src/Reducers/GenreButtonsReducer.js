@@ -1,27 +1,31 @@
-import flowState from '../Constants/flowstates'
-function CurrentPageReducer(state = flowState.MAINPAGE, action) {
+import GENRESTATE from '../Constants/genreButtonStates'
+function GenreButtonsReducer(state = {}, action) {
 
     let newState = Object.assign({},state);
+    console.log("The genre button state is ");
+    console.log(state)
+
     switch(action.type) {
-        case 'LOGIN_PAGE_ACTION':
+        case GENRESTATE.ADVENTUREBUTTON:
             newState = action.click;
             return newState;
-        case 'COMPUTER_PAGE_ACTION':
+        case GENRESTATE.RPGBUTTON:
             newState = action.click;
             return newState;
-        case 'REGISTER_PAGE_ACTION':
+        case GENRESTATE.SHOOTERBUTTON:
             newState = action.click;
             return newState;
-        case 'CART_PAGE_ACTION':
+        case GENRESTATE.SPORTSPAGEBUTTON:
             newState = action.click;
             return newState;
-        case 'SEARCH_PAGE_ACTION':
+        case GENRESTATE.STRATEGYBUTTON:
             newState = action.click;
             return newState;
+
         default :
 
             return state;
     }
 }
 
-export default CurrentPageReducer;
+export default GenreButtonsReducer;

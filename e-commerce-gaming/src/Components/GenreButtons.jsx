@@ -1,10 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import {connect } from 'react-redux'
+import {rpgClick,shooterClick,sportsClick,strategyClick,adventureClick} from './../Actions/GenreButtonAction'
+import GENRESTATE from './../Constants/genreButtonStates'
 
 class GenreButtons extends React.Component {
     render() {
@@ -13,22 +14,22 @@ class GenreButtons extends React.Component {
                 Sort By Genre Below:
                 <List component="nav">
                     <Divider light />
-                    <ListItem button>
+                    <ListItem button onClick={this.props.rpgClick} >
                         <ListItemText primary="RPG" />
                     </ListItem>
                     <Divider />
-                    <ListItem button divider>
+                    <ListItem button divider onClick={this.props.shooterClick} >
                         <ListItemText primary="Shooter" />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem button onClick={this.props.sportsClick} >
                         <ListItemText primary="Sports" />
                     </ListItem>
                     <Divider light />
-                    <ListItem button>
+                    <ListItem button onClick={this.props.strategyClick} >
                         <ListItemText primary="Strategy" />
                     </ListItem>
                     <Divider light />
-                    <ListItem button>
+                    <ListItem button onClick={this.props.adventureClick} >
                         <ListItemText primary="Action-Adventure" />
                     </ListItem>
                     <Divider light />
@@ -38,4 +39,23 @@ class GenreButtons extends React.Component {
     }
 }
 
-export default GenreButtons;
+const mapStateToProps = (state) => {
+
+    return {
+        state: state,
+    };
+};
+
+function mapDispatchToProps(dispatch) {
+    return {
+        rpgClick: () => dispatch(rpgClick(GENRESTATE.RPGBUTTON)),
+        shooterClick: () => dispatch(shooterClick(GENRESTATE.SHOOTERBUTTON)),
+        sportsClick: () => dispatch(sportsClick(GENRESTATE.SPORTSPAGEBUTTON)),
+        strategyClick: () => dispatch(strategyClick(GENRESTATE.STRATEGYBUTTON)),
+        adventureClick: () => dispatch(adventureClick(GENRESTATE.ADVENTUREBUTTON))
+
+
+    }
+}
+
+export default connect(null,mapDispatchToProps)(GenreButtons);
