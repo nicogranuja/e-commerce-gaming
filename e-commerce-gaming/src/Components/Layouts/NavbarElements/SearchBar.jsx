@@ -7,7 +7,8 @@ import PAGESTATE from './../../../Constants/flowstates'
 
 const styles = {
   searchText: {
-    paddingTop: 5,
+    padding: 2,
+    marginRight: 10,
     right: 370,
     position: 'absolute',
     backgroundColor: 'white'

@@ -11,9 +11,12 @@ import {
 import { ShoppingCart as ShoppinCartIcon } from '@material-ui/icons';
 
 class ShoppingCart extends React.Component {
-  state = {
-    open: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false
+    };
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
