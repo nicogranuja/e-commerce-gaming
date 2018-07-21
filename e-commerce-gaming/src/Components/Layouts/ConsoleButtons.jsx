@@ -1,18 +1,23 @@
 import React from 'react';
 import Tabs from '@material-ui/core/Tabs';
-import Button from '@material-ui/core/Tab';
 import { connect } from 'react-redux'
 import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick } from '../../Actions/MainButtonAction';
 import FLOW_STATE from '../../Constants/buttonStates'
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
-const styles = theme => ({
+
+const style = {
+	
 	button: {
-		margin: theme.spacing.unit,
+		margin: 10,
+		color: '#FFF',
+		backgroundColor: '#33bbff'
 	},
-	input: {
-		display: 'none',
-	},
-});
+
+}
+
+
 
 class ConsoleButtons extends React.Component {
 
@@ -28,11 +33,21 @@ class ConsoleButtons extends React.Component {
 				textColor="primary"
 				fullWidth
 			>
-				<Button  label="Xbox One"  onClick={this.props.xBoxClick}/>
-				<Button label="PS 4" onClick={this.props.playStationClick}/>
-				<Button label="Nintendo" onClick={this.props.nintendoClick}/>
-				<Button label="Computer" onClick={this.props.computerClick}/>
-				<Button label="Game Boy" onClick={this.props.handHeldClick}/>
+				<Button  variant="outlined" color="primary" label="Xbox One"  color="inherit" style={style.button}  onClick={this.props.xBoxClick}>
+					Xbox One
+				</Button>
+				<Button  variant="outlined" color="primary" label="PS 4" color="inherit" style={style.button} onClick={this.props.playStationClick}>
+					PS 4
+				</Button>
+				<Button variant="outlined"  color="primary" label="Nintendo" color="inherit" style={style.button} onClick={this.props.nintendoClick}>
+					Nintendo
+				</Button>
+				<Button variant="outlined" color="primary" label="Computer"  color="inherit" style={style.button} onClick={this.props.computerClick}>
+					Computer
+				</Button>
+				<Button variant="outlined" color="primary" label="Game Boy" color="inherit" style={style.button} onClick={this.props.handHeldClick}>
+					Game Boy
+				</Button>
 			</Tabs>
 		)
 
