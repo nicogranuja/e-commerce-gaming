@@ -21,7 +21,7 @@ const stylesLeftPane = {
         marginTop: 10,
         marginBottom: 10,
         height: 'auto',
-        width: '80vw',
+        width: '75vw',
         overflowY: 'auto',
         marginRight: 25
     }
