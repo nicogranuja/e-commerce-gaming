@@ -9,7 +9,7 @@ const stylesRightPane = {
     marginTop: 10,
     marginBottom: 10,
     height: 500,
-    width: '10vw',
+    width: '20vw',
     overflowY: 'auto',
     marginLeft:25
   }
@@ -21,7 +21,7 @@ const stylesLeftPane = {
         marginTop: 10,
         marginBottom: 10,
         height: 'auto',
-        width: '80vw',
+        width: '65vw',
         overflowY: 'auto',
         marginRight: 25
     }

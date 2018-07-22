@@ -8,7 +8,7 @@ import Button from '@material-ui/core/Button';
 
 
 const style = {
-	
+
 	button: {
 		margin: 10,
 		color: '#FFF',

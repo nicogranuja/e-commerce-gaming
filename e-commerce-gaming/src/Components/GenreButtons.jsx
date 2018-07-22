@@ -31,7 +31,9 @@ class GenreButtons extends React.Component {
                     <Divider light />
                     <ListItem button onClick={this.props.adventureClick} >
                         <ListItemText primary="Action-Adventure" />
-                    </ListItem><ListItem button onClick={this.props.racingClick} >
+                    </ListItem>
+                    <Divider light />
+                    <ListItem button onClick={this.props.racingClick} >
                         <ListItemText primary="Racing" />
                     </ListItem>
                     <Divider light />
