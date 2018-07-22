@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
+import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import {Grid} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
 import {Add, Info} from '@material-ui/icons';
+import { addItem } from '../Actions/AddItemsToCart';
 const styles = {
     card: {
       position: 'relative',
@@ -36,9 +39,17 @@ const styles = {
   }
 
 class GameCard extends React.Component{
-  
+
+    handleClick = () => {
+        this.props.addItem(this.props.Title);
+        console.log("The title is");
+        console.log(this.props.Title)
+    }
+
   render() {
   const classes = this.props;
+      console.log("The title is ");
+      console.log(classes.Title);
   return (
     //<div >
       <Card className={classes.classes.card}>
@@ -59,7 +70,7 @@ class GameCard extends React.Component{
               </Button>
             </Grid>
             <Grid item xs='12' sm='6'>
-              <Button className={classes.classes.button} >
+              <Button onClick={(e) => this.handleClick(classes.Title)} className={classes.classes.button} >
                 CART
                 <Add width='auto'/>
               </Button>
@@ -75,4 +86,13 @@ GameCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(GameCard);
+function mapDispatchToProps(dispatch) {
+    return {
+        addItem: (title) => dispatch(addItem(title))
+
+
+    }
+}
+
+export default compose(withStyles(styles),
+    connect(null,mapDispatchToProps))(GameCard);
