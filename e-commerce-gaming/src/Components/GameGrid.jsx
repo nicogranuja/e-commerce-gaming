@@ -27,8 +27,8 @@ class GameGrid extends React.Component{
             {name: "The Last of Us", url: "https://images-na.ssl-images-amazon.com/images/I/51fR72yjSFL.jpg"},
         ];
         const classes = this.props
-        const gameCards = gameList.map((game) =>
-            <GameCard imgURL={game.url} Title={game.name}/>
+        const gameCards = classes.GameList.map((game) =>
+            <GameCard imgURL={game.url} Title={game.title}/>
         );
         return(
             <Grid container justify="center">

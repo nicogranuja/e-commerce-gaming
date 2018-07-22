@@ -11,9 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import {Add, Info} from '@material-ui/icons';
 const styles = {
     card: {
+      position: 'relative',
       marginTop: '2%',
       marginRight: '1%',
-      maxWidth: '20%',
+      width: '20%',
       borderRadius: '3%'
     },
     img: {
@@ -25,9 +26,11 @@ const styles = {
       maxWidth:'100%',
     },
     button: {
+      position: 'absolute',
+      bottom: 5,
       backgroundColor: '#1D8BF1',
       color: '#FFF',
-      width: 'auto'
+      width: '40%'
     },
 
   }
@@ -43,12 +46,12 @@ class GameCard extends React.Component{
           <img src={classes.imgURL} className={classes.classes.img}/>
         </CardMedia>
         <CardContent >
-          <Typography gutterBottom variant="headline" component="h2">
+          <Typography gutterBottom align='left' variant="headline" component="h2">
             {classes.Title}
           </Typography>
         </CardContent>
-        <CardActions >
-          <Grid container spacing='12'>
+        <CardActions>
+          <Grid  container spacing='12'>
             <Grid item xs='12' sm='6'>
               <Button className={classes.classes.button} >
                 MORE
@@ -64,7 +67,6 @@ class GameCard extends React.Component{
           </Grid>
         </CardActions>
       </Card>
-    //</div>
   );
 }
 }
