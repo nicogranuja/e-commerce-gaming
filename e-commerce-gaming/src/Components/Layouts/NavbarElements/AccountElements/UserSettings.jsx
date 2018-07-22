@@ -1,7 +1,10 @@
 import React, { Fragment } from 'react';
 import { 
   Button, 
-  TextField
+  TextField,
+  Divider,
+  Select,
+  MenuItem
 } from '@material-ui/core';
 import { Delete as DeleteIcon } from '@material-ui/icons';
 
@@ -27,7 +30,9 @@ class UserSettings extends React.Component {
       newPassword: '',
       newPasswordErr: false,
       newPasswordConfirm: '',
-      newPasswordConfirmErr: false
+      newPasswordConfirmErr: false,
+      address: '1600 Pennsylvania Ave',
+      state: 'NW'
     };
   }
 
@@ -49,6 +54,10 @@ class UserSettings extends React.Component {
   
   handleNewPasswordConfirmationChange = (e) => {
     this.setState({ newPasswordConfirm: e.target.value });
+  };
+
+  handleAddressChange = (e) => {
+    this.setState({ address: e.target.value });
   };
 
   handleDeleteBtnAction = () => {
@@ -79,6 +88,25 @@ class UserSettings extends React.Component {
           margin="dense" id="new-password-confirm-register" label="New Password Confirmation" type="password"
           style={styles.textWidth}
         />
+        <TextField value={this.state.address} onChange={this.handleAddressChange}
+          margin="dense" id="new-address-register" label="Shipping Address" type="text"
+          style={styles.textWidth}
+        />
+        <Select
+          style={{ marginLeft: 10 }}
+          value={this.state.state}
+          inputProps={{
+            name: 'state',
+            id: 'state-select'
+          }}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={'TX'}>TX</MenuItem>
+          <MenuItem value={'NW'}>NW</MenuItem>
+        </Select>
+        <Divider style={{marginTop: 40}}/>
         <Button
           onClick={this.handleDeleteBtnAction}
           variant="contained" color="secondary" style={ styles.deleteBtn }
