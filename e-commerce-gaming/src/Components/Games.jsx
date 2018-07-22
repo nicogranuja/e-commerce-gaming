@@ -5,13 +5,13 @@ import GenreButtons from './GenreButtons'
 
 const stylesRightPane = {
   Paper: {
-    padding: 20,
-    marginTop: 10,
-    marginBottom: 10,
-    height: 500,
-    width: '20vw',
-    overflowY: 'auto',
-    marginLeft:25
+        padding: 20,
+        marginTop: 10,
+        marginBottom: 10,
+        height: 'auto',
+        width: '67vw',
+        overflowY: 'auto',
+        marginRight:25
   }
 };
 
@@ -21,9 +21,9 @@ const stylesLeftPane = {
         marginTop: 10,
         marginBottom: 10,
         height: 'auto',
-        width: '65vw',
+        width: '20vw',
         overflowY: 'auto',
-        marginRight: 25
+        marginLeft: 25
     }
 };
 
@@ -36,13 +36,13 @@ class Games extends React.Component {
     return (
       <Grid container spacing={24}>
         <Grid item >
-          <Paper style={stylesRightPane.Paper} >
+          <Paper style={stylesLeftPane.Paper} >
             <GenreButtons/>
           </Paper>
         </Grid>
         <div width='5vw'/>
         <Grid item>
-          <Paper style={stylesLeftPane.Paper}>
+          <Paper style={stylesRightPane.Paper}>
               <SelectedGamesComponent/>
           </Paper>
         </Grid>

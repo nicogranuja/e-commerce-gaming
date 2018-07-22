@@ -17,6 +17,12 @@ const style = {
 
 }
 
+const tabStyle = {
+	Tabs: {
+		margin:15
+	}
+};
+
 
 
 class ConsoleButtons extends React.Component {
@@ -28,7 +34,7 @@ class ConsoleButtons extends React.Component {
 		return (
 
 			<Tabs
-
+				style={tabStyle.Tabs}
 				indicatorColor="primary"
 				textColor="primary"
 				fullWidth
