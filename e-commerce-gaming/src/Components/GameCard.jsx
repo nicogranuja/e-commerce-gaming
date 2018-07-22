@@ -44,6 +44,8 @@ class GameCard extends React.Component{
         this.props.addItem(this.props.Title);
         console.log("The title is");
         console.log(this.props.Title)
+        console.log("the props is ")
+        console.log(this.props)
     }
 
   render() {
