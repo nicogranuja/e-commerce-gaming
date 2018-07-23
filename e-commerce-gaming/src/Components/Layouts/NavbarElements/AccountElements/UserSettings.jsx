@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { 
   Button, 
   TextField,
-  Divider,
   Select,
   MenuItem
 } from '@material-ui/core';
@@ -13,6 +12,9 @@ const styles = {
     width: 400
   },
   deleteBtn: {
+    fontSize: 12,
+    height: 10,
+    width: 170, 
     marginTop: 15,
     marginBottom: 15
   }
@@ -32,7 +34,7 @@ class UserSettings extends React.Component {
       newPasswordConfirm: '',
       newPasswordConfirmErr: false,
       address: '1600 Pennsylvania Ave',
-      state: 'NW'
+      stateSelected: 'NW'
     };
   }
 
@@ -69,6 +71,10 @@ class UserSettings extends React.Component {
     }
   };
 
+  handleChangeSelectedState = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     return (
       <Fragment>
@@ -94,11 +100,11 @@ class UserSettings extends React.Component {
         />
         <Select
           style={{ marginLeft: 10 }}
-          value={this.state.state}
+          value={this.state.stateSelected}
           inputProps={{
-            name: 'state',
-            id: 'state-select'
+            name: 'stateSelected'
           }}
+          onChange={this.handleChangeSelectedState}
         >
           <MenuItem value="">
             <em>None</em>
@@ -106,7 +112,6 @@ class UserSettings extends React.Component {
           <MenuItem value={'TX'}>TX</MenuItem>
           <MenuItem value={'NW'}>NW</MenuItem>
         </Select>
-        <Divider style={{marginTop: 40}}/>
         <Button
           onClick={this.handleDeleteBtnAction}
           variant="contained" color="secondary" style={ styles.deleteBtn }

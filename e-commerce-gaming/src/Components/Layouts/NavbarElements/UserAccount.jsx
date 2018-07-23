@@ -71,14 +71,16 @@ class UserAccount extends React.Component {
                 : <UserOrders userObj={this.props.userObj} />
               }
             </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Close
-            </Button>
-            <Button onClick={this.handleClose} color="primary" variant="contained">
-              Update
-            </Button>
-          </DialogActions>
+          {this.state.selectedTab === 0 && 
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Close
+              </Button>
+              <Button onClick={this.handleClose} color="primary" variant="contained">
+                Update
+              </Button>
+            </DialogActions>
+          }
         </Dialog>
       </div>
     )

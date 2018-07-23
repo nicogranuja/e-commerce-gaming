@@ -25,8 +25,7 @@ const styles = {
   snackbarText: {
     textAlign: 'center'
   }
-}
-
+};
 
 class Navbar extends Component {
   constructor(props) {
