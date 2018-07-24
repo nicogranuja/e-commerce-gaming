@@ -31,15 +31,17 @@ class ShoppingCart extends React.Component {
 
   render() {
     const items = this.props.states.addToCartReducer.items;
+
     const listItem = items.map((item) =>
         <div>
-          {item}
+          {item.item} - {item.price}
         </div>
     )
-    console.log("Inside the shoppping cart")
-    console.log(this.props.states.addToCartReducer)
+   
+    
     let styles = this.props.styles;
     return (
+
       <div>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
             Cart
@@ -58,8 +60,11 @@ class ShoppingCart extends React.Component {
 
             <div>
               {listItem}
+
             </div>
+
           </DialogContent>
+
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Close

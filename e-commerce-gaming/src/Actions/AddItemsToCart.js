@@ -1,8 +1,9 @@
-export function addItem(item) {
+export function addItem(item,price) {
 
     return {
         type: 'ADD_ITEM',
-        addItem: item
+        addItem: item,
+        price: price
 
     }
 }

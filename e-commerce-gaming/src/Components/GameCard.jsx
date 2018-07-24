@@ -41,17 +41,13 @@ const styles = {
 class GameCard extends React.Component{
 
     handleClick = () => {
-        this.props.addItem(this.props.Title);
-        console.log("The title is");
-        console.log(this.props.Title)
-        console.log("the props is ")
-        console.log(this.props)
+        this.props.addItem(this.props.Title,this.props.price);
+
     }
 
   render() {
   const classes = this.props;
-      console.log("The title is ");
-      console.log(classes.Title);
+      
   return (
     //<div >
       <Card className={classes.classes.card}>
@@ -75,7 +71,7 @@ class GameCard extends React.Component{
               </Button>
             </Grid>
             <Grid item xs='12' sm='6'>
-              <Button onClick={(e) => this.handleClick(classes.Title)} className={classes.classes.button} >
+              <Button onClick={(e) => this.handleClick(classes.Title,classes.price)} className={classes.classes.button} >
                 CART
                 <Add width='auto'/>
               </Button>
@@ -93,7 +89,7 @@ GameCard.propTypes = {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addItem: (title) => dispatch(addItem(title))
+        addItem: (title,price) => dispatch(addItem(title,price))
 
 
     }
