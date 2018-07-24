@@ -59,8 +59,11 @@ class GameCard extends React.Component{
           <img src={classes.imgURL} className={classes.classes.img}/>
         </CardMedia>
         <CardContent >
-          <Typography gutterBottom align='left' variant="headline" component="h2">
+          <Typography  gutterBottom align='center' variant="title" >
             {classes.Title}
+          </Typography>
+          <Typography gutterBottom align='right' variant="title" >
+            {classes.price}
           </Typography>
         </CardContent>
         <CardActions>
