@@ -66,13 +66,13 @@ class GameCard extends React.Component{
         </CardContent>
         <CardActions>
           <Grid  container spacing='12'>
-            <Grid item xs='12' sm='6'>
+            <Grid item style={{paddingRight: '5%'}} xs='12' sm='6'>
               <Button className={classes.classes.button} >
                 MORE
                 <Info width='auto'/>
               </Button>
             </Grid>
-            <Grid item xs='12' sm='6'>
+            <Grid item style={{paddingLeft: '5%'}} xs='12' sm='6'>
               <Button onClick={(e) => this.handleClick(classes.Title)} className={classes.classes.button} >
                 CART
                 <Add width='auto'/>
