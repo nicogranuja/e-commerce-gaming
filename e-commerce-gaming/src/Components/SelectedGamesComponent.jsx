@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import FLOW_STATE from '../Constants/flowstates'
 import BUTTON_STATE from '../Constants/buttonStates'
 import {mainPageState} from '../Actions/MainPageAction'
-import {games} from '../ListOfGames'
+import games from '../gamesList.json'
 import GameGrid from './GameGrid'
 
 
@@ -16,6 +16,13 @@ class SelectedGamesComponent extends React.Component {
 
             return (
                 <div>
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                            if(game.console == "computer"){
+                                return game;
+                            }
+                        })}
+                    />
                                     Inside the computer pages.
                 </div>
             )
@@ -67,7 +74,7 @@ class SelectedGamesComponent extends React.Component {
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
-                            if(game.console == "ps4"){
+                            if(game.console == "PS4"){
                                 return game;
                             }
                         })}

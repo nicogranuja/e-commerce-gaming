@@ -6,7 +6,7 @@
         "console": "xbox one",
         "price": "$49.99",
         "genre": "racing",
-        "url": "/src/Static/Images/forzaxbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71aGz2zOywL._AC_SL1200_.jpg"
     },
       {
         "id": 2,
@@ -15,7 +15,7 @@
         "console": "xbox one",
         "price": "$49.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/halo5xbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71jUlLTTl3L._AC_SL1380_.jpg"
       },
       {
         "id": 3,
@@ -24,7 +24,7 @@
         "console": "xbox one",
         "price": "$59.99",
         "genre": "Strategy",
-        "url": "/src/Static/Images/jurassicxbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91rifocL6sL._AC_SL1500_.jpg"
       },   
       {
         "id": 4,
@@ -33,7 +33,7 @@
         "console": "xbox one",
         "price": "$50.00",
         "genre": "Sports",
-        "url": "/src/Static/Images/fifa18xbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71Z9pzbL9gL._AC_SL1000_.jpg"
       },
       {
         "id": 5,
@@ -42,7 +42,7 @@
         "console": "xbox one",
         "price": "$59.99",
         "genre": "Fighting",
-        "url": "/src/Static/Images/injustice2xbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51zYtcfzheL.jpg"
       },
       {
         "id": 6,
@@ -51,7 +51,7 @@
         "console": "xbox one",
         "price": "$59.99",
         "genre": "Roleplaying",
-        "url": "/src/Static/Images/vampyrxbox.jpg"
+        "url": "https://www.gamestop.com/common/images/lbox/150324b.jpg"
       },
       {
         "id": 7,
@@ -60,7 +60,7 @@
         "console": "xbox one",
         "price": "$29.99",
         "genre": "Roleplaying",
-        "url": "/src/Static/Images/stateofdecayxbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51beDhWqb2L.jpg"
       },
       {
         "id": 8,
@@ -69,7 +69,7 @@
         "console": "xbox one",
         "price": "$39.99",
         "genre": "Racing",
-        "url": "/src/Static/Images/needforspeedxbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/517j24s9ZzL.jpg"
       },
       {
         "id": 9,
@@ -78,7 +78,7 @@
         "console": "xbox one",
         "price": "$29.99",
         "genre": "Racing",
-        "url": "/src/Static/Images/assettocorsa.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/812BhVCSj1L._AC_SL1500_.jpg"
       },
       {
         "id": 10,
@@ -87,7 +87,7 @@
         "console": "xbox one",
         "price": "$29.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/pastcurexbox.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/41Tp04eMH1L.jpg"
       },
       {
         "id": 11,
@@ -96,7 +96,7 @@
         "console": "PS4",
         "price": "$19.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/mechaarena.jpg"
+        "url": "http://www.gamepitt.co.uk/wp-content/uploads/2018/06/code-51-mecha-arena.jpg"
       },
       {
         "id": 12,
@@ -105,7 +105,7 @@
         "console": "PS4",
         "price": "$59.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/bioshockps4jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51Tmebbt9ZL.jpg"
       },
       {
         "id": 13,
@@ -114,7 +114,7 @@
         "console": "PS4",
         "price": "$59.99",
         "genre": "Sports",
-        "url": "/src/Static/Images/tennisworldtourPS4.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51J5aX2VVML.jpg"
       },
       {
         "id": 14,
@@ -123,7 +123,7 @@
         "console": "PS4",
         "price": "$49.99",
         "genre": "Roleplaying",
-        "url": "/src/Static/Images/thewitcherPS4.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51FdXnfNj6L.jpg"
       },
       {
         "id": 15,
@@ -132,7 +132,7 @@
         "console": "PS4",
         "price": "$39.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/firewallPS4.jpg"
+        "url": "https://www.geek.com/wp-content/uploads/2017/12/Firewall-Zero-Hour-logo-625x352.jpg"
       },
       {
         "id": 16,
@@ -141,7 +141,7 @@
         "console": "PS4",
         "price": "$59.99",
         "genre": "Roleplaying",
-        "url": "/src/Static/Images/RedDeadRedemptionPS4.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91bfWN5QlDL._AC_SL1500_.jpg"
       },
       {
         "id": 17,
@@ -150,7 +150,7 @@
         "console": "PS4",
         "price": "$19.99",
         "genre": "Racing",
-        "url": "/src/Static/Images/needforspeedPS4.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71OxEcVQYUL._AC_SL1500_.jpg"
       },
       {
         "id": 18,
@@ -159,7 +159,7 @@
         "console": "PS4",
         "price": "$19.99",
         "genre": "Racing",
-        "url": "/src/Static/Images/projectcarsps4.jpg"
+        "url": "https://www.gamestop.com/common/images/lbox/142546b.jpg"
 
         
       },
@@ -170,7 +170,7 @@
         "console": "PS4",
         "price": "$49.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/farcry4ps4.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91TD5UrfB3L._AC_SL1500_.jpg"
 
 
       },{
@@ -180,182 +180,182 @@
         "console": "PS4",
         "price": "$49.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/farcry5ps4.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91keHwoCTAL._AC_SL1500_.jpg"
       },
       {
         "id": 21,
         "title": "Super Mario Galaxy 2",
         "description": "Mario collects stars as he travels from galaxy to galaxy, sometimes upside-down, sometimes floating from place to place.",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$49.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/mariogalaxywiiu.jpg"
+        "url": "https://vignette.wikia.nocookie.net/nintendo/images/a/a3/Super_Mario_Galaxy_2_Logo.png/revision/latest?cb=20100225072310&path-prefix=en"
       },
       {
         "id": 22,
-        "title": "The Legend of Zelda: Breath of the Wil",
+        "title": "The Legend of Zelda: Breath of the Wild",
         "description": "Step into a world of discovery, exploration and adventure in The Legend of Zelda: Breath of the Wild, a boundary-breaking new game in the acclaimed series",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$59.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/zeldawiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71B5c%2BEmz6L._AC_SL1037_.jpg"
         
       },
       {
         "id": 23,
         "title": "Mario & Sonic at the Rio 2016 Olympic Games",
         "description": "Experience the thrill of the Rio 2016 Olympic Games by competing with friends as gaming icons like Mario™ and Sonic.",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$59.99",
         "genre": "Sports",
-        "url": "/src/Static/Images/marioandsonicwiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/912eNbaKwyL._AC_SL1500_.jpg"
       },
       {
         "id": 24,
         "title": "Star Fox Zero",
         "description": "An evil empire has risen and the Lylat system is in danger.",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$59.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/starfoxzerowiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91W%2BPkALvbL._AC_SL1500_.jpg"
 
       },
       {
         "id": 25,
         "title": "LEGO Star Wars: The Force Awakens",
         "description": "The No. 1 LEGO® videogame franchise triumphantly returns with a fun-filled, humorous journey based on the blockbuster Star Wars film.",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$19.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/legostarwarswiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91RCJtQuDlL._AC_SL1500_.jpg"
 
       },
       {
         "id": 26,
         "title": "Mario Party 10",
         "description": "Bowser crashes the latest Mario Party, the first installment of the series on the Wii U console.",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$29.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/mariopartywiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91nUR2HpB8L._AC_SL1500_.jpg"
 
       },
       {
         "id": 27,
         "title": "Mario Kart 8",
         "description": "Race upside-down and along walls on anti-gravity tracks in the most action-fueled Mario Kart™ game yet",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$59.99",
         "genre": "Racing",
-        "url": "/src/Static/Images/mariokartwiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91LQiO6JrbL._AC_SL1500_.jpg"
       },
       {
         "id": 28,
         "title": "New Super Mario Bros. U",
         "description": "New Super Mario Bros. U is a new, side-scrolling adventure featuring Mario, Luigi, Toad … and your Mii character.",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$59.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/mariobroswiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91A8k%2BZkoEL._AC_SL1500_.jpg"
       },
       {
         "id": 29,
         "title": "Super Smash Bros.",
         "description": "All of your favorite Nintendo characters are back, along with plenty of new faces, in Super Smash Bros. for Wii U, the next entry in the beloved Super Smash Bros. series.",
-        "console": "wiiu",
+        "console": "nintendo",
         "price": "$59.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/smashbroswiiu.png"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/61f4tYoL5rL.jpg"
       },
       {
         "id": 30,
         "title": "Super Mario Odyssey",
         "description": "Jump back into the fun of a favorite Nintendo series with Super Mario Odyssey for Nintendo Switch.",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$48.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/marioodessyswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51cE%2B9FaiWL.jpg"
       },
       {
         "id": 31,
         "title": "Octopath Traveler",
         "description": "Play eight separate games in one immersive title with Octopath Traveler for Nintendo Switch.",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$59.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/octopathswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91mZyz7oKYL._AC_SL1500_.jpg"
       },{
         "id": 32,
         "title": "Dragon Ball Xenoverse 2",
         "description": "Dragon Ball Xenoverse 2 builds upon the highly popular Dragon Ball Xenoverse with enhanced graphics that will further immerse players into a large and detailed Dragon Ball world",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$48.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/dragonballswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51FDkrUcgbL.jpg"
       },{
         "id": 33,
         "title": "Mario Kart 8 Deluxe",
         "description": "Battle new enemies on a host of fun tracks with Mario Kart 8 Deluxe for the Nintendo Switch.",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$58.99",
         "genre": "Racing",
-        "url": "/src/Static/Images/mariokartswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51%2BwYjqjV7L.jpg"
       },{
         "id": 34,
         "title": "Mario Tennis Aces",
         "description": "Help Mario master his serve with Mario Tennis Aces for Nintendo Switch",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$59.99",
         "genre": "Sports",
-        "url": "/src/Static/Images/mariotennisswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91TvX36nF-L._AC_SL1500_.jpg"
       },{
         "id": 35,
         "title": "Donkey Kong Country: Tropical Freeze",
         "description": "Take on new challenges with the old Kong crew when you play Donkey Kong Country Tropical Freeze for Nintendo Switch",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$48.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/donkeykongswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/61h6qGbzhmL.jpg"
       },{
         "id": 36,
         "title": "Crash Bandicoot N. Sane Trilogy",
         "description": "Your favorite marsupial, Crash Bandicoot™, is back! He’s enhanced, entranced & ready-to-dance with the N. Sane Trilogy game collection",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$39.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/crashswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91iMF9o1KQL._AC_SL1500_.jpg"
       },{
         "id": 37,
         "title": "The Legend of Zelda: Breath of the Wild",
         "description": "Travel back to Hyrule with Link in Zelda: Breath of the Wild for the Nintendo Switch",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$54.94",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/zeldaswitch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51Ox7m6-OIL.jpg"
       },{
         "id": 38,
         "title": "EA Sports FIFA 18",
         "description": "Shoot to score with EA Sports FIFA 18 for Nintendo Switch",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$28.99",
         "genre": "Sports",
-        "url": "/src/Static/Images/fifa18switch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71ty4Qg8WSL._AC_SL1000_.jpg"
       },{
         "id": 39,
         "title": "NBA 2K18 ",
         "description": "The highest rated* annual sports title of this console generation returns with NBA 2K18, featuring unparalleled authenticity and improvements on the court.",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$48.99",
         "genre": "Sports",
-        "url": "/src/Static/Images/2k18switch.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/913D9r16U2L._AC_SL1500_.jpg"
       },{
         "id": 40,
         "title": "Wolfenstein® II: The New Colossus™",
         "description": "An exhilarating adventure brought to life by the industry-leading id Tech® 6, Wolfenstein® II sends players to Nazi-controlled America on a mission to recruit the boldest resistance leaders left.",
-        "console": "switch", 
+        "console": "nintendo", 
         "price": "$59.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/wolfensteinswitch.jpg"
+        "url": "https://www.gamestop.com/common/images/lbox/150227b.jpg"
       },{
         "id": 41,
         "title": "The Sims 4",
@@ -363,7 +363,7 @@
         "console": "computer", 
         "price": "$49.99",
         "genre": "Simulation",
-        "url": "/src/Static/Images/thesimspc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71F4v32j5jL._AC_SL1000_.jpg"
       },{
         "id": 42,
         "title": "Evolve",
@@ -371,7 +371,7 @@
         "console": "computer", 
         "price": "$2.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/evolvepc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/91wcXq2vy7L._AC_SL1500_.jpg"
       },{
         "id": 43,
         "title": "Call of Duty: Black Ops 4",
@@ -379,7 +379,7 @@
         "console": "computer", 
         "price": "$59.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/blackupspc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/81z5Q6HMjjL._AC_SL1500_.jpg"
       },{
         "id": 44,
         "title": "Age of Empires: Definitive Edition",
@@ -387,7 +387,7 @@
         "console": "computer", 
         "price": "$19.99",
         "genre": "Simulation",
-        "url": "Age of Empires is back and better than ever with the definitive edition for Windows 10 PCs¹. "
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71fyrv1wy4L._AC_SL1200_.jpg"
       },{
         "id": 45,
         "title": "Call of Duty: WWII",
@@ -395,7 +395,7 @@
         "console": "computer", 
         "price": "$59.99",
         "genre": "Shooter",
-        "url": "/src/Static/Images/ww2pc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/A10VM2eEiML._AC_SL1500_.jpg"
       },{
         "id": 46,
         "title": "Mass Effect: Andromeda",
@@ -403,7 +403,7 @@
         "console": "computer", 
         "price": "$13.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/masseffectpc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71E6j2BJ5AL._AC_SL1000_.jpg"
       },{
         "id": 47,
         "title": "The Elder Scrolls Online: Morrowind ",
@@ -411,7 +411,7 @@
         "console": "computer", 
         "price": "$19.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/morrowindpc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51Zk%2BPdsjTL.jpg"
       },{
         "id": 48,
         "title": "The Elder Scrolls V: Skyrim Special Edition",
@@ -419,7 +419,7 @@
         "console": "computer", 
         "price": "$59.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/skyrimpc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/81rwetLHTwL._AC_SL1500_.jpg"
       },{
         "id": 49,
         "title": "Fallout 76",
@@ -427,7 +427,7 @@
         "console": "computer", 
         "price": "$59.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/falloutpc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/81faW9RGHQL._AC_SL1500_.jpg"
       },{
         "id": 50,
         "title": "Destiny 2",
@@ -435,7 +435,7 @@
         "console": "computer", 
         "price": "$49.99",
         "genre": "Action-adventure",
-        "url": "/src/Static/Images/destiny2pc.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51gOUEqN48L.jpg"
       }
 
 

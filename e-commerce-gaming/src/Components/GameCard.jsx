@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 import {Grid} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
 import {Add, Info} from '@material-ui/icons';
-import { addItem } from '../Actions/AddItemsToCart';
+//import { addItem } from '../Actions/AddItemsToCart';
 const styles = {
     card: {
       position: 'relative',
@@ -41,7 +41,7 @@ const styles = {
 class GameCard extends React.Component{
 
     handleClick = () => {
-        this.props.addItem(this.props.Title);
+        //this.props.addItem(this.props.Title);
         console.log("The title is");
         console.log(this.props.Title)
     }
@@ -57,8 +57,11 @@ class GameCard extends React.Component{
           <img src={classes.imgURL} className={classes.classes.img}/>
         </CardMedia>
         <CardContent >
-          <Typography gutterBottom align='left' variant="headline" component="h2">
+          <Typography  gutterBottom align='center' variant="title" >
             {classes.Title}
+          </Typography>
+          <Typography gutterBottom align='right' variant="title" >
+            {classes.price}
           </Typography>
         </CardContent>
         <CardActions>
@@ -88,7 +91,7 @@ GameCard.propTypes = {
 
 function mapDispatchToProps(dispatch) {
     return {
-        addItem: (title) => dispatch(addItem(title))
+        //addItem: (title) => dispatch(addItem(title))
 
 
     }
