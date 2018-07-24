@@ -1,9 +1,8 @@
-export function addItem(click,title) {
+export function addItem(item) {
 
     return {
         type: 'ADD_ITEM',
-        click,
-        title
+        addItem: item
 
     }
 }

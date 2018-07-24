@@ -28,7 +28,14 @@ class ShoppingCart extends React.Component {
     this.setState({ open: false });
   };
 
+
   render() {
+    const items = this.props.states.addToCartReducer.items;
+    const listItem = items.map((item) =>
+        <div>
+          {item}
+        </div>
+    )
     console.log("Inside the shoppping cart")
     console.log(this.props.states.addToCartReducer)
     let styles = this.props.styles;
@@ -50,7 +57,7 @@ class ShoppingCart extends React.Component {
             </DialogContentText>
 
             <div>
-              {this.props.states.addToCartReducer}
+              {listItem}
             </div>
           </DialogContent>
           <DialogActions>
