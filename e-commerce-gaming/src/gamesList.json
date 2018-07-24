@@ -195,7 +195,7 @@
         "id": 22,
         "title": "The Legend of Zelda: Breath of the Wild",
         "description": "Step into a world of discovery, exploration and adventure in The Legend of Zelda: Breath of the Wild, a boundary-breaking new game in the acclaimed series",
-        "console": "nintendo",
+        "console": "hand held",
         "price": "$59.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/71B5c%2BEmz6L._AC_SL1037_.jpg"
@@ -320,7 +320,7 @@
         "id": 36,
         "title": "Crash Bandicoot N. Sane Trilogy",
         "description": "Your favorite marsupial, Crash Bandicoot™, is back! He’s enhanced, entranced & ready-to-dance with the N. Sane Trilogy game collection",
-        "console": "nintendo", 
+        "console": "hand held",
         "price": "$39.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/91iMF9o1KQL._AC_SL1500_.jpg"
@@ -344,7 +344,7 @@
         "id": 39,
         "title": "NBA 2K18 ",
         "description": "The highest rated* annual sports title of this console generation returns with NBA 2K18, featuring unparalleled authenticity and improvements on the court.",
-        "console": "nintendo", 
+        "console": "hand held",
         "price": "$48.99",
         "genre": "Sports",
         "url": "https://images-na.ssl-images-amazon.com/images/I/913D9r16U2L._AC_SL1500_.jpg"
@@ -352,7 +352,7 @@
         "id": 40,
         "title": "Wolfenstein® II: The New Colossus™",
         "description": "An exhilarating adventure brought to life by the industry-leading id Tech® 6, Wolfenstein® II sends players to Nazi-controlled America on a mission to recruit the boldest resistance leaders left.",
-        "console": "nintendo", 
+        "console": "hand held",
         "price": "$59.99",
         "genre": "Shooter",
         "url": "https://www.gamestop.com/common/images/lbox/150227b.jpg"

@@ -23,7 +23,7 @@ class SelectedGamesComponent extends React.Component {
                             }
                         })}
                     />
-                                    Inside the computer pages.
+
                 </div>
             )
         }
@@ -32,12 +32,12 @@ class SelectedGamesComponent extends React.Component {
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
-                            if(game.console == "gameboy"){
+                            if(game.console == "hand held"){
                                 return game;
                             }
                         })}
                     />
-                            Inside Hand Held Page.
+
                 </div>
             )
         }
@@ -51,7 +51,7 @@ class SelectedGamesComponent extends React.Component {
                                     }
                                 })}
                             />
-                                    Inside the nintendo page.
+
                 </div>
             )
         }
@@ -65,7 +65,7 @@ class SelectedGamesComponent extends React.Component {
                             }
                         })}
                     />
-                                    Inside Xbox page
+
                 </div>
             )
         }
@@ -79,7 +79,7 @@ class SelectedGamesComponent extends React.Component {
                             }
                         })}
                     />
-                                    Inside the ps4 page.
+                                    I
                 </div>
             )
         }
@@ -122,7 +122,7 @@ class SelectedGamesComponent extends React.Component {
             return (
                 <div>
                     <GameGrid GameList={games}/>
-                    Inside the main page.
+
                 </div>
             )
         }

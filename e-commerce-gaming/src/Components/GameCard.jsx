@@ -17,7 +17,7 @@ const styles = {
       position: 'relative',
       marginTop: '2%',
       marginRight: '1%',
-      width: '20%',
+      width: '25%',
       borderRadius: '3%'
     },
     img: {

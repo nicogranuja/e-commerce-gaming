@@ -51,8 +51,8 @@ class ConsoleButtons extends React.Component {
 				<Button variant="outlined" color="primary" label="Computer"  color="inherit" style={style.button} onClick={this.props.computerClick}>
 					Computer
 				</Button>
-				<Button variant="outlined" color="primary" label="Game Boy" color="inherit" style={style.button} onClick={this.props.handHeldClick}>
-					Game Boy
+				<Button variant="outlined" color="primary" label="Hand Held" color="inherit" style={style.button} onClick={this.props.handHeldClick}>
+					Hand Held
 				</Button>
 			</Tabs>
 		)
