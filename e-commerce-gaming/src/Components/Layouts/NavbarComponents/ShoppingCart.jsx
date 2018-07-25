@@ -36,16 +36,14 @@ class ShoppingCart extends React.Component {
         <div>
           {item.item} - {item.price}
         </div>
-    )
+    );
    
-    
     let styles = this.props.styles;
     return (
-
       <div>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
-            Cart
-            <ShoppinCartIcon style={styles.icon} />
+          Cart
+          <ShoppinCartIcon style={styles.icon} />
         </Button>
         <Dialog
           open={this.state.open}
@@ -57,14 +55,10 @@ class ShoppingCart extends React.Component {
             <DialogContentText>
               Shopping Cart Items List
             </DialogContentText>
-
             <div>
               {listItem}
-
             </div>
-
           </DialogContent>
-
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Close

@@ -8,8 +8,8 @@ import {
   Tab
 } from '@material-ui/core';
 import { AccountBox } from '@material-ui/icons';
-import UserSettings from './AccountElements/UserSettings';
-import UserOrders from './AccountElements/UserOrders';
+import UserSettings from './AccountComponents/UserSettings';
+import UserOrders from './AccountComponents/UserOrders';
 
 const styles = {
   tabStyle: {

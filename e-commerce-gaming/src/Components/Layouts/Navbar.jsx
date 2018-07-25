@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
-import Login from './NavbarElements/Login';
-import Register from './NavbarElements/Register';
-import SearchBar from './NavbarElements/SearchBar';
-import ShoppingCart from './NavbarElements/ShoppingCart';
-import Logout from './NavbarElements/Logout';
-import UserAccount from './NavbarElements/UserAccount';
+import Login from './NavbarComponents/Login';
+import Register from './NavbarComponents/Register';
+import SearchBar from './NavbarComponents/SearchBar';
+import ShoppingCart from './NavbarComponents/ShoppingCart';
+import Logout from './NavbarComponents/Logout';
+import UserAccount from './NavbarComponents/UserAccount';
 import { AppBar, Toolbar, Typography, Snackbar } from '@material-ui/core';
 
 const styles = {

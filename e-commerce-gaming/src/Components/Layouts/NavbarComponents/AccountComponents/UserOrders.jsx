@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Select, MenuItem } from '@material-ui/core';
-import OrderCard from './OrderElements/OrderCard';
+import OrderCard from './OrderComponents/OrderCard';
 
 const orders = [
   {
