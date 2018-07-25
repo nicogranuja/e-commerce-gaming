@@ -1,4 +1,4 @@
-export const consoles = ["xbox one", "ps4", "nintendo", "computer", "gameboy"];
+export const consoles = ["xbox one", "ps4", "nintendo", "computer", "gameboy", "handheld"];
 export const games = [
     {
         id: "forza-horizon-4-xboxone",
@@ -10,13 +10,13 @@ export const games = [
         id: "far-cry-4-ps4",
         title: "Far Cry 4",
         description: "REVOLUTIONARY OPEN WORLD CO-OP: Far Cry 4 allows for a second player to drop in and out at any point, re-imagining the cooperative experience in the true spirit of Far Cry for the next generation.",
-        console: "PS4"
+        console: "ps4"
       },
       {
         id: "far-cry-5-ps4",
         title: "Far Cry 5",
         description: "Fan the flames of resistance and fight to free Hope County from the grip of a deadly cult in the newest installment of the Far Cry series.",
-        console: "PS4"
+        console: "ps4"
       },
       {
         id: "sim4",

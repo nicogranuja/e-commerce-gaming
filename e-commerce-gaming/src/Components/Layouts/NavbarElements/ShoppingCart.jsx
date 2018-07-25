@@ -1,4 +1,6 @@
 import React from 'react';
+import store from './../../../Reducers/ItemsReducer'
+import { connect } from 'react-redux'
 import { 
   Button, 
   TextField, 
@@ -26,9 +28,20 @@ class ShoppingCart extends React.Component {
     this.setState({ open: false });
   };
 
+
   render() {
+    const items = this.props.states.addToCartReducer.items;
+
+    const listItem = items.map((item) =>
+        <div>
+          {item.item} - {item.price}
+        </div>
+    )
+   
+    
     let styles = this.props.styles;
     return (
+
       <div>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
             Cart
@@ -44,8 +57,14 @@ class ShoppingCart extends React.Component {
             <DialogContentText>
               Shopping Cart Items List
             </DialogContentText>
-            <TextField autoFocus margin="dense" id="test" label="Placeholder" type="text" fullWidth/>
+
+            <div>
+              {listItem}
+
+            </div>
+
           </DialogContent>
+
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
               Close
@@ -60,4 +79,8 @@ class ShoppingCart extends React.Component {
   }
 }
 
-export default ShoppingCart;
+function mapStateToProps(state) {
+  return { states: state };
+}
+
+export default connect(mapStateToProps)(ShoppingCart);

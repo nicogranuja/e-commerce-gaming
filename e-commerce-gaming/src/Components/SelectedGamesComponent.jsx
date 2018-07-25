@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import FLOW_STATE from '../Constants/flowstates'
 import BUTTON_STATE from '../Constants/buttonStates'
 import {mainPageState} from '../Actions/MainPageAction'
-
+import games from '../gamesList.json'
+import GameGrid from './GameGrid'
 
 
 
@@ -15,35 +16,70 @@ class SelectedGamesComponent extends React.Component {
 
             return (
                 <div>
-                                    Inside the computer pages.
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                            if(game.console == "computer"){
+                                return game;
+                            }
+                        })}
+                    />
+
                 </div>
             )
         }
         if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON ) {
             return(
                 <div>
-                            Inside Hand Held Page.
-                    </div>
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                            if(game.console == "hand held"){
+                                return game;
+                            }
+                        })}
+                    />
+
+                </div>
             )
         }
         if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON) {
             return(
                 <div>
-                                    Inside the nintendo page.
+                    <GameGrid
+                                GameList={games.filter(function(game){
+                                    if(game.console == "nintendo"){
+                                        return game;
+                                    }
+                                })}
+                            />
+
                 </div>
             )
         }
         if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON ) {
             return(
                 <div>
-                                    Inside Xbox page
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                            if(game.console == "xbox one"){
+                                return game;
+                            }
+                        })}
+                    />
+
                 </div>
             )
         }
         if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON ) {
             return(
                 <div>
-                                    Inside the ps4 page.
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                            if(game.console == "PS4"){
+                                return game;
+                            }
+                        })}
+                    />
+                                    I
                 </div>
             )
         }
@@ -85,8 +121,8 @@ class SelectedGamesComponent extends React.Component {
         if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return (
                 <div>
+                    <GameGrid GameList={games}/>
 
-                    Inside the main page.
                 </div>
             )
         }

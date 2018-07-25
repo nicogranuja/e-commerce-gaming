@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import {connect } from 'react-redux'
-import {rpgClick,shooterClick,sportsClick,strategyClick,adventureClick} from './../Actions/GenreButtonAction'
+import {rpgClick,shooterClick,sportsClick,strategyClick,adventureClick, racingClick} from './../Actions/GenreButtonAction'
 import GENRESTATE from './../Constants/genreButtonStates'
 
 class GenreButtons extends React.Component {
@@ -31,6 +31,10 @@ class GenreButtons extends React.Component {
                     <Divider light />
                     <ListItem button onClick={this.props.adventureClick} >
                         <ListItemText primary="Action-Adventure" />
+                    </ListItem>
+                    <Divider light />
+                    <ListItem button onClick={this.props.racingClick} >
+                        <ListItemText primary="Racing" />
                     </ListItem>
                     <Divider light />
                 </List>
