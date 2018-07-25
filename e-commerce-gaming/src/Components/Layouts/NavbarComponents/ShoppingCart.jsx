@@ -3,7 +3,6 @@ import store from './../../../Reducers/ItemsReducer'
 import { connect } from 'react-redux'
 import { 
   Button, 
-  TextField, 
   Dialog, 
   DialogActions, 
   DialogContent, 
@@ -11,12 +10,13 @@ import {
   DialogTitle
 } from '@material-ui/core';
 import { ShoppingCart as ShoppinCartIcon } from '@material-ui/icons';
+import GamesTable from './ShoppingCartComponents/GamesTable';
 
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: true
     };
   }
 
@@ -31,13 +31,6 @@ class ShoppingCart extends React.Component {
 
   render() {
     const items = this.props.states.addToCartReducer.items;
-
-    const listItem = items.map((item) =>
-        <div>
-          {item.item} - {item.price}
-        </div>
-    );
-   
     let styles = this.props.styles;
     return (
       <div>
@@ -49,15 +42,11 @@ class ShoppingCart extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
+          fullWidth
         >
           <DialogTitle id="form-dialog-title">Shopping Cart</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              Shopping Cart Items List
-            </DialogContentText>
-            <div>
-              {listItem}
-            </div>
+            <GamesTable itemObjects={items}/>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
