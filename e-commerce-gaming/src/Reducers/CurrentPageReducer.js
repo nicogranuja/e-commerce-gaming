@@ -15,9 +15,6 @@ function CurrentPageReducer(state = flowState.MAINPAGE, action) {
         case 'CART_PAGE_ACTION':
             newState = action.click;
             return newState;
-        case 'SEARCH_PAGE_ACTION':
-            newState = action.click;
-            return newState;
         default :
 
             return state;

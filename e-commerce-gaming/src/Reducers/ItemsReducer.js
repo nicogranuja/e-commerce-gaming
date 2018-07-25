@@ -14,8 +14,7 @@ function addToCartReducer(state = initialState, action) {
             }
         
         default :
-            console.log("The action type below is ")
-            console.log(action.type);
+            
             return state;
     }
 }
