@@ -24,7 +24,6 @@ class GamesTable extends React.Component {
 
   render () {
     const itemObjects = this.props.itemObjects;
-    console.log(this.props);
     return (
       <Paper style={styles.root}>
         <Table style={styles.table}>

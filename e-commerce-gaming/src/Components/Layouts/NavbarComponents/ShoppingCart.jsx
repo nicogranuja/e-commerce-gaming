@@ -4,13 +4,10 @@ import { connect } from 'react-redux'
 import { 
   Button, 
   Dialog, 
-  DialogActions, 
   DialogContent, 
-  DialogContentText, 
-  DialogTitle
 } from '@material-ui/core';
 import { ShoppingCart as ShoppinCartIcon } from '@material-ui/icons';
-import GamesTable from './ShoppingCartComponents/GamesTable';
+import CartProgress from './ShoppingCartComponents/CartProgress';
 
 class ShoppingCart extends React.Component {
   constructor(props) {
@@ -28,7 +25,6 @@ class ShoppingCart extends React.Component {
     this.setState({ open: false });
   };
 
-
   render() {
     const items = this.props.states.addToCartReducer.items;
     let styles = this.props.styles;
@@ -44,18 +40,13 @@ class ShoppingCart extends React.Component {
           aria-labelledby="form-dialog-title"
           fullWidth
         >
-          <DialogTitle id="form-dialog-title">Shopping Cart</DialogTitle>
           <DialogContent>
-            <GamesTable itemObjects={items}/>
+            {/* {items.length > 0 ?
+              <CartProgress itemObjects={items} closeDialog={this.handleClose} />
+            : 'Shopping cart is empty. Add items by clicking on the ADD button'
+            } */}
+            <CartProgress itemObjects={items} closeDialog={this.handleClose} />
           </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Close
-            </Button>
-            <Button onClick={this.handleClose} color="primary" variant="contained">
-              Checkout
-            </Button>
-          </DialogActions>
         </Dialog>
       </div>
     );
