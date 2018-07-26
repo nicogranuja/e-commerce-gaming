@@ -4,8 +4,10 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import GamesTable from './GamesTable';
 import UserPaymentInfo from './UserPaymentInfo';
+import PaymentReviewInfo from './PaymentReviewInfo';
 
 const styles = {
   root: {
@@ -15,6 +17,11 @@ const styles = {
     float: 'right',
     marginLeft: 5
   },
+  progress: {
+    position: 'absolute',
+    left: '50%',
+    top: '50%'
+  }
 };
 
 let getSteps = () => {
@@ -24,6 +31,8 @@ let getSteps = () => {
 class CartProgress extends React.Component {
   state = {
     activeStep: 0,
+    email: 'jdoe@email.com',
+    showProgress: true
   };
 
   handleNext = () => {
@@ -33,7 +42,9 @@ class CartProgress extends React.Component {
     });
 
     if (activeStep == getSteps().length -1) {
-      // this.showProcessingPaymentLoader();
+      setTimeout(() => {
+        this.setState({ showProgress: false });
+      }, 2000);
     }
   };
 
@@ -73,7 +84,14 @@ class CartProgress extends React.Component {
           {activeStep === steps.length ? (
             <div>
               <Typography style={styles.instructions}>
-                Thanks for shopping with us, we will email you the tracking number once we ship your order.
+                {this.state.showProgress ? 
+                  <CircularProgress style={styles.progress} size={50} /> :
+                  <div>
+                    Thanks for shopping with us, we will email to 
+                    <span style={{fontWeight: 'bold'}}> {this.state.email} </span>
+                    which should contain the tracking number once we ship your order.
+                  </div>
+                }
               </Typography>
               <Button onClick={this.handleReset} style={styles.button}>
                 Done
@@ -88,7 +106,7 @@ class CartProgress extends React.Component {
                 <UserPaymentInfo />
               }
               {this.state.activeStep == 2 && 
-                'Review total and confirm'
+                <PaymentReviewInfo itemObjects={itemObjects}/>
               }
               <div style={{ marginTop: 30 }}>
                 <Button

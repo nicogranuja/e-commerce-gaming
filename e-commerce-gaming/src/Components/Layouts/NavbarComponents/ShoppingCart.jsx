@@ -13,7 +13,7 @@ class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: true
+      open: false
     };
   }
 
@@ -41,11 +41,10 @@ class ShoppingCart extends React.Component {
           fullWidth
         >
           <DialogContent>
-            {/* {items.length > 0 ?
+            {items.length > 0 ?
               <CartProgress itemObjects={items} closeDialog={this.handleClose} />
             : 'Shopping cart is empty. Add items by clicking on the ADD button'
-            } */}
-            <CartProgress itemObjects={items} closeDialog={this.handleClose} />
+            }
           </DialogContent>
         </Dialog>
       </div>

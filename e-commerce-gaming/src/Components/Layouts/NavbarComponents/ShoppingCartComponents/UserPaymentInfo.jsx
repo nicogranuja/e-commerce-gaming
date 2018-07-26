@@ -28,7 +28,7 @@ class UserPaymentInfo extends React.Component {
         />
         <TextField
           value={this.state.name}
-          margin="dense" id="credit-card" label="Name on Card" type="text" required fullWidth
+          margin="dense" id="name-card" label="Name on Card" type="text" required fullWidth
         />
         <TextField
           value={this.state.creditCardNumber}
@@ -43,7 +43,7 @@ class UserPaymentInfo extends React.Component {
         />
         <TextField
           value={this.state.cvv}
-          margin="dense" id="credit-card" label="CVV" type="password" required fullWidth
+          margin="dense" id="cvv" label="CVV" type="password" required fullWidth
           style={{ marginLeft: 20, width: 200 }}
         />
       </div>
