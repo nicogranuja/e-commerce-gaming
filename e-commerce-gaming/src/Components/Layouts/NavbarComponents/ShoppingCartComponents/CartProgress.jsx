@@ -5,6 +5,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import GamesTable from './GamesTable';
+import UserPaymentInfo from './UserPaymentInfo';
 
 const styles = {
   root: {
@@ -84,7 +85,7 @@ class CartProgress extends React.Component {
                 <GamesTable itemObjects={itemObjects}/>
               }
               {this.state.activeStep == 1 && 
-                'Shipping address payment method'
+                <UserPaymentInfo />
               }
               {this.state.activeStep == 2 && 
                 'Review total and confirm'
