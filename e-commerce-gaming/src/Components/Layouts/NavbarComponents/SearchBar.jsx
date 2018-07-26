@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Search } from '@material-ui/icons';
 import { TextField, InputAdornment } from '@material-ui/core';
 import {connect } from 'react-redux'
-import {searchPageState} from './../../../Actions/MainPageAction'
+import {searchPageState} from './../../../Actions/SearchAction'
+import { searchMainState } from './../../../Actions/MainPageAction'
 import PAGESTATE from './../../../Constants/flowstates'
 
 const styles = {
@@ -16,14 +18,27 @@ const styles = {
 }
 
 class SearchBar extends React.Component {
+
+
+  handleChange = search => event => {
+    this.props.searchPageState({
+      [search]: event.target.value,
+    });
+  };
+
   render() {
+  console.log("The search state is ")
+    console.log(this.props)
     return(
+
       <TextField
-        style={styles.searchText}
-        placeholder='Search'
+          onChange={this.handleChange('name')}
+          style={styles.searchText}
+          placeholder='Search'
+
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start" onClick={this.props.searchPageState}>
+            <InputAdornment onClick={this.props.searchMainState} position="start" >
               <Search />
             </InputAdornment>
           )
@@ -33,17 +48,16 @@ class SearchBar extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
- 
-  return {
-    state: state,
-  };
+SearchBar.propTypes = {
+  search: PropTypes.string.isRequired
 };
+
+
 
 function mapDispatchToProps(dispatch) {
   return {
-    searchPageState: () => dispatch(searchPageState(PAGESTATE.SEARCH)),
-
+    searchPageState: (click) => dispatch(searchPageState(click)),
+    searchMainState: () => dispatch(searchMainState("SEARCH_ACTION")),
 
 
   }

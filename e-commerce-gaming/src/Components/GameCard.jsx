@@ -86,7 +86,8 @@ class GameCard extends React.Component{
 }
 
 GameCard.propTypes = {
-  classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired, 
+    
 };
 
 function mapDispatchToProps(dispatch) {

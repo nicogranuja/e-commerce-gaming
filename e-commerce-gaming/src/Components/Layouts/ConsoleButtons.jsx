@@ -5,6 +5,7 @@ import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick } 
 import FLOW_STATE from '../../Constants/buttonStates'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import {mainPageState} from './../../Actions/MainPageAction'
 
 
 const style = {
@@ -39,7 +40,8 @@ class ConsoleButtons extends React.Component {
 				textColor="primary"
 				fullWidth
 			>
-				<Button  variant="outlined" color="primary" label="Xbox One"  color="inherit" style={style.button}  onClick={this.props.xBoxClick}>
+				<Button  variant="outlined" color="primary" label="Xbox One"  color="inherit" style={style.button}
+						 onClick={this.props.xBoxClick} >
 					Xbox One
 				</Button>
 				<Button  variant="outlined" color="primary" label="PS 4" color="inherit" style={style.button} onClick={this.props.playStationClick}>
@@ -81,6 +83,7 @@ function mapDispatchToProps(dispatch) {
 		nintendoClick: () => dispatch(nintendoClick(FLOW_STATE.NINTENDOBUTTON)),
 		computerClick: () => dispatch(computerClick(FLOW_STATE.COMPUTERPAGEBUTTON)),
 		handHeldClick: () => dispatch(handHeldClick(FLOW_STATE.HANDHELDPAGEBUTTON)),
+		
 
 	}
 }
