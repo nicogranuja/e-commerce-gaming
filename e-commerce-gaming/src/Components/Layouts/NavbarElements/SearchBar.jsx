@@ -4,6 +4,7 @@ import { Search } from '@material-ui/icons';
 import { TextField, InputAdornment } from '@material-ui/core';
 import {connect } from 'react-redux'
 import {searchPageState} from './../../../Actions/SearchAction'
+import { searchMainState } from './../../../Actions/MainPageAction'
 import PAGESTATE from './../../../Constants/flowstates'
 
 const styles = {
@@ -37,7 +38,7 @@ class SearchBar extends React.Component {
 
         InputProps={{
           startAdornment: (
-            <InputAdornment position="start" >
+            <InputAdornment onClick={this.props.searchMainState} position="start" >
               <Search />
             </InputAdornment>
           )
@@ -56,7 +57,7 @@ SearchBar.propTypes = {
 function mapDispatchToProps(dispatch) {
   return {
     searchPageState: (click) => dispatch(searchPageState(click)),
-
+    searchMainState: () => dispatch(searchMainState("SEARCH_ACTION")),
 
 
   }

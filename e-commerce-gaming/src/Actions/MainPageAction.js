@@ -28,3 +28,10 @@ export  function cartPageState(click) {
     }
 }
 
+export  function searchMainState(click) {
+    return {
+        type: 'SEARCH_ACTION',
+        click
+    }
+}
+

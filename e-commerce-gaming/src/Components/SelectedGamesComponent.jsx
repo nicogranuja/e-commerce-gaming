@@ -8,17 +8,24 @@ import GameGrid from './GameGrid'
 
 
 
+
 class SelectedGamesComponent extends React.Component {
 
 
     render() {
-        if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON ) {
+
+        const wordSearch = this.props.state.searchState.name;
+
+
+        if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
 
             return (
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
+
                             if(game.console == "computer"){
+
                                 return game;
                             }
                         })}
@@ -27,7 +34,7 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
-        if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON ) {
+        if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
             return(
                 <div>
                     <GameGrid
@@ -41,7 +48,7 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
-        if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON) {
+        if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
             return(
                 <div>
                     <GameGrid
@@ -55,7 +62,7 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
-        if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON ) {
+        if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
             return(
                 <div>
                     <GameGrid
@@ -69,7 +76,7 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
-        if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON ) {
+        if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
             return(
                 <div>
                     <GameGrid
@@ -83,6 +90,35 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
+
+        if(this.props.state.currentPageState === FLOW_STATE.SEARCH ) {
+
+
+            return (
+
+                <div>
+
+                    <GameGrid
+                        GameList={games.filter(function(game){
+
+                            if(game.title == wordSearch){
+
+                                return game;
+                            }
+                        })}
+                    />
+
+
+                </div>
+
+            )
+
+
+
+
+
+        }
+
         if(this.props.state.currentPageState === FLOW_STATE.REGISTER) {
             return (
                 <div>
@@ -90,13 +126,7 @@ class SelectedGamesComponent extends React.Component {
                 </div>
             )
         }
-        if(this.props.state.currentPageState === FLOW_STATE.SEARCH) {
-            return (
-                <div>
-                    Looks like we are trying to do a search.
-                </div>
-            )
-        }
+
         if(this.props.state.currentPageState === FLOW_STATE.LOGIN) {
             return (
                 <div>
