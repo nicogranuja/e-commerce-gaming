@@ -6,6 +6,9 @@ function CurrentButtonReducer(state = {}, action) {
     console.log(state)
 
     switch(action.type) {
+        case 'ALL_GAMES_BUTTON_SELECTED':
+            newState = action.click;
+            return newState;
         case 'XBOX_BUTTON_SELECTED':
             newState = action.click;
             return newState;

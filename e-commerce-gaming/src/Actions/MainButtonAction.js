@@ -1,4 +1,11 @@
+export function allGamesClick(click) {
 
+    return {
+        type: 'ALL_GAMES_BUTTON_SELECTED',
+        click
+
+    }
+}
 
 export function xBoxClick(click) {
     

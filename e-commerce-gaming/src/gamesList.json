@@ -102,7 +102,7 @@
         "id": 12,
         "title": "BioShock: The Collection",
         "description": "BioShock: The Collection contains all single-player content from BioShock, BioShock 2, and BioShock Infinite, all single-player add-on content, the “Columbia’s Finest” pack, and Director’s Commentary: Imagining BioShock, featuring Ken Levine and Shawn Robertson.",
-        "console": "PS4",
+        "console": "xbox one",
         "price": "$59.99",
         "genre": "Shooter",
         "url": "https://images-na.ssl-images-amazon.com/images/I/51Tmebbt9ZL.jpg"
@@ -224,7 +224,7 @@
         "id": 25,
         "title": "LEGO Star Wars: The Force Awakens",
         "description": "The No. 1 LEGO® videogame franchise triumphantly returns with a fun-filled, humorous journey based on the blockbuster Star Wars film.",
-        "console": "nintendo",
+        "console": "PS4",
         "price": "$19.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/91RCJtQuDlL._AC_SL1500_.jpg"
