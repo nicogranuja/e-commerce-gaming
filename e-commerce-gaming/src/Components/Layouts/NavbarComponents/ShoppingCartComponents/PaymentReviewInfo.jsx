@@ -21,7 +21,7 @@ class PaymentReviewInfo extends React.Component {
   calculateTotalAmount = () => {
     let total = 0;
     let items = this.props.itemObjects;
-    items.map(item=> {
+    items.map(item => {
       total += parseFloat(item.price.slice(1, item.price.length));
     })
     this.setState({ total: total });
@@ -33,7 +33,6 @@ class PaymentReviewInfo extends React.Component {
   
   render() {
     const itemObjects = this.props.itemObjects;
-    console.log('items objects', itemObjects);
     return (
       <Paper elevation={2}>
         <Typography style={{marginLeft: 15}} variant="body2" gutterBottom>

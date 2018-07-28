@@ -3,9 +3,6 @@ import { Tabs, Tab } from '@material-ui/core';
 import { connect } from 'react-redux'
 import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick, allGamesClick } from '../../Actions/MainButtonAction';
 import FLOW_STATE from '../../Constants/buttonStates'
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import {mainPageState} from './../../Actions/MainPageAction'
 
 const tabStyle = {
 	Tabs: {
