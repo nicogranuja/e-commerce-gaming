@@ -169,10 +169,17 @@ class Register extends React.Component {
     this.props.onLoginStatusChange(true, message);
   };
 
+  handleKeyPress = (e) => {
+    // Enter key pressed
+    if (e.charCode == 13) {
+      this.handleRegister(e);
+    }
+  };
+
   render() {
     let styles = this.props.styles;
     return (
-      <div>
+      <div onKeyPress={this.handleKeyPress}>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
           Register
           <SupervisorAccount style={styles.icon} />
