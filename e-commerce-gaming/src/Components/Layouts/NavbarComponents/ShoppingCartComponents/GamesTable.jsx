@@ -7,7 +7,8 @@ import {
   TableRow,
   Paper,
   Select,
-  MenuItem
+  MenuItem,
+  Button
 } from '@material-ui/core';
 
 const styles = {
@@ -18,7 +19,14 @@ const styles = {
   table: {
     width: '100%',
     minWidth: 700,
+  },
+  totalButton: { 
+    float: 'right',
+    pointerEvents: 'none', 
+    cursor: 'initial', 
+    width: '100%'
   }
+
 };
 
 class GamesTable extends React.Component {
@@ -51,6 +59,17 @@ class GamesTable extends React.Component {
     let priceFloat = parseFloat(price.slice(1, price.length));
     let total = priceFloat * this.state.selectedNumberOfItemsPerGame[itemIndex];
     return '$' + total.toFixed(2);
+  };
+
+  getTotalPrice = () => {
+    let totalPrice = 0;
+    for (let i = 0; i < this.props.itemObjects.length; i++) {
+      let price = this.props.itemObjects[i].price;
+      let priceFloat = parseFloat(price.slice(1, price.length));
+      let totalForGame = priceFloat * this.state.selectedNumberOfItemsPerGame[i];
+      totalPrice += totalForGame;
+    }
+    return totalPrice;
   };
 
   render () {
@@ -92,6 +111,9 @@ class GamesTable extends React.Component {
             })}
           </TableBody>
         </Table>
+        <Button variant="contained" size="medium" style={styles.totalButton} color="default">
+          <div style={{ position: 'absolute',  left: 845 }}>${this.getTotalPrice()}</div>
+        </Button>
       </Paper>
     );
   }
