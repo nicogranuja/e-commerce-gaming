@@ -1,10 +1,14 @@
 import React from 'react';
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper,
+  Select,
+  MenuItem
+} from '@material-ui/core';
 
 const styles = {
   root: {
@@ -20,7 +24,34 @@ const styles = {
 class GamesTable extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectedNumberOfItemsPerGame: []
+    }
   }
+
+  handleSelectChange = (itemIndex, e) => {
+    let arr = this.state.selectedNumberOfItemsPerGame;
+    arr[itemIndex] = e.target.value;
+    this.setState({ selectedNumberOfItemsPerGame: arr });
+  };
+
+  componentWillMount = () => {
+    this.createEmptyNumberOfGamesArr()
+  };
+
+  createEmptyNumberOfGamesArr = () => {
+    let arr = [];
+    for (let i = 0; i < this.props.itemObjects.length; i++) {
+      arr.push(1);
+    }
+    this.setState({ selectedNumberOfItemsPerGame: arr });
+  };
+
+  getPriceBasedOnTotalItems = (price, itemIndex) => {
+    let priceFloat = parseFloat(price.slice(1, price.length));
+    let total = priceFloat * this.state.selectedNumberOfItemsPerGame[itemIndex];
+    return '$' + total.toFixed(4);
+  };
 
   render () {
     const itemObjects = this.props.itemObjects;
@@ -43,8 +74,19 @@ class GamesTable extends React.Component {
                     {item.item}
                   </TableCell>
                   <TableCell numeric>{item.price}</TableCell>
-                  <TableCell numeric> 1 </TableCell>
-                  <TableCell numeric> {item.price} </TableCell>
+                  <TableCell numeric> 
+                    <Select
+                      value={this.state.selectedNumberOfItemsPerGame[i]}
+                      onChange={ (e) => this.handleSelectChange(i, e)}
+                    >
+                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={2}>2</MenuItem>
+                      <MenuItem value={3}>3</MenuItem>
+                      <MenuItem value={4}>4</MenuItem>
+                      <MenuItem value={5}>5</MenuItem>
+                    </Select>
+                  </TableCell>
+                  <TableCell numeric> {this.getPriceBasedOnTotalItems(item.price, i)} </TableCell>
                 </TableRow>
               );
             })}

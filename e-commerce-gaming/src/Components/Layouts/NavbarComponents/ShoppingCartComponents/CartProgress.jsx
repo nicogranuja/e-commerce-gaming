@@ -11,7 +11,7 @@ import PaymentReviewInfo from './PaymentReviewInfo';
 
 const styles = {
   root: {
-    width: '100%',
+    width: '100%'    
   },
   button: {
     float: 'right',
@@ -29,11 +29,14 @@ let getSteps = () => {
 };
 
 class CartProgress extends React.Component {
-  state = {
-    activeStep: 0,
-    email: 'jdoe@email.com',
-    showProgress: true
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeStep: 0,
+      email: 'jdoe@email.com',
+      showProgress: true
+    };
+  }
 
   handleNext = () => {
     const { activeStep } = this.state;

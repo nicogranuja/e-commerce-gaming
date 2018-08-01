@@ -37,7 +37,7 @@ class ShoppingCart extends React.Component {
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
+          maxWidth='md'
           fullWidth
         >
           <DialogContent>
