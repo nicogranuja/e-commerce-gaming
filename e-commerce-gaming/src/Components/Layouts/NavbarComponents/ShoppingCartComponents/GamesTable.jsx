@@ -50,7 +50,7 @@ class GamesTable extends React.Component {
   getPriceBasedOnTotalItems = (price, itemIndex) => {
     let priceFloat = parseFloat(price.slice(1, price.length));
     let total = priceFloat * this.state.selectedNumberOfItemsPerGame[itemIndex];
-    return '$' + total.toFixed(4);
+    return '$' + total.toFixed(2);
   };
 
   render () {
