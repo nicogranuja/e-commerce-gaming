@@ -11,7 +11,7 @@ const styles = {
   searchText: {
     padding: 2,
     marginRight: 10,
-    right: 370,
+    right: 490,
     position: 'absolute',
     backgroundColor: 'white'
   }

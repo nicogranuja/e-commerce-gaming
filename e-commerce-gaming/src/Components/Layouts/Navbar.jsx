@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Login from './NavbarComponents/Login';
 import Register from './NavbarComponents/Register';
+import FAQ from './NavbarComponents/FAQ';
 import SearchBar from './NavbarComponents/SearchBar';
 import ShoppingCart from './NavbarComponents/ShoppingCart';
 import Logout from './NavbarComponents/Logout';
@@ -63,7 +64,7 @@ class Navbar extends Component {
           <Toolbar>
             <Typography variant="title" color="inherit" style={styles.title}>
               Swagoo - The Worlds Okayest Online Gaming Retailer
-            </Typography>
+            </Typography>          
             <SearchBar />
             <ShoppingCart styles={styles}/>
             {!this.state.userIsLoggedIn ? (
@@ -87,6 +88,9 @@ class Navbar extends Component {
                 />
               </Fragment>
             )}
+             <Fragment>
+              <FAQ styles={styles}/>
+              </Fragment>
           </Toolbar>
           <Snackbar
             open={this.state.openSnackbarMessage}
