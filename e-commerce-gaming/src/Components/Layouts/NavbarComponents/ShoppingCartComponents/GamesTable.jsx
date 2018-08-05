@@ -10,6 +10,7 @@ import {
   MenuItem,
   Button
 } from '@material-ui/core';
+import { RemoveCircle } from '@material-ui/icons';
 
 const styles = {
   root: {
@@ -25,8 +26,18 @@ const styles = {
     pointerEvents: 'none', 
     cursor: 'initial', 
     width: '100%'
+  },
+  deleteButton: {
+    display: 'inline',
+    position: 'relative',
+    color: 'red',
+    cursor: 'pointer',
+    top: 7,
+    left: -10
+  },
+  gameItem: {
+    display: 'inline'
   }
-
 };
 
 class GamesTable extends React.Component {
@@ -72,6 +83,10 @@ class GamesTable extends React.Component {
     return totalPrice.toFixed(2);
   };
 
+  handleRemoveGameFromCard = (gameIndex) => {
+    console.log('clicked remove index', gameIndex);
+  };
+
   render () {
     const itemObjects = this.props.itemObjects;
     
@@ -91,7 +106,12 @@ class GamesTable extends React.Component {
               return (
                 <TableRow key={i}>
                   <TableCell>
-                    {item.title}
+                    <div style={styles.deleteButton} onClick={() => this.handleRemoveGameFromCard(i)}>
+                      <RemoveCircle />
+                    </div>
+                    <div style={styles.gameItem}>
+                      {item.title}
+                    </div>
                   </TableCell>
                   <TableCell numeric>{item.price}</TableCell>
                   <TableCell numeric> 
