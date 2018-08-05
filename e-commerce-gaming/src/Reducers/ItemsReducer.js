@@ -21,6 +21,13 @@ let addToCartReducer = (state = initialState, action) => {
           items: [...state.items, action.item]
         }
       }
+      break;
+    case 'REMOVE_ITEM':
+      state.items.splice(action.index, 1);
+      return {
+        ...state,
+        items: [...state.items]
+      }
   }
   return state;
 }

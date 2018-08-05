@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import Table from '@material-ui/core/Table';
 import {
   TableBody,
@@ -11,6 +12,7 @@ import {
   Button
 } from '@material-ui/core';
 import { RemoveCircle } from '@material-ui/icons';
+import { removeItem } from '../../../../Actions/RemoveItemsFromCart';
 
 const styles = {
   root: {
@@ -84,7 +86,7 @@ class GamesTable extends React.Component {
   };
 
   handleRemoveGameFromCard = (gameIndex) => {
-    console.log('clicked remove index', gameIndex);
+    this.props.removeItem(gameIndex);
   };
 
   render () {
@@ -140,4 +142,10 @@ class GamesTable extends React.Component {
   }
 }
 
-export default GamesTable;
+let mapStateToProps = (dispatch) => {
+  return {
+    removeItem: (itemIndex) => dispatch(removeItem(itemIndex)) 
+  }
+};
+
+export default connect(null, mapStateToProps)(GamesTable);
