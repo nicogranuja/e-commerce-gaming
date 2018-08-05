@@ -10,7 +10,7 @@ function addToCartReducer(state = initialState, action) {
         case 'ADD_ITEM':
             return {
                 ...state,
-                items: [...state.items,{item:action.addItem,price:action.price}]
+                items: [...state.items, action.item]
             }
         
         default :

@@ -12,44 +12,47 @@ import {Grid} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
 import {Add, Info} from '@material-ui/icons';
 import { addItem } from '../Actions/AddItemsToCart';
-const styles = {
-    card: {
-      position: 'relative',
-      marginTop: '2%',
-      marginRight: '1%',
-      width: '25%',
-      borderRadius: '3%'
-    },
-    img: {
-      width: '100%',
-      height: 'auto'
-    },
-    media: {
-      width: '100%',
-      maxWidth:'100%',
-    },
-    button: {
-      position: 'absolute',
-      bottom: 5,
-      backgroundColor: '#1D8BF1',
-      color: '#FFF',
-      width: '40%'
-    },
 
-  }
+const styles = {
+  card: {
+    position: 'relative',
+    marginTop: '2%',
+    marginRight: '1%',
+    width: '25%',
+    borderRadius: '3%'
+  },
+  img: {
+    width: '100%',
+    height: 'auto'
+  },
+  media: {
+    width: '100%',
+    maxWidth:'100%',
+  },
+  button: {
+    position: 'absolute',
+    bottom: 5,
+    backgroundColor: '#1D8BF1',
+    color: '#FFF',
+    width: '40%'
+  },
+};
 
 class GameCard extends React.Component{
 
-    handleClick = () => {
-        this.props.addItem(this.props.Title,this.props.price);
-
+  handleClick = () => {
+    let itemObj = {
+      title: this.props.Title,
+      price: this.props.price,
+      url: this.props.imgURL
     }
+    this.props.addItem(itemObj);
+  }
 
   render() {
-  const classes = this.props;
-      
-  return (
-    //<div >
+    const classes = this.props;    
+  
+    return (
       <Card className={classes.classes.card}>
         <CardMedia className={classes.classes.media}>
           <img src={classes.imgURL} className={classes.classes.img}/>
@@ -81,22 +84,18 @@ class GameCard extends React.Component{
           </Grid>
         </CardActions>
       </Card>
-  );
-}
+    );
+  }
 }
 
 GameCard.propTypes = {
-    classes: PropTypes.object.isRequired, 
-    
+  classes: PropTypes.object.isRequired, 
 };
 
 function mapDispatchToProps(dispatch) {
     return {
-        addItem: (title,price) => dispatch(addItem(title,price))
-
-
+      addItem: (item) => dispatch(addItem(item))
     }
 }
 
-export default compose(withStyles(styles),
-    connect(null,mapDispatchToProps))(GameCard);
+export default compose(withStyles(styles), connect(null,mapDispatchToProps))(GameCard);

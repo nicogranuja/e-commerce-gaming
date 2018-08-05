@@ -74,6 +74,7 @@ class GamesTable extends React.Component {
 
   render () {
     const itemObjects = this.props.itemObjects;
+    
     return (
       <Paper style={styles.root}>
         <Table style={styles.table}>
@@ -90,7 +91,7 @@ class GamesTable extends React.Component {
               return (
                 <TableRow key={i}>
                   <TableCell>
-                    {item.item}
+                    {item.title}
                   </TableCell>
                   <TableCell numeric>{item.price}</TableCell>
                   <TableCell numeric> 
