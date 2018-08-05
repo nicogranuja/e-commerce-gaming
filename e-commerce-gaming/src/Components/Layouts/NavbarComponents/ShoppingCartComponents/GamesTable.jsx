@@ -69,7 +69,7 @@ class GamesTable extends React.Component {
       let totalForGame = priceFloat * this.state.selectedNumberOfItemsPerGame[i];
       totalPrice += totalForGame;
     }
-    return totalPrice;
+    return totalPrice.toFixed(2);
   };
 
   render () {

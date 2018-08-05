@@ -9,6 +9,18 @@ import {
 import { ShoppingCart as ShoppinCartIcon } from '@material-ui/icons';
 import CartProgress from './ShoppingCartComponents/CartProgress';
 
+const styles = {
+  icon: {
+    marginLeft: 5,
+  },
+  itemCount: { 
+    position: 'absolute', 
+    fontSize: 10,
+    right: 17,
+    bottom: 23
+  }
+};
+
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
@@ -27,11 +39,14 @@ class ShoppingCart extends React.Component {
 
   render() {
     const items = this.props.states.addToCartReducer.items;
-    let styles = this.props.styles;
+    const moreStyles = this.props.styles;
     return (
       <div>
-        <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
+        <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={moreStyles.button}>
           Cart
+          <div style={styles.itemCount}>
+            { items.length }
+          </div>
           <ShoppinCartIcon style={styles.icon} />
         </Button>
         <Dialog
