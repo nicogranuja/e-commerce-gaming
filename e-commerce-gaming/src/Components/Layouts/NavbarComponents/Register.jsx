@@ -6,10 +6,18 @@ import {
   DialogActions, 
   DialogContent, 
   DialogContentText, 
-  DialogTitle
+  DialogTitle,
+  InputLabel,
+  Select,
+  Input,
+  MenuItem,
+  Checkbox,
+  ListItemText
 } from '@material-ui/core';
 import { SupervisorAccount } from '@material-ui/icons';
 import Cryptr from 'cryptr';
+
+const consoleGamesPreferences = [ 'Xbox One', 'PS4', 'PC', 'Nintendo', 'Hand Held' ];
 
 class Register extends React.Component {
   constructor(props) {
@@ -17,6 +25,8 @@ class Register extends React.Component {
     this.state = {
       open: false,
       name: '',
+      address: '',
+      addressErr: '',
       nameErr: false,
       username: '',
       usernameErr: false,
@@ -26,6 +36,7 @@ class Register extends React.Component {
       passwordConfirmErr: false,
       passwordHelperText: '',
       usernameHelperText: '',
+      gamePreferences: []
     };
   }
 
@@ -58,6 +69,10 @@ class Register extends React.Component {
     this.setState({ name: e.target.value });
   };
 
+  handleAddressChange = (e) => {
+    this.setState({ address: e.target.value });
+  };
+
   handleUsernameChange = (e) => {
     this.setState({ username: e.target.value });
   };
@@ -68,6 +83,10 @@ class Register extends React.Component {
 
   handlePasswordConfirmChange = (e) => {
     this.setState({ passwordConfirm: e.target.value });
+  };
+
+  handleGamesPreferencesChange = (e) => {
+    this.setState({ gamePreferences: e.target.value });
   };
 
   handleRegister = (e) => {
@@ -88,7 +107,7 @@ class Register extends React.Component {
 
   thereAreEmptyValuesInForm = () => {
     let hasEmptyValues = false;
-    let valuesToCheck = ['name', 'username', 'password', 'passwordConfirm'];
+    let valuesToCheck = ['name','address', 'username', 'password', 'passwordConfirm'];
     for (let i = 0; i < valuesToCheck.length; i++) {
       let propValue = valuesToCheck[i];
       let errorName = propValue + 'Err';
@@ -138,7 +157,7 @@ class Register extends React.Component {
     let hashedPassword = this.encryptPassword(this.state.password);
 
     // Save user with 'unique' key being user + username
-    let user = { name: this.state.name, username: this.state.username, password: hashedPassword };
+    let user = { name: this.state.name, address: this.state.address, username: this.state.username, password: hashedPassword, gamePreferences: this.state.gamePreferences };
     let key = 'user' + this.state.username;
     window.localStorage.setItem(key, JSON.stringify(user));
     this.props.updateUserObject(user);
@@ -150,10 +169,17 @@ class Register extends React.Component {
     this.props.onLoginStatusChange(true, message);
   };
 
+  handleKeyPress = (e) => {
+    // Enter key pressed
+    if (e.charCode == 13) {
+      this.handleRegister(e);
+    }
+  };
+
   render() {
     let styles = this.props.styles;
     return (
-      <div>
+      <div onKeyPress={this.handleKeyPress}>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
           Register
           <SupervisorAccount style={styles.icon} />
@@ -168,6 +194,9 @@ class Register extends React.Component {
             <TextField value={this.state.name} onChange={this.handleFullNameChange} error={this.state.nameErr} 
               autoFocus margin="dense" id="full-name" label="Full Name" type="text" required fullWidth
             />
+            <TextField value={this.state.address} onChange={this.handleAddressChange} error={this.state.addressErr} 
+              autoFocus margin="dense" id="full-address" label="Address" type="text" required fullWidth
+            />
             <TextField value={this.state.username} onChange={this.handleUsernameChange} 
               error={this.state.usernameErr} helperText={this.state.usernameHelperText}
               margin="dense" id="username-register" label="Username" type="text" required fullWidth
@@ -175,10 +204,26 @@ class Register extends React.Component {
             <TextField value={this.state.password} onChange={this.handlePasswordChange} error={this.state.passwordErr}
               margin="dense" id="password-register" label="Password" type="password" required fullWidth
             />
-            <TextField value={this.state.passwordConfirm} onChange={this.handlePasswordConfirmChange} 
+            <TextField style={{marginBottom: 20}} value={this.state.passwordConfirm} onChange={this.handlePasswordConfirmChange} 
               error={this.state.passwordConfirmErr} helperText={this.state.passwordHelperText}
               margin="dense" id="password-confirm" label="Confirm Password" type="password" required fullWidth
             />
+            <InputLabel htmlFor="select-multiple-checkbox">Game Preferences</InputLabel>
+            <Select
+              multiple
+              value={this.state.gamePreferences}
+              onChange={this.handleGamesPreferencesChange}
+              input={<Input id="select-multiple-checkbox" />}
+              renderValue={selected => selected.join(', ')}
+              fullWidth
+            >
+              {consoleGamesPreferences.map(name => (
+                <MenuItem key={name} value={name}>
+                  <Checkbox checked={this.state.gamePreferences.indexOf(name) > -1} />
+                  <ListItemText primary={name} />
+                </MenuItem>
+              ))}
+            </Select>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">

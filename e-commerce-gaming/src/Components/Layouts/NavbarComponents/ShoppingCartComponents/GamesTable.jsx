@@ -1,10 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper,
+  Select,
+  MenuItem,
+  Button
+} from '@material-ui/core';
+import { RemoveCircle } from '@material-ui/icons';
+import { removeItem } from '../../../../Actions/RemoveItemsFromCart';
 
 const styles = {
   root: {
@@ -14,16 +22,63 @@ const styles = {
   table: {
     width: '100%',
     minWidth: 700,
+  },
+  totalButton: { 
+    float: 'right',
+    pointerEvents: 'none', 
+    cursor: 'initial', 
+    width: '100%'
+  },
+  deleteButton: {
+    display: 'inline',
+    position: 'relative',
+    color: 'red',
+    cursor: 'pointer',
+    top: 7,
+    left: -10
+  },
+  gameItem: {
+    display: 'inline'
   }
 };
 
 class GamesTable extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+    }
   }
+
+  handleSelectChange = (itemIndex, e) => {
+    this.props.updateNumberOfItemsForGame(itemIndex, e.target.value);
+    this.forceUpdate();
+  };
+
+  getPriceBasedOnTotalItems = (price, itemIndex) => {
+    let priceFloat = parseFloat(price.slice(1, price.length));
+    let total = priceFloat * this.props.selectedNumberOfItemsPerGame[itemIndex];
+    return '$' + total.toFixed(2);
+  };
+
+  getTotalPrice = () => {
+    let totalPrice = 0;
+    for (let i = 0; i < this.props.itemObjects.length; i++) {
+      let price = this.props.itemObjects[i].price;
+      let priceFloat = parseFloat(price.slice(1, price.length));
+      let totalForGame = priceFloat * this.props.selectedNumberOfItemsPerGame[i];
+      totalPrice += totalForGame;
+    }
+    return totalPrice.toFixed(2);
+  };
+
+  handleRemoveGameFromCard = (gameIndex) => {
+    this.props.removeItem(gameIndex);
+  };
 
   render () {
     const itemObjects = this.props.itemObjects;
+    const selectedNumberOfItemsPerGame = this.props.selectedNumberOfItemsPerGame;
+
     return (
       <Paper style={styles.root}>
         <Table style={styles.table}>
@@ -40,19 +95,44 @@ class GamesTable extends React.Component {
               return (
                 <TableRow key={i}>
                   <TableCell>
-                    {item.item}
+                    <div style={styles.deleteButton} onClick={() => this.handleRemoveGameFromCard(i)}>
+                      <RemoveCircle />
+                    </div>
+                    <div style={styles.gameItem}>
+                      {item.title}
+                    </div>
                   </TableCell>
                   <TableCell numeric>{item.price}</TableCell>
-                  <TableCell numeric> 1 </TableCell>
-                  <TableCell numeric> {item.price} </TableCell>
+                  <TableCell numeric> 
+                    <Select
+                      value={selectedNumberOfItemsPerGame[i]}
+                      onChange={ (e) => this.handleSelectChange(i, e)}
+                    >
+                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={2}>2</MenuItem>
+                      <MenuItem value={3}>3</MenuItem>
+                      <MenuItem value={4}>4</MenuItem>
+                      <MenuItem value={5}>5</MenuItem>
+                    </Select>
+                  </TableCell>
+                  <TableCell numeric> {this.getPriceBasedOnTotalItems(item.price, i)} </TableCell>
                 </TableRow>
               );
             })}
           </TableBody>
         </Table>
+        <Button variant="contained" size="medium" style={styles.totalButton} color="default">
+          <div style={{ position: 'absolute',  left: 845 }}>${this.getTotalPrice()}</div>
+        </Button>
       </Paper>
     );
   }
 }
 
-export default GamesTable;
+let mapStateToProps = (dispatch) => {
+  return {
+    removeItem: (itemIndex) => dispatch(removeItem(itemIndex)) 
+  }
+};
+
+export default connect(null, mapStateToProps)(GamesTable);
