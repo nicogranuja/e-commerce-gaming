@@ -4,8 +4,19 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import ImageIcon from '@material-ui/icons/Image';
+
+const styles = {
+  gameImage: {
+    height: 150,
+    width: 150,
+  },
+  listContainer: {
+    display: 'grid',
+    gridGap: '20px',
+    gridTemplateColumns: '250px 250px 250px',
+    justifyContent: 'center'
+  }
+}
 
 class PaymentReviewInfo extends React.Component {
   constructor(props) {
@@ -24,7 +35,7 @@ class PaymentReviewInfo extends React.Component {
     items.map((item, index) => {
       total += parseFloat(item.price.slice(1, item.price.length)) * this.props.selectedNumberOfItemsPerGame[index];
     })
-    this.setState({ total: total });
+    this.setState({ total: total.toFixed(2) });
   }
 
   componentWillMount = () => {
@@ -50,18 +61,18 @@ class PaymentReviewInfo extends React.Component {
           <span style={{ fontWeight: 'bold' }}>Orders:</span>
         </Typography>
         <List>
-          {itemObjects.map((item, i) => {
-            return(
-              <ListItem key={i}>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
-                <ListItemText 
-                  primary={item.item}
-                  secondary={`Price: ${item.price} x${this.props.selectedNumberOfItemsPerGame[i]}`} />
-              </ListItem>
-            )
-          })}
+          <div style={styles.listContainer}>
+            {itemObjects.map((item, i) => {
+              return(
+                <ListItem key={i}>
+                  <img style={styles.gameImage} src={item.url}/>
+                  <ListItemText 
+                    primary={item.title}
+                    secondary={`Price: ${item.price} x${this.props.selectedNumberOfItemsPerGame[i]}`} />
+                </ListItem>
+              )
+            })}
+          </div>
         </List>
         <Typography style={{marginLeft: 15 }} variant="body2" gutterBottom>
           <span style={{ fontWeight: 'bold', marginRight: 104 }}>Total:</span> {`$${this.state.total}`}
