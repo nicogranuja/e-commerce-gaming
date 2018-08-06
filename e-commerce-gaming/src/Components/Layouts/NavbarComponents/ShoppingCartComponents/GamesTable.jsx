@@ -46,31 +46,17 @@ class GamesTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedNumberOfItemsPerGame: []
     }
   }
 
   handleSelectChange = (itemIndex, e) => {
-    let arr = this.state.selectedNumberOfItemsPerGame;
-    arr[itemIndex] = e.target.value;
-    this.setState({ selectedNumberOfItemsPerGame: arr });
-  };
-
-  componentWillMount = () => {
-    this.createEmptyNumberOfGamesArr()
-  };
-
-  createEmptyNumberOfGamesArr = () => {
-    let arr = [];
-    for (let i = 0; i < this.props.itemObjects.length; i++) {
-      arr.push(1);
-    }
-    this.setState({ selectedNumberOfItemsPerGame: arr });
+    this.props.updateNumberOfItemsForGame(itemIndex, e.target.value);
+    this.forceUpdate();
   };
 
   getPriceBasedOnTotalItems = (price, itemIndex) => {
     let priceFloat = parseFloat(price.slice(1, price.length));
-    let total = priceFloat * this.state.selectedNumberOfItemsPerGame[itemIndex];
+    let total = priceFloat * this.props.selectedNumberOfItemsPerGame[itemIndex];
     return '$' + total.toFixed(2);
   };
 
@@ -79,7 +65,7 @@ class GamesTable extends React.Component {
     for (let i = 0; i < this.props.itemObjects.length; i++) {
       let price = this.props.itemObjects[i].price;
       let priceFloat = parseFloat(price.slice(1, price.length));
-      let totalForGame = priceFloat * this.state.selectedNumberOfItemsPerGame[i];
+      let totalForGame = priceFloat * this.props.selectedNumberOfItemsPerGame[i];
       totalPrice += totalForGame;
     }
     return totalPrice.toFixed(2);
@@ -91,7 +77,8 @@ class GamesTable extends React.Component {
 
   render () {
     const itemObjects = this.props.itemObjects;
-    
+    const selectedNumberOfItemsPerGame = this.props.selectedNumberOfItemsPerGame;
+
     return (
       <Paper style={styles.root}>
         <Table style={styles.table}>
@@ -118,7 +105,7 @@ class GamesTable extends React.Component {
                   <TableCell numeric>{item.price}</TableCell>
                   <TableCell numeric> 
                     <Select
-                      value={this.state.selectedNumberOfItemsPerGame[i]}
+                      value={selectedNumberOfItemsPerGame[i]}
                       onChange={ (e) => this.handleSelectChange(i, e)}
                     >
                       <MenuItem value={1}>1</MenuItem>

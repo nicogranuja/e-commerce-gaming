@@ -21,18 +21,20 @@ class PaymentReviewInfo extends React.Component {
   calculateTotalAmount = () => {
     let total = 0;
     let items = this.props.itemObjects;
-    items.map(item => {
-      total += parseFloat(item.price.slice(1, item.price.length));
+    items.map((item, index) => {
+      total += parseFloat(item.price.slice(1, item.price.length)) * this.props.selectedNumberOfItemsPerGame[index];
     })
     this.setState({ total: total });
   }
 
   componentWillMount = () => {
-    this.calculateTotalAmount()
+    this.calculateTotalAmount();
   };
   
   render() {
     const itemObjects = this.props.itemObjects;
+    const selectedNumberOfItemsPerGame = this.props.selectedNumberOfItemsPerGame;
+
     return (
       <Paper elevation={2}>
         <Typography style={{marginLeft: 15}} variant="body2" gutterBottom>
@@ -45,9 +47,6 @@ class PaymentReviewInfo extends React.Component {
           <span style={{ fontWeight: 'bold', marginRight: 24 }}>Payment Method:</span> Credit Card (Visa)
         </Typography>
         <Typography style={{marginLeft: 15 }} variant="body2" gutterBottom>
-          <span style={{ fontWeight: 'bold', marginRight: 104 }}>Total:</span> {`$${this.state.total}`}
-        </Typography>
-        <Typography style={{marginLeft: 15 }} variant="body2" gutterBottom>
           <span style={{ fontWeight: 'bold' }}>Orders:</span>
         </Typography>
         <List>
@@ -57,11 +56,16 @@ class PaymentReviewInfo extends React.Component {
                 <Avatar>
                   <ImageIcon />
                 </Avatar>
-                <ListItemText primary={item.item} secondary={`Price: ${item.price}`} />
+                <ListItemText 
+                  primary={item.item}
+                  secondary={`Price: ${item.price} x${this.props.selectedNumberOfItemsPerGame[i]}`} />
               </ListItem>
             )
           })}
         </List>
+        <Typography style={{marginLeft: 15 }} variant="body2" gutterBottom>
+          <span style={{ fontWeight: 'bold', marginRight: 104 }}>Total:</span> {`$${this.state.total}`}
+        </Typography>
       </Paper>
     );
   }
