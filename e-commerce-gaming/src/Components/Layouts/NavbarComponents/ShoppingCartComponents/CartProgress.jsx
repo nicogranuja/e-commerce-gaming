@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -8,6 +9,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import GamesTable from './GamesTable';
 import UserPaymentInfo from './UserPaymentInfo';
 import PaymentReviewInfo from './PaymentReviewInfo';
+import { clearCart } from '../../../../Actions/ClearCart';
 
 const styles = {
   root: {
@@ -68,6 +70,7 @@ class CartProgress extends React.Component {
       activeStep: 0,
     });
     this.props.closeDialog();
+    this.props.clearCart();
   };
 
   createEmptyNumberOfGamesArr = () => {
@@ -162,4 +165,10 @@ class CartProgress extends React.Component {
   }
 }
 
-export default CartProgress;
+let mapStateToProps = (dispatch) => {
+  return {
+    clearCart: () => dispatch(clearCart()) 
+  }
+};
+
+export default connect(null,mapStateToProps)(CartProgress);
