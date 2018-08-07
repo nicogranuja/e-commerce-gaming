@@ -12,12 +12,6 @@ import CartProgress from './ShoppingCartComponents/CartProgress';
 const styles = {
   icon: {
     marginLeft: 5,
-  },
-  itemCount: { 
-    position: 'absolute', 
-    fontSize: 10,
-    right: 17,
-    bottom: 23
   }
 };
 
@@ -43,10 +37,7 @@ class ShoppingCart extends React.Component {
     return (
       <div>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={moreStyles.button}>
-          Cart
-          <div style={styles.itemCount}>
-            { items.length }
-          </div>
+          {`Cart (${items.length})`}
           <ShoppinCartIcon style={styles.icon} />
         </Button>
         <Dialog
