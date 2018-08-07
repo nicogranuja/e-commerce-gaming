@@ -106,11 +106,18 @@ class Login extends React.Component {
     this.setState({ open: false });
     this.props.onLoginStatusChange(true, message);
   };
+
+  handleKeyPress = (e) => {
+    // Enter key pressed
+    if (e.charCode == 13) {
+      this.handleLogin(e);
+    }
+  };
   
   render() {
     let styles = this.props.styles;
     return (
-      <div>
+      <div onKeyPress={this.handleKeyPress}>
         <Button onClick={this.handleClickOpen} variant="contained" size="small" color="inherit" style={styles.button}>
           Login
           <AccountBox style={styles.icon} />

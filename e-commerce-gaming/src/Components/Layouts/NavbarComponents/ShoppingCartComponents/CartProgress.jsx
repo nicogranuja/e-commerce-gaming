@@ -11,7 +11,7 @@ import PaymentReviewInfo from './PaymentReviewInfo';
 
 const styles = {
   root: {
-    width: '100%',
+    width: '100%'    
   },
   button: {
     float: 'right',
@@ -29,10 +29,18 @@ let getSteps = () => {
 };
 
 class CartProgress extends React.Component {
-  state = {
-    activeStep: 0,
-    email: 'jdoe@email.com',
-    showProgress: true
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeStep: 0,
+      email: 'jdoe@email.com',
+      showProgress: true,
+      selectedNumberOfItemsPerGame: []
+    };
+  }
+
+  componentWillMount = () => {
+    this.createEmptyNumberOfGamesArr()
   };
 
   handleNext = () => {
@@ -60,6 +68,20 @@ class CartProgress extends React.Component {
       activeStep: 0,
     });
     this.props.closeDialog();
+  };
+
+  createEmptyNumberOfGamesArr = () => {
+    let arr = [];
+    for (let i = 0; i < this.props.itemObjects.length; i++) {
+      arr.push(1);
+    }
+    this.setState({ selectedNumberOfItemsPerGame: arr });
+  };
+
+  updateNumberOfItemsForGame = (itemIndex, value) => {
+    let arr = this.state.selectedNumberOfItemsPerGame;
+    arr[itemIndex] = value;
+    this.setState({ selectedNumberOfItemsPerGame: arr });
   };
 
   render() {
@@ -100,13 +122,20 @@ class CartProgress extends React.Component {
           ) : (
             <div>
               {this.state.activeStep == 0 && 
-                <GamesTable itemObjects={itemObjects}/>
+                <GamesTable 
+                  itemObjects={itemObjects} 
+                  selectedNumberOfItemsPerGame={this.state.selectedNumberOfItemsPerGame}
+                  updateNumberOfItemsForGame={this.updateNumberOfItemsForGame}
+                />
               }
               {this.state.activeStep == 1 && 
                 <UserPaymentInfo />
               }
               {this.state.activeStep == 2 && 
-                <PaymentReviewInfo itemObjects={itemObjects}/>
+                <PaymentReviewInfo 
+                  itemObjects={itemObjects}
+                  selectedNumberOfItemsPerGame={this.state.selectedNumberOfItemsPerGame}
+                />
               }
               <div style={{ marginTop: 30 }}>
                 <Button
