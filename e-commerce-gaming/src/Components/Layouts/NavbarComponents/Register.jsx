@@ -153,13 +153,8 @@ class Register extends React.Component {
   };
 
   handleSavingUser = () => {
-    // Password encryption
     let hashedPassword = this.encryptPassword(this.state.password);
-
-    // Save user with 'unique' key being user + username
     let user = { name: this.state.name, address: this.state.address, username: this.state.username, password: hashedPassword, gamePreferences: this.state.gamePreferences };
-    let key = 'user' + this.state.username;
-    window.localStorage.setItem(key, JSON.stringify(user));
     this.props.updateUserObject(user);
   };
 

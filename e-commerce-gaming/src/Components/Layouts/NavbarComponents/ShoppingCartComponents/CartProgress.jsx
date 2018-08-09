@@ -10,6 +10,7 @@ import GamesTable from './GamesTable';
 import UserPaymentInfo from './UserPaymentInfo';
 import PaymentReviewInfo from './PaymentReviewInfo';
 import { clearCart } from '../../../../Actions/ClearCart';
+import currentUserHandler from '../../../../Reducers/LoggedInUserReducer';
 
 const styles = {
   root: {
@@ -75,7 +76,7 @@ class CartProgress extends React.Component {
   };
 
   handleSaveOrdersToUser = () => {
-    // Save user orders in user
+    // Save user orders 
   };
 
   createEmptyNumberOfGamesArr = () => {
@@ -172,7 +173,7 @@ class CartProgress extends React.Component {
 
 let mapStateToProps = (dispatch) => {
   return {
-    clearCart: () => dispatch(clearCart()) 
+    clearCart: () => dispatch(clearCart())
   }
 };
 
