@@ -758,8 +758,7 @@ class SelectedGamesComponent extends React.Component {
 
                     <GameGrid
                         GameList={games.filter(function(game){
-
-                            if(game.title.includes(wordSearch)){
+                             if(game.title.includes(wordSearch)){
 
                                 return game;
                             }
