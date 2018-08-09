@@ -18,8 +18,6 @@ const styles = {
 }
 
 class SearchBar extends React.Component {
-
-
   handleChange = search => event => {
     this.props.searchPageState({
       [search]: event.target.value,

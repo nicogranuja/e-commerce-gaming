@@ -25,12 +25,12 @@ class ConsoleButtons extends React.Component {
 	render() {
 		return (
 			<Tabs
-        value={this.state.selectedTab} onChange={this.handleChange}
+       			value={this.state.selectedTab} onChange={this.handleChange}
 				style={tabStyle.Tabs}
 				indicatorColor="primary"
 				textColor="primary"
-        fullWidth
-        centered
+				fullWidth
+				centered
 			>
 				<Tab label="All" onClick={this.props.allGamesClick} />
 				<Tab label="Xbox One" onClick={this.props.xBoxClick} />
