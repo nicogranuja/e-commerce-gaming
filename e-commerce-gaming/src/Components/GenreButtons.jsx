@@ -56,7 +56,8 @@ function mapDispatchToProps(dispatch) {
         shooterClick: () => dispatch(shooterClick(GENRESTATE.SHOOTERBUTTON)),
         sportsClick: () => dispatch(sportsClick(GENRESTATE.SPORTSPAGEBUTTON)),
         strategyClick: () => dispatch(strategyClick(GENRESTATE.STRATEGYBUTTON)),
-        adventureClick: () => dispatch(adventureClick(GENRESTATE.ADVENTUREBUTTON))
+        adventureClick: () => dispatch(adventureClick(GENRESTATE.ADVENTUREBUTTON)),
+        racingClick: () => dispatch(racingClick(GENRESTATE.RACINGBUTTON))
 
 
     }

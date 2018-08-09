@@ -19,79 +19,419 @@ class SelectedGamesComponent extends React.Component {
 
 
 
-        if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
+
+        if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.genreButtonState == null) {
+
 
             return (
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
-
-                            if(game.console == "computer"){
-
+                        if(game.console == "computer" ){
                                 return game;
                             }
+
                         })}
                     />
 
                 </div>
             )
+
         }
-        if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
-            return(
+        if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.genreButtonState != null) {
+            if( this.props.state.genreButtonState == "SPORTS_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "computer" && game.genre == "Sports" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RPG_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "computer" && game.genre == "Roleplaying" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "SHOOTER_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "computer" && game.genre == "Shooter" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }  else if( this.props.state.genreButtonState == "ADVENTURE_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "computer" && game.genre == "Action-adventure" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "STRATEGY_BUTTON_SELECTED"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "computer" && game.genre == "Strategy" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RACING_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "computer" && game.genre == "Racing" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }
+
+
+
+        }
+        if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON && this.props.state.genreButtonState == null) {
+
+
+            return (
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
-                            if(game.console == "hand held"){
+                        if(game.console == "nintendo" ){
                                 return game;
                             }
+
                         })}
                     />
 
                 </div>
             )
-        }
-        if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
-            return(
-                <div>
-                    <GameGrid
-                                GameList={games.filter(function(game){
-                                    if(game.console == "nintendo"){
-                                        return game;
-                                    }
-                                })}
-                            />
 
-                </div>
-            )
         }
-        if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
-            return(
+        if (this.props.state.mainButtonState === BUTTON_STATE.NINTENDOBUTTON && this.props.state.genreButtonState != null) {
+            if( this.props.state.genreButtonState == "SPORTS_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "nintendo" && game.genre == "Sports" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RPG_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "nintendo" && game.genre == "Roleplaying" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "SHOOTER_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "nintendo" && game.genre == "Shooter" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }  else if( this.props.state.genreButtonState == "ADVENTURE_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "nintendo" && game.genre == "Action-adventure" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "STRATEGY_BUTTON_SELECTED"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "nintendo" && game.genre == "Strategy" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RACING_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "nintendo" && game.genre == "Racing" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }
+
+
+
+        }
+        if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON && this.props.state.genreButtonState == null) {
+
+
+            return (
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
-                            if(game.console == "xbox one"){
+                        if(game.console == "xbox one" ){
                                 return game;
                             }
+
                         })}
                     />
 
                 </div>
             )
+
         }
-        if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
-            return(
+        if (this.props.state.mainButtonState === BUTTON_STATE.XBOXPAGEBUTTON && this.props.state.genreButtonState != null) {
+            if( this.props.state.genreButtonState == "SPORTS_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "xbox one" && game.genre == "Sports" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RPG_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "xbox one" && game.genre == "Roleplaying" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "SHOOTER_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "xbox one" && game.genre == "Shooter" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }  else if( this.props.state.genreButtonState == "ADVENTURE_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "xbox one" && game.genre == "Action-adventure" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "STRATEGY_BUTTON_SELECTED"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "xbox one" && game.genre == "Strategy" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RACING_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "xbox one" && game.genre == "Racing" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }
+
+
+
+        }
+        if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON && this.props.state.genreButtonState == null) {
+
+
+            return (
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
-                            if(game.console == "PS4"){
+                        if(game.console == "PS4" ){
                                 return game;
                             }
+
                         })}
                     />
-                                    I
+
                 </div>
             )
+
         }
+        if (this.props.state.mainButtonState === BUTTON_STATE.PS4PAGEBUTTON && this.props.state.genreButtonState != null) {
+            if( this.props.state.genreButtonState == "SPORTS_BUTTON"){
+            return (
+                <div>
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                        if(game.console == "PS4" && game.genre == "Sports" ){
+                                return game;
+                            }
+
+                        })}
+                    />
+                </div>
+            )
+            } else if( this.props.state.genreButtonState == "RPG_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "PS4" && game.genre == "Roleplaying" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "SHOOTER_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "PS4" && game.genre == "Shooter" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }  else if( this.props.state.genreButtonState == "ADVENTURE_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "PS4" && game.genre == "Action-adventure" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "STRATEGY_BUTTON_SELECTED"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "PS4" && game.genre == "Strategy" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RACING_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "PS4" && game.genre == "Racing" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }
+
+
+
+        }
+
+
+
+
 
         if(this.props.state.currentPageState === FLOW_STATE.SEARCH ) {
 
@@ -107,49 +447,21 @@ class SelectedGamesComponent extends React.Component {
 
                                 return game;
                             }
+
+
                         })}
                     />
 
-
                 </div>
 
             )
 
-
-
-
-
         }
 
-        if(this.props.state.currentPageState === FLOW_STATE.REGISTER) {
-            return (
-                <div>
-                    Looks like we are trying to register.
-                </div>
-            )
-        }
 
-        if(this.props.state.currentPageState === FLOW_STATE.LOGIN) {
-            return (
-                <div>
-                    Looks like we are trying login.
-                </div>
-            )
-        }
-        if(this.props.state.currentPageState === FLOW_STATE.CART ){
-            return (
-                <div>
-                    Looks like we are going to shopping cart.
-                </div>
-            )
-        }
-        if(this.props.state.currentPageState === undefined) {
-            return(
-                <div>
-                    No page was selected or there was an error. Check state. Something is broken.
-                </div>
-            )
-        }
+
+
+
         if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
             return (
                 <div>

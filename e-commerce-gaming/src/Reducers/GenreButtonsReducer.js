@@ -1,5 +1,5 @@
 import GENRESTATE from '../Constants/genreButtonStates'
-function GenreButtonsReducer(state = {}, action) {
+function GenreButtonsReducer(state = null, action) {
 
     let newState = Object.assign({},state);
     console.log("The genre button state is ");
@@ -19,6 +19,9 @@ function GenreButtonsReducer(state = {}, action) {
             newState = action.click;
             return newState;
         case GENRESTATE.STRATEGYBUTTON:
+            newState = action.click;
+            return newState;
+        case GENRESTATE.RACINGBUTTON:
             newState = action.click;
             return newState;
 
