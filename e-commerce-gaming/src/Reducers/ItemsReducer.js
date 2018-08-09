@@ -28,6 +28,12 @@ let addToCartReducer = (state = initialState, action) => {
         ...state,
         items: [...state.items]
       }
+    case 'CLEAR_CART':
+      state.items = [];
+      return {
+        ...state,
+        items: [...state.items]
+      }
   }
   return state;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import Table from '@material-ui/core/Table';
 import {
   TableBody,

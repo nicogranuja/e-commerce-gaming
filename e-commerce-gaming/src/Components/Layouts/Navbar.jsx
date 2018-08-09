@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import Login from './NavbarComponents/Login';
 import Register from './NavbarComponents/Register';
 import FAQ from './NavbarComponents/FAQ';
@@ -7,6 +8,8 @@ import ShoppingCart from './NavbarComponents/ShoppingCart';
 import Logout from './NavbarComponents/Logout';
 import UserAccount from './NavbarComponents/UserAccount';
 import { AppBar, Toolbar, Typography, Snackbar } from '@material-ui/core';
+import { updateLoggedInUserStatus } from '../../Actions/LoggedInStatusAction';
+import { updateLoggedInUser } from '../../Actions/LoggedInUserAction';
 
 const styles = {
   root: {
@@ -46,6 +49,7 @@ class Navbar extends Component {
   
   handleLoginStatusChange = (isLoggedIn, message) => {
     this.setState({ userIsLoggedIn: isLoggedIn });
+    this.props.updateLoggedInUserStatus(isLoggedIn);
     this.handleLoginLogoutPopUpMessage(message);
   };
 
@@ -55,6 +59,7 @@ class Navbar extends Component {
 
   handleUpdateCurrentUserObj = (userObj) => {
     this.setState({ user: userObj });
+    this.props.updateLoggedInUser(userObj);
   };
 
   render() {
@@ -112,4 +117,11 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+function mapDispatchToProps(dispatch) {
+  return {
+    updateLoggedInUserStatus: (isLoggedIn) => dispatch(updateLoggedInUserStatus(isLoggedIn)),
+    updateLoggedInUser: (user) => dispatch(updateLoggedInUser(user))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Navbar);
