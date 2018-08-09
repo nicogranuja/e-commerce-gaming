@@ -17,6 +17,8 @@ class SelectedGamesComponent extends React.Component {
         const wordSearch = this.props.state.searchState.name;
 
 
+
+
         if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.currentPageState !== FLOW_STATE.SEARCH) {
 
             return (
@@ -101,7 +103,7 @@ class SelectedGamesComponent extends React.Component {
                     <GameGrid
                         GameList={games.filter(function(game){
 
-                            if(game.title == wordSearch){
+                            if(game.title.includes(wordSearch)){
 
                                 return game;
                             }
