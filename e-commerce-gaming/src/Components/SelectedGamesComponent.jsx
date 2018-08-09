@@ -493,7 +493,7 @@ class SelectedGamesComponent extends React.Component {
                     <div>
                         <GameGrid
                             GameList={games.filter(function(game){
-                        if(game.console == "PS$"){
+                        if(game.console == "PS4"){
                                 return game;
                             }
 
