@@ -69,8 +69,13 @@ class CartProgress extends React.Component {
     this.setState({
       activeStep: 0,
     });
-    this.props.closeDialog();
+    this.handleSaveOrdersToUser();
     this.props.clearCart();
+    this.props.closeDialog();
+  };
+
+  handleSaveOrdersToUser = () => {
+    // Save user orders in user
   };
 
   createEmptyNumberOfGamesArr = () => {

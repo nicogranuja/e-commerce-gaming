@@ -10,7 +10,7 @@ import PAGESTATE from './../../../Constants/flowstates'
 const styles = {
   searchText: {
     padding: 2,
-    marginRight: 10,
+    marginRight: 20,
     right: 370,
     position: 'absolute',
     backgroundColor: 'white'
@@ -18,8 +18,6 @@ const styles = {
 }
 
 class SearchBar extends React.Component {
-
-
   handleChange = search => event => {
     this.props.searchPageState({
       [search]: event.target.value,
