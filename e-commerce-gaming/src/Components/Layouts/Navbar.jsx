@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import Login from './NavbarComponents/Login';
 import Register from './NavbarComponents/Register';
 import SearchBar from './NavbarComponents/SearchBar';
