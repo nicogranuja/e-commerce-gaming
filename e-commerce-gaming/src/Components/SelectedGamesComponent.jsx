@@ -16,7 +16,30 @@ class SelectedGamesComponent extends React.Component {
 
         const wordSearch = this.props.state.searchState.name;
 
+        if(this.props.state.currentPageState === FLOW_STATE.SEARCH ) {
 
+
+            return (
+
+                <div>
+
+                    <GameGrid
+                        GameList={games.filter(function(game){
+
+                            if(game.title.includes(wordSearch)){
+
+                                return game;
+                            }
+
+
+                        })}
+                    />
+
+                </div>
+
+            )
+
+        }
 
 
 
@@ -433,6 +456,215 @@ class SelectedGamesComponent extends React.Component {
 
 
 
+        if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON && this.props.state.genreButtonState == null) {
+
+
+            return (
+                <div>
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                        if(game.console == "hand held" ){
+                                return game;
+                            }
+
+                        })}
+                    />
+
+                </div>
+            )
+
+        }
+
+        if (this.props.state.mainButtonState === BUTTON_STATE.HANDHELDPAGEBUTTON && this.props.state.genreButtonState != null) {
+            if( this.props.state.genreButtonState == "SPORTS_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "hand held" && game.genre == "Sports" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RPG_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "hand held" && game.genre == "Roleplaying" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "SHOOTER_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "hand held" && game.genre == "Shooter" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }  else if( this.props.state.genreButtonState == "ADVENTURE_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "hand held" && game.genre == "Action-adventure" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "STRATEGY_BUTTON_SELECTED"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "hand held" && game.genre == "Strategy" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RACING_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "hand held" && game.genre == "Racing" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }
+
+
+
+        }
+
+        if ((this.props.state.mainButtonState === BUTTON_STATE.ALLGAMESPAGEBUTTON || this.props.state.currentPageState === FLOW_STATE.MAINPAGE )&& this.props.state.genreButtonState == null) {
+
+
+            return (
+                <div>
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                                return game;
+
+
+                        })}
+                    />
+
+                </div>
+            )
+
+        }
+
+        if ((this.props.state.mainButtonState === BUTTON_STATE.ALLGAMESPAGEBUTTON || this.props.state.currentPageState === FLOW_STATE.MAINPAGE)&& this.props.state.genreButtonState != null) {
+            if( this.props.state.genreButtonState == "SPORTS_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.genre == "Sports" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RPG_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.genre == "Roleplaying" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "SHOOTER_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.genre == "Shooter" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }  else if( this.props.state.genreButtonState == "ADVENTURE_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if( game.genre == "Action-adventure" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "STRATEGY_BUTTON_SELECTED"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.genre == "Strategy" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            } else if( this.props.state.genreButtonState == "RACING_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.genre == "Racing" ){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }
+
+
+
+        }
+
+
+
         if(this.props.state.currentPageState === FLOW_STATE.SEARCH ) {
 
 
@@ -458,11 +690,7 @@ class SelectedGamesComponent extends React.Component {
 
         }
 
-
-
-
-
-        if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE) {
+        if(this.props.state.currentPageState === FLOW_STATE.MAINPAGE && this.props.state.mainButtonState != null) {
             return (
                 <div>
                     <GameGrid GameList={games}/>
