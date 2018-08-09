@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import {connect } from 'react-redux'
-import {rpgClick,shooterClick,sportsClick,strategyClick,adventureClick, racingClick} from './../Actions/GenreButtonAction'
+import {rpgClick,shooterClick,sportsClick,strategyClick,adventureClick, racingClick,allGenresClick} from './../Actions/GenreButtonAction'
 import GENRESTATE from './../Constants/genreButtonStates'
 
 class GenreButtons extends React.Component {
@@ -13,6 +13,10 @@ class GenreButtons extends React.Component {
             <div>
                 Sort By Genre Below:
                 <List component="nav">
+                    <Divider light />
+                    <ListItem button onClick={this.props.allGenresClick} >
+                        <ListItemText primary="All Genres" />
+                    </ListItem>
                     <Divider light />
                     <ListItem button onClick={this.props.rpgClick} >
                         <ListItemText primary="RPG" />
@@ -57,7 +61,8 @@ function mapDispatchToProps(dispatch) {
         sportsClick: () => dispatch(sportsClick(GENRESTATE.SPORTSPAGEBUTTON)),
         strategyClick: () => dispatch(strategyClick(GENRESTATE.STRATEGYBUTTON)),
         adventureClick: () => dispatch(adventureClick(GENRESTATE.ADVENTUREBUTTON)),
-        racingClick: () => dispatch(racingClick(GENRESTATE.RACINGBUTTON))
+        racingClick: () => dispatch(racingClick(GENRESTATE.RACINGBUTTON)),
+        allGenresClick: () => dispatch(allGenresClick(GENRESTATE.ALLGENRESBUTTON))
 
 
     }

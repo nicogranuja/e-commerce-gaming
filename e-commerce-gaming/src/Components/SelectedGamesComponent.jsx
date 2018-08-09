@@ -141,6 +141,20 @@ class SelectedGamesComponent extends React.Component {
                     </div>
                 )
             }
+            else if( this.props.state.genreButtonState == "ALLGENRES_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "computer"){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
+            }
 
 
 
@@ -242,7 +256,21 @@ class SelectedGamesComponent extends React.Component {
                         />
                     </div>
                 )
+            } else if( this.props.state.genreButtonState == "ALLGENRES_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "nintendo"){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
             }
+
 
 
 
@@ -344,7 +372,21 @@ class SelectedGamesComponent extends React.Component {
                         />
                     </div>
                 )
+            } else if( this.props.state.genreButtonState == "ALLGENRES_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "xbox one"){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
             }
+
 
 
 
@@ -446,7 +488,21 @@ class SelectedGamesComponent extends React.Component {
                         />
                     </div>
                 )
+            } else if( this.props.state.genreButtonState == "ALLGENRES_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "PS$"){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
             }
+
 
 
 
@@ -554,7 +610,21 @@ class SelectedGamesComponent extends React.Component {
                         />
                     </div>
                 )
+            } else if( this.props.state.genreButtonState == "ALLGENRES_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+                        if(game.console == "hand held"){
+                                return game;
+                            }
+
+                        })}
+                        />
+                    </div>
+                )
             }
+
 
 
 
@@ -657,7 +727,21 @@ class SelectedGamesComponent extends React.Component {
                         />
                     </div>
                 )
+            } else if( this.props.state.genreButtonState == "ALLGENRES_BUTTON"){
+                return (
+                    <div>
+                        <GameGrid
+                            GameList={games.filter(function(game){
+
+                                return game;
+
+
+                        })}
+                        />
+                    </div>
+                )
             }
+
 
 
 

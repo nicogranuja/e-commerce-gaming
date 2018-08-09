@@ -24,6 +24,9 @@ function GenreButtonsReducer(state = null, action) {
         case GENRESTATE.RACINGBUTTON:
             newState = action.click;
             return newState;
+        case GENRESTATE.ALLGENRESBUTTON:
+            newState = action.click;
+            return newState;
         case "XBOX_BUTTON_SELECTED":
            newState = null;
             return newState;

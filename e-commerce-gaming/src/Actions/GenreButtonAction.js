@@ -53,3 +53,12 @@ export function racingClick(click) {
 
     }
 }
+
+export function allGenresClick(click) {
+
+    return {
+        type: GENRESTATE.RACINGBUTTON,
+        click
+
+    }
+}
