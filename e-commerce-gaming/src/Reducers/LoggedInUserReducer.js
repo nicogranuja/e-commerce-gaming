@@ -1,7 +1,14 @@
 const initialState = { user: {}, isLoggedIn: false };
 
 let updateLocalStorageWithUser = (user) => {
-  // save to local storage
+  // Save user with 'unique' key being user + email
+  let key = 'email' + user.email;
+  window.localStorage.setItem(key, JSON.stringify(user));
+};
+
+let updateUserProps = (user) => {
+  let userKey = 'email' + user.email;
+  window.localStorage.setItem(userKey, JSON.stringify(user));
 };
 
 let currentUserHandler = (state = initialState, action) => {

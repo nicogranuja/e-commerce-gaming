@@ -65,7 +65,7 @@ class UserSettings extends React.Component {
   handleDeleteBtnAction = () => {
     let conf = window.confirm('Are you sure that you would like to DELETE your account?\n This is an irreversible step');
     if (conf) {
-      let key = 'user' + this.props.userObj.username;
+      let key = 'email' + this.props.userObj.email;
       window.localStorage.removeItem(key);
       this.props.handleUserDeleted(); // Logout and show message
     }

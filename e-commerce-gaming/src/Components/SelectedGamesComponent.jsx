@@ -786,8 +786,6 @@ class SelectedGamesComponent extends React.Component {
 
 
 const mapStateToProps = (currentPageState) => {
-    // console.log("The mapStateTpProps in SelectedGamesComponent is " + currentPage);
-    console.log(currentPageState);
 
     return {
         state: currentPageState,

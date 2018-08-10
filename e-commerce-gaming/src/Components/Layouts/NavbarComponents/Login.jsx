@@ -16,9 +16,9 @@ class Login extends React.Component {
     super(props);
     this.state = {
       open: false,
-      username: '',
-      usernameErr: false,
-      usernameHelperText: '',
+      email: '',
+      emailErr: false,
+      emailHelperText: '',
       password: '',
       passwordErr: false,
       passwordHelperText: ''
@@ -32,21 +32,21 @@ class Login extends React.Component {
   };
 
   resetErrors = () => {
-    let errorsArr = ['usernameErr', 'passwordErr'];
+    let errorsArr = ['emailErr', 'passwordErr'];
     for (let i = 0; i < errorsArr.length; i++) {
       let prop = errorsArr[i];
       this.setState({ [prop]: false });
     }
     this.setState({ passwordHelperText: '' });
-    this.setState({ usernameHelperText: '' });
+    this.setState({ emailHelperText: '' });
   };
 
   handleClose = () => {
     this.setState({ open: false });
   };
 
-  handleUsernameChange = (e) => {
-    this.setState({ username: e.target.value })
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value })
   };
 
   handlePasswordChange = (e) => {
@@ -55,12 +55,12 @@ class Login extends React.Component {
 
   handleLogin = (e) => {
     e.preventDefault();
-    let usernameKey = 'user' + this.state.username;
-    let user = window.localStorage.getItem(usernameKey);
+    let emailKey = 'email' + this.state.email;
+    let user = window.localStorage.getItem(emailKey);
     let userObj = JSON.parse(user);
     if (this.thereAreEmptyValuesInForm()) {
       return;
-    } else if (this.usernameNotFoundOrWrongPasswordsDontMatch(userObj)) {
+    } else if (this.emailNotFoundOrWrongPasswordsDontMatch(userObj)) {
       return;
     }
     
@@ -71,7 +71,7 @@ class Login extends React.Component {
 
   thereAreEmptyValuesInForm = () => {
     let hasEmptyValues = false;
-    let valuesToCheck = ['username', 'password'];
+    let valuesToCheck = ['email', 'password'];
     for (let i = 0; i < valuesToCheck.length; i++) {
       let propValue = valuesToCheck[i];
       let errorName = propValue + 'Err';
@@ -84,16 +84,16 @@ class Login extends React.Component {
     return hasEmptyValues;
   };
 
-  usernameNotFoundOrWrongPasswordsDontMatch = (user) => {
+  emailNotFoundOrWrongPasswordsDontMatch = (user) => {
     if (user === null) {
-      this.setState({ usernameHelperText: 'Username not found.', usernameErr: true });
+      this.setState({ emailHelperText: 'Email not found.', emailErr: true });
       return true;
     } 
     const cryptr = new Cryptr(this.props.encryptionKey);
     let storedPassword = cryptr.decrypt(user.password);
     if (storedPassword !== this.state.password) {
-      this.setState({ passwordHelperText: 'Username not found or passwords do not match our records. Please try again.', 
-        usernameErr: false, 
+      this.setState({ passwordHelperText: 'Email not found or passwords do not match our records. Please try again.', 
+        emailErr: false, 
         passwordErr: true 
       });
       return true;
@@ -130,11 +130,11 @@ class Login extends React.Component {
           <DialogTitle id="form-dialog-title">Login to Your Account</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Please enter your username followed by the password.
+              Please enter your email followed by the password.
             </DialogContentText>
-            <TextField value={this.state.username} onChange={this.handleUsernameChange} error={this.state.usernameErr}
-              helperText={this.state.usernameHelperText}
-              autoFocus margin="dense" id="username-login" label="Username" type="text" required fullWidth
+            <TextField value={this.state.email} onChange={this.handleEmailChange} error={this.state.emailErr}
+              helperText={this.state.emailHelperText}
+              autoFocus margin="dense" id="email-login" label="Email" type="text" required fullWidth
             />
             <TextField value={this.state.password} onChange={this.handlePasswordChange} error={this.state.passwordErr}
               helperText={this.state.passwordHelperText}

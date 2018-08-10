@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { 
   TextField
 } from '@material-ui/core';
@@ -14,6 +15,14 @@ class UserPaymentInfo extends React.Component {
       cvv: '555'
     };
   }
+
+  componentWillMount = () => {
+    let currentUserHandler = this.props.state.currentUserHandler;
+    if (currentUserHandler.isLoggedIn) {
+      let user = currentUserHandler.user;
+      this.setState({ name: user.name, email: user.email, address: user.address });
+    }
+  };
   
   render() {
     return (
@@ -51,4 +60,10 @@ class UserPaymentInfo extends React.Component {
   }
 }
 
-export default UserPaymentInfo;
+const mapStateToProps = (currentPageState) => {
+  return {
+    state: currentPageState,
+  };
+};
+
+export default connect(mapStateToProps, null)(UserPaymentInfo);
