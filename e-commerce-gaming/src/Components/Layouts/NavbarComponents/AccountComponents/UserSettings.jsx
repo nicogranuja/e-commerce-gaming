@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 import { 
   Button, 
   TextField,
@@ -39,7 +40,11 @@ class UserSettings extends React.Component {
   }
 
   componentWillMount = () => {
-    this.setState({name: this.props.userObj.name });
+    let currentUserHandler = this.props.state.currentUserHandler;
+    if (currentUserHandler.isLoggedIn) {
+      let user = currentUserHandler.user;
+      this.setState({ name: user.name, address: user.address, stateSelected: 'TX' });
+    }
   };
 
   handleFullNameChange = (e) => {
@@ -124,4 +129,10 @@ class UserSettings extends React.Component {
   }
 }
 
-export default UserSettings;
+const mapStateToProps = (currentPageState) => {
+  return {
+    state: currentPageState,
+  };
+};
+
+export default connect(mapStateToProps, null)(UserSettings);

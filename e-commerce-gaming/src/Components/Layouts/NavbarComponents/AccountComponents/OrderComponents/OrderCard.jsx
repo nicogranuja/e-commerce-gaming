@@ -12,12 +12,11 @@ import OrderCardMenu from './OrderCardMenu';
 const styles = {
   card: {
     float: 'left',
-    width: '49%',
     border: 1,
     margin: 2
   },
   media: {
-    height: 0,
+    height: '180px',
     paddingTop: '56.25%', // 16:9
   },
   gameTitleStyle: {

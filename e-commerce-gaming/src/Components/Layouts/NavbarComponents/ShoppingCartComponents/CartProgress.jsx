@@ -92,7 +92,7 @@ class CartProgress extends React.Component {
       if (!user.userOrders) {
         user.userOrders = [];
       }
-      user.userOrders = user.userOrders.concat(itemsInShoppingCart);
+      user.userOrders = itemsInShoppingCart.concat(user.userOrders);
       this.props.updateLoggedInUser(user);
     }
   };
