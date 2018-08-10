@@ -19,6 +19,8 @@ import classNames from 'classnames';
 import CloseIcon from '@material-ui/icons/Close';
 import green from '@material-ui/core/colors/green';
 import IconButton from '@material-ui/core/IconButton';
+import GameInfo from './GameInfo'
+
 const variantIcon = {
   success: CheckCircleIcon
 }
@@ -163,11 +165,16 @@ class GameCard extends React.Component{
       return;
     }
     this.setState({ open: false });
-
-
-
-
   };
+
+  handleClick2 = () => {
+    
+    console.log(this.props.Description); 
+  
+
+  }
+
+
 
   render() {
     const classes = this.props;    
@@ -191,10 +198,11 @@ class GameCard extends React.Component{
         <CardActions>
           <Grid  container spacing='12'>
             <Grid item style={styles.More} xs='12' sm='6'>
-              <Button className={classes.classes.button} >
+           {/*  <Button onClick={(e) => this.handleClick2(classes.Title,classes.price)} className={classes.classes.button} >
                 MORE
                 <Info width='auto'/>
-              </Button>
+    </Button>*/}
+              <GameInfo price={this.props.price} imgURL={this.props.imgURL} Title={this.props.Title} Description={this.props.Description} classButtonName={classes.classes.button}/>
             </Grid>
 
             <Grid item style={styles.Cart} xs='12' sm='6'>
