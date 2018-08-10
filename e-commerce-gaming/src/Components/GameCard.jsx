@@ -37,11 +37,22 @@ const styles = {
   Title: {
     padding: 5,
 
+
   },
   Price: {
+    marginTop: -20,
+    marginBottom: 20
+
+  },
+  More: {
     padding: 5,
 
-  }
+  },
+  Cart: {
+    padding: 5,
+
+  },
+
 };
 
 
@@ -66,23 +77,25 @@ class GameCard extends React.Component{
           <img src={classes.imgURL} className={classes.classes.img}/>
         </CardMedia>
         <CardContent >
-          <Typography  gutterBottom style={styles.Title} align='center' variant="title" >
+          <Typography  gutterBottom style={styles.Title} align='center' variant="body1" >
             {classes.Title}
           </Typography>
-          <Typography gutterBottom  style={styles.Price} align='center' variant="title" >
+        </CardContent>
+        <CardContent >
+          <Typography gutterBottom  style={styles.Price} align='center'  variant="body1">
             {classes.price}
           </Typography>
         </CardContent>
         <CardActions>
           <Grid  container spacing='12'>
-            <Grid item style={{paddingRight: '1%'}} xs='12' sm='6'>
+            <Grid item style={styles.More} xs='12' sm='6'>
               <Button className={classes.classes.button} >
                 MORE
                 <Info width='auto'/>
               </Button>
             </Grid>
 
-            <Grid item style={{paddingLeft: '1%'}} xs='12' sm='6'>
+            <Grid item style={styles.Cart} xs='12' sm='6'>
               <Button onClick={(e) => this.handleClick(classes.Title,classes.price)} className={classes.classes.button} >
 
                 CART
