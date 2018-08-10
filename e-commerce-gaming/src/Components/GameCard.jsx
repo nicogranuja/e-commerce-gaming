@@ -16,14 +16,12 @@ import { addItem } from '../Actions/AddItemsToCart';
 const styles = {
   card: {
     position: 'relative',
-    marginTop: '2%',
-    marginRight: '1%',
-    width: '25%',
-    borderRadius: '3%'
+    width: '32%',
+    margin: '5px'
   },
   img: {
     width: '100%',
-    height: 'auto'
+    height: '325px'
   },
   media: {
     width: '100%',
@@ -31,12 +29,22 @@ const styles = {
   },
   button: {
     position: 'absolute',
-    bottom: 5,
+    bottom: '5px',
     backgroundColor: '#1D8BF1',
     color: '#FFF',
     width: '40%'
   },
+  Title: {
+    padding: 5,
+
+  },
+  Price: {
+    padding: 5,
+
+  }
 };
+
+
 
 class GameCard extends React.Component{
 
@@ -58,23 +66,23 @@ class GameCard extends React.Component{
           <img src={classes.imgURL} className={classes.classes.img}/>
         </CardMedia>
         <CardContent >
-          <Typography  gutterBottom align='center' variant="title" >
+          <Typography  gutterBottom style={styles.Title} align='center' variant="title" >
             {classes.Title}
           </Typography>
-          <Typography gutterBottom align='right' variant="title" >
+          <Typography gutterBottom  style={styles.Price} align='center' variant="title" >
             {classes.price}
           </Typography>
         </CardContent>
         <CardActions>
           <Grid  container spacing='12'>
-            <Grid item style={{paddingRight: '5%'}} xs='12' sm='6'>
+            <Grid item style={{paddingRight: '1%'}} xs='12' sm='6'>
               <Button className={classes.classes.button} >
                 MORE
                 <Info width='auto'/>
               </Button>
             </Grid>
 
-            <Grid item style={{paddingLeft: '5%'}} xs='12' sm='6'>
+            <Grid item style={{paddingLeft: '1%'}} xs='12' sm='6'>
               <Button onClick={(e) => this.handleClick(classes.Title,classes.price)} className={classes.classes.button} >
 
                 CART
