@@ -28,14 +28,14 @@ class Register extends React.Component {
       address: '',
       addressErr: '',
       nameErr: false,
-      username: '',
-      usernameErr: false,
+      email: '',
+      emailErr: false,
       password: '',
       passwordErr: false,
       passwordConfirm: '',
       passwordConfirmErr: false,
       passwordHelperText: '',
-      usernameHelperText: '',
+      emailHelperText: '',
       gamePreferences: []
     };
   }
@@ -47,13 +47,13 @@ class Register extends React.Component {
   };
 
   resetErrors = () => {
-    let errorsArr = ['nameErr', 'usernameErr', 'passwordErr', 'passwordConfirmErr'];
+    let errorsArr = ['nameErr', 'emailErr', 'passwordErr', 'passwordConfirmErr'];
     for (let i = 0; i < errorsArr.length; i++) {
       let prop = errorsArr[i];
       this.setState({ [prop]: false });
     }
     this.setState({ passwordHelperText: '' });
-    this.setState({ usernameHelperText: '' });
+    this.setState({ emailHelperText: '' });
   };
 
   clearPasswordFields = () => {
@@ -73,8 +73,8 @@ class Register extends React.Component {
     this.setState({ address: e.target.value });
   };
 
-  handleUsernameChange = (e) => {
-    this.setState({ username: e.target.value });
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value });
   };
 
   handlePasswordChange = (e) => {
@@ -97,7 +97,7 @@ class Register extends React.Component {
       return;
     } else if (this.passwordsAreInvalid()) {
       return;
-    } else if (this.usernameAlreadyExists(this.state.username)) {
+    } else if (this.emailAlreadyExists(this.state.email)) {
       return;
     }
 
@@ -107,7 +107,7 @@ class Register extends React.Component {
 
   thereAreEmptyValuesInForm = () => {
     let hasEmptyValues = false;
-    let valuesToCheck = ['name','address', 'username', 'password', 'passwordConfirm'];
+    let valuesToCheck = ['name','address', 'email', 'password', 'passwordConfirm'];
     for (let i = 0; i < valuesToCheck.length; i++) {
       let propValue = valuesToCheck[i];
       let errorName = propValue + 'Err';
@@ -135,12 +135,12 @@ class Register extends React.Component {
     return isInvalid;
   };
 
-  usernameAlreadyExists = (username) => {
-    let key = 'user' + username;
+  emailAlreadyExists = (email) => {
+    let key = 'email' + email;
     let exists = false;
     if (window.localStorage.getItem(key) != null) {
-      this.setState({ usernameHelperText: 'Username already exists.' });
-      this.setState({ usernameErr: true });
+      this.setState({ emailHelperText: 'email already exists.' });
+      this.setState({ emailErr: true });
       exists = true;
     }
     return exists;
@@ -153,13 +153,8 @@ class Register extends React.Component {
   };
 
   handleSavingUser = () => {
-    // Password encryption
     let hashedPassword = this.encryptPassword(this.state.password);
-
-    // Save user with 'unique' key being user + username
-    let user = { name: this.state.name, address: this.state.address, username: this.state.username, password: hashedPassword, gamePreferences: this.state.gamePreferences };
-    let key = 'user' + this.state.username;
-    window.localStorage.setItem(key, JSON.stringify(user));
+    let user = { name: this.state.name, address: this.state.address, email: this.state.email, password: hashedPassword, gamePreferences: this.state.gamePreferences };
     this.props.updateUserObject(user);
   };
 
@@ -195,11 +190,11 @@ class Register extends React.Component {
               autoFocus margin="dense" id="full-name" label="Full Name" type="text" required fullWidth
             />
             <TextField value={this.state.address} onChange={this.handleAddressChange} error={this.state.addressErr} 
-              autoFocus margin="dense" id="full-address" label="Address" type="text" required fullWidth
+              margin="dense" id="full-address" label="Address" type="text" required fullWidth
             />
-            <TextField value={this.state.username} onChange={this.handleUsernameChange} 
-              error={this.state.usernameErr} helperText={this.state.usernameHelperText}
-              margin="dense" id="username-register" label="Username" type="text" required fullWidth
+            <TextField value={this.state.email} onChange={this.handleEmailChange} 
+              error={this.state.emailErr} helperText={this.state.emailHelperText}
+              margin="dense" id="email-register" label="Email" type="email" required fullWidth
             />
             <TextField value={this.state.password} onChange={this.handlePasswordChange} error={this.state.passwordErr}
               margin="dense" id="password-register" label="Password" type="password" required fullWidth

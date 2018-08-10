@@ -10,6 +10,8 @@ import GamesTable from './GamesTable';
 import UserPaymentInfo from './UserPaymentInfo';
 import PaymentReviewInfo from './PaymentReviewInfo';
 import { clearCart } from '../../../../Actions/ClearCart';
+import { updateLoggedInUser } from '../../../../Actions/LoggedInUserAction'
+import { currentUserHandler } from '../../../../Reducers/LoggedInUserReducer';
 
 const styles = {
   root: {
@@ -42,7 +44,16 @@ class CartProgress extends React.Component {
   }
 
   componentWillMount = () => {
-    this.createEmptyNumberOfGamesArr()
+    this.createEmptyNumberOfGamesArr();
+    this.setLoggedInUserData();
+  };
+
+  setLoggedInUserData = () => {
+    let currentUserHandler = this.props.state.currentUserHandler;
+    if (currentUserHandler.isLoggedIn) {
+      let user = currentUserHandler.user;
+      this.setState({ email: user.email });
+    }
   };
 
   handleNext = () => {
@@ -75,7 +86,15 @@ class CartProgress extends React.Component {
   };
 
   handleSaveOrdersToUser = () => {
-    // Save user orders in user
+    if (this.props.state.currentUserHandler.isLoggedIn) {
+      let itemsInShoppingCart = this.props.state.addToCartReducer.items;
+      let user = this.props.state.currentUserHandler.user;
+      if (!user.userOrders) {
+        user.userOrders = [];
+      }
+      user.userOrders = user.userOrders.concat(itemsInShoppingCart);
+      this.props.updateLoggedInUser(user);
+    }
   };
 
   createEmptyNumberOfGamesArr = () => {
@@ -170,10 +189,17 @@ class CartProgress extends React.Component {
   }
 }
 
-let mapStateToProps = (dispatch) => {
+const mapStateToProps = (currentPageState) => {
   return {
-    clearCart: () => dispatch(clearCart()) 
+    state: currentPageState,
+  };
+};
+
+let mapDispatchToProps = (dispatch) => {
+  return {
+    clearCart: () => dispatch(clearCart()),
+    updateLoggedInUser: (user) => dispatch(updateLoggedInUser(user))
   }
 };
 
-export default connect(null,mapStateToProps)(CartProgress);
+export default connect(mapStateToProps, mapDispatchToProps)(CartProgress);
