@@ -42,14 +42,12 @@ const styles1 = theme => ({
 const styles = {
   card: {
     position: 'relative',
-    marginTop: '2%',
-    marginRight: '1%',
-    width: '25%',
-    borderRadius: '3%'
+    width: '32%',
+    margin: '5px'
   },
   img: {
     width: '100%',
-    height: 'auto'
+    height: '325px'
   },
   media: {
     width: '100%',
@@ -57,11 +55,30 @@ const styles = {
   },
   button: {
     position: 'absolute',
-    bottom: 5,
+    bottom: '5px',
     backgroundColor: '#1D8BF1',
     color: '#FFF',
     width: '40%'
   },
+  Title: {
+    padding: 5,
+
+
+  },
+  Price: {
+    marginTop: -20,
+    marginBottom: 20
+
+  },
+  More: {
+    padding: 5,
+
+  },
+  Cart: {
+    padding: 5,
+
+  },
+
 };
 function MySnackbarContent(props) {
   const { classes, className, message, onClose, variant, ...other } = props;
@@ -105,6 +122,8 @@ const styles2 = theme => ({
     margin: theme.spacing.unit,
   },
 });
+
+
 
 
 class GameCard extends React.Component{
@@ -160,23 +179,25 @@ class GameCard extends React.Component{
           <img src={classes.imgURL} className={classes.classes.img}/>
         </CardMedia>
         <CardContent >
-          <Typography  gutterBottom align='center' variant="title" >
+          <Typography  gutterBottom style={styles.Title} align='center' variant="body1" >
             {classes.Title}
           </Typography>
-          <Typography gutterBottom align='right' variant="title" >
+        </CardContent>
+        <CardContent >
+          <Typography gutterBottom  style={styles.Price} align='center'  variant="body1">
             {classes.price}
           </Typography>
         </CardContent>
         <CardActions>
           <Grid  container spacing='12'>
-            <Grid item style={{paddingRight: '5%'}} xs='12' sm='6'>
+            <Grid item style={styles.More} xs='12' sm='6'>
               <Button className={classes.classes.button} >
                 MORE
                 <Info width='auto'/>
               </Button>
             </Grid>
 
-            <Grid item style={{paddingLeft: '5%'}} xs='12' sm='6'>
+            <Grid item style={styles.Cart} xs='12' sm='6'>
               <Button onClick={(e) => this.handleClick(classes.Title,classes.price)} className={classes.classes.button} >
                 CART
                 <Add width='auto'/>
