@@ -153,7 +153,7 @@ class GameCard extends React.Component{
     }
     this.props.addItem(itemObj);
 
-    
+    console.log(this.props.youtubeId)
 
     if(this.isNewGameInCart(this.props.Title))
       this.setState({ open: true });
@@ -202,7 +202,7 @@ class GameCard extends React.Component{
                 MORE
                 <Info width='auto'/>
     </Button>*/}
-              <GameInfo price={this.props.price} imgURL={this.props.imgURL} Title={this.props.Title} Description={this.props.Description} classButtonName={classes.classes.button}/>
+              <GameInfo price={this.props.price} imgURL={this.props.imgURL} Title={this.props.Title} Description={this.props.Description} youtubeId={this.props.youtubeId} classButtonName={classes.classes.button} classImageName = {classes.classes.img}/>
             </Grid>
 
             <Grid item style={styles.Cart} xs='12' sm='6'>
