@@ -35,9 +35,9 @@ class ConsoleButtons extends React.Component {
 				<Tab label="All" onClick={this.props.allGamesClick} />
 				<Tab label="Xbox One" onClick={this.props.xBoxClick} />
 				<Tab label="PS4" onClick={this.props.playStationClick} />
-				<Tab label="Nintendo" onClick={this.props.nintendoClick} />
+				<Tab label="Wii U" onClick={this.props.nintendoClick} />
 				<Tab label="PC" onClick={this.props.computerClick} />
-				<Tab label="Hand Held" onClick={this.props.handHeldClick} />
+				<Tab label="Switch" onClick={this.props.handHeldClick} />
 			</Tabs>
 		);
 	}

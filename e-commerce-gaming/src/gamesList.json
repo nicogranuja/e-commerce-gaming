@@ -91,12 +91,12 @@
       },
       {
         "id": 11,
-        "title": "Code51:Mecha Arena",
-        "description": "2040 A.D., the world condition continues to deteriorate. Fighting for very limited living resources, World War III had broken among the major forces. The great war exhausted almost all regular energy sources of the world, human civilization was mostly destroyed…",
+        "title": "God of War",
+        "description": "God of War is an action-adventure video game developed by Santa Monica Studio and published by Sony Interactive Entertainment.",
         "console": "PS4",
-        "price": "$19.99",
+        "price": "$49.99",
         "genre": "Shooter",
-        "url": "http://www.gamepitt.co.uk/wp-content/uploads/2018/06/code-51-mecha-arena.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51po2bu7VnL.jpg"
       },
       {
         "id": 12,
@@ -127,12 +127,12 @@
       },
       {
         "id": 15,
-        "title": "Firewall Zero Hour",
-        "description": "In Firewall Zero Hour, choose from one of 12 contractors hired by anonymous contract handlers and work as a team to either protect or obtain valuable data, housed on a laptop and located in dangerous locations around the globe. ",
+        "title": "Detroit: Become Human",
+        "description": "Create your own story: Observe, think, decide, feel, and follow your intuition to tell the unique story for eac h of three playable characters",
         "console": "PS4",
-        "price": "$39.99",
+        "price": "$49.99",
         "genre": "Shooter",
-        "url": "https://www.geek.com/wp-content/uploads/2017/12/Firewall-Zero-Hour-logo-625x352.jpg"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/81rLtmfYG2L._AC_SL1500_.jpg"
       },
       {
         "id": 16,
@@ -184,18 +184,18 @@
       },
       {
         "id": 21,
-        "title": "Super Mario Galaxy 2",
-        "description": "Mario collects stars as he travels from galaxy to galaxy, sometimes upside-down, sometimes floating from place to place.",
+        "title": "Cars 3: Driven to Win",
+        "description": "Train and advance your abilities of two-wheel driving, barrel rolls and more in 6 thrilling game modes.",
         "console": "nintendo",
         "price": "$49.99",
         "genre": "Action-adventure",
-        "url": "https://vignette.wikia.nocookie.net/nintendo/images/a/a3/Super_Mario_Galaxy_2_Logo.png/revision/latest?cb=20100225072310&path-prefix=en"
+        "url": "https://images-na.ssl-images-amazon.com/images/I/51NrOqojX8L.jpg"
       },
       {
         "id": 22,
         "title": "The Legend of Zelda: Breath of the Wild",
         "description": "Step into a world of discovery, exploration and adventure in The Legend of Zelda: Breath of the Wild, a boundary-breaking new game in the acclaimed series",
-        "console": "hand held",
+        "console": "nintendo",
         "price": "$59.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/71B5c%2BEmz6L._AC_SL1037_.jpg"
@@ -271,7 +271,7 @@
         "id": 30,
         "title": "Super Mario Odyssey",
         "description": "Jump back into the fun of a favorite Nintendo series with Super Mario Odyssey for Nintendo Switch.",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$48.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/51cE%2B9FaiWL.jpg"
@@ -280,7 +280,7 @@
         "id": 31,
         "title": "Octopath Traveler",
         "description": "Play eight separate games in one immersive title with Octopath Traveler for Nintendo Switch.",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$59.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/91mZyz7oKYL._AC_SL1500_.jpg"
@@ -288,7 +288,7 @@
         "id": 32,
         "title": "Dragon Ball Xenoverse 2",
         "description": "Dragon Ball Xenoverse 2 builds upon the highly popular Dragon Ball Xenoverse with enhanced graphics that will further immerse players into a large and detailed Dragon Ball world",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$48.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/51FDkrUcgbL.jpg"
@@ -296,7 +296,7 @@
         "id": 33,
         "title": "Mario Kart 8 Deluxe",
         "description": "Battle new enemies on a host of fun tracks with Mario Kart 8 Deluxe for the Nintendo Switch.",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$58.99",
         "genre": "Racing",
         "url": "https://images-na.ssl-images-amazon.com/images/I/51%2BwYjqjV7L.jpg"
@@ -304,7 +304,7 @@
         "id": 34,
         "title": "Mario Tennis Aces",
         "description": "Help Mario master his serve with Mario Tennis Aces for Nintendo Switch",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$59.99",
         "genre": "Sports",
         "url": "https://images-na.ssl-images-amazon.com/images/I/91TvX36nF-L._AC_SL1500_.jpg"
@@ -312,7 +312,7 @@
         "id": 35,
         "title": "Donkey Kong Country: Tropical Freeze",
         "description": "Take on new challenges with the old Kong crew when you play Donkey Kong Country Tropical Freeze for Nintendo Switch",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$48.99",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/61h6qGbzhmL.jpg"
@@ -328,7 +328,7 @@
         "id": 37,
         "title": "The Legend of Zelda: Breath of the Wild",
         "description": "Travel back to Hyrule with Link in Zelda: Breath of the Wild for the Nintendo Switch",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$54.94",
         "genre": "Action-adventure",
         "url": "https://images-na.ssl-images-amazon.com/images/I/51Ox7m6-OIL.jpg"
@@ -336,7 +336,7 @@
         "id": 38,
         "title": "EA Sports FIFA 18",
         "description": "Shoot to score with EA Sports FIFA 18 for Nintendo Switch",
-        "console": "nintendo", 
+        "console": "hand held", 
         "price": "$28.99",
         "genre": "Sports",
         "url": "https://images-na.ssl-images-amazon.com/images/I/71ty4Qg8WSL._AC_SL1000_.jpg"
