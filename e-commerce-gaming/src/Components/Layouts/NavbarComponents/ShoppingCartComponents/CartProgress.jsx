@@ -44,7 +44,16 @@ class CartProgress extends React.Component {
   }
 
   componentWillMount = () => {
-    this.createEmptyNumberOfGamesArr()
+    this.createEmptyNumberOfGamesArr();
+    this.setLoggedInUserData();
+  };
+
+  setLoggedInUserData = () => {
+    let currentUserHandler = this.props.state.currentUserHandler;
+    if (currentUserHandler.isLoggedIn) {
+      let user = currentUserHandler.user;
+      this.setState({ email: user.email });
+    }
   };
 
   handleNext = () => {
@@ -80,7 +89,10 @@ class CartProgress extends React.Component {
     if (this.props.state.currentUserHandler.isLoggedIn) {
       let itemsInShoppingCart = this.props.state.addToCartReducer.items;
       let user = this.props.state.currentUserHandler.user;
-      user.userOrders.concat(itemsInShoppingCart);
+      if (!user.userOrders) {
+        user.userOrders = [];
+      }
+      user.userOrders = user.userOrders.concat(itemsInShoppingCart);
       this.props.updateLoggedInUser(user);
     }
   };

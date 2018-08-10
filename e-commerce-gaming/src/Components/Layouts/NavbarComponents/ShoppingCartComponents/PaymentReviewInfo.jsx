@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
@@ -25,7 +26,7 @@ class PaymentReviewInfo extends React.Component {
       name: 'John Doe',
       email: 'jdoe@email.com',
       address: '1600 Pennsylvania Ave',
-      total : 100
+      total : 0
     };
   }
 
@@ -36,10 +37,19 @@ class PaymentReviewInfo extends React.Component {
       total += parseFloat(item.price.slice(1, item.price.length)) * this.props.selectedNumberOfItemsPerGame[index];
     })
     this.setState({ total: total.toFixed(2) });
-  }
+  };
+
+  setUserProps = () => {
+    let currentUserHandler = this.props.state.currentUserHandler;
+    if (currentUserHandler.isLoggedIn) {
+      let user = currentUserHandler.user;
+      this.setState({ name: user.name, email: user.email, address: user.address });
+    }
+  };
 
   componentWillMount = () => {
     this.calculateTotalAmount();
+    this.setUserProps();
   };
   
   render() {
@@ -82,4 +92,10 @@ class PaymentReviewInfo extends React.Component {
   }
 }
 
-export default PaymentReviewInfo;
+const mapStateToProps = (currentPageState) => {
+  return {
+    state: currentPageState,
+  };
+};
+
+export default connect(mapStateToProps, null)(PaymentReviewInfo);
