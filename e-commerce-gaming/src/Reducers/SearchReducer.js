@@ -33,7 +33,9 @@ function SearchReducer(state = {}, action) {
         case "ALL_GAMES_BUTTON_SELECTED":
             newState = {};
             return newState;
-
+        case "PREFERENCE_BUTTON_SELECTED":
+            newState = {};
+            return newState;
         default :
 
             return newState;

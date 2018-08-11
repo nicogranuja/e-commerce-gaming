@@ -24,6 +24,9 @@ function CurrentButtonReducer(state = {}, action) {
         case 'NINTENDO_BUTTON_SELECTED':
             newState = action.click;
             return newState;
+        case 'PREFERENCE_BUTTON_SELECTED':
+            newState = action.click;
+            return newState;
 
         default :
             

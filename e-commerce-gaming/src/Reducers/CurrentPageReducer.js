@@ -32,6 +32,10 @@ function CurrentPageReducer(state = flowState.MAINPAGE, action) {
             return newState;
         case "ALL_GAMES_BUTTON_SELECTED":
             newState = flowState.MAINPAGE;
+            return newState;
+        case 'PREFERENCE_BUTTON_SELECTED':
+            newState = flowState.MAINPAGE;
+            return newState;
         default :
 
             return state;

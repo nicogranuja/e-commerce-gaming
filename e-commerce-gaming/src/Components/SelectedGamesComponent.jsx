@@ -41,6 +41,24 @@ class SelectedGamesComponent extends React.Component {
 
         }
 
+        /*if ((this.props.state.mainButtonState === BUTTON_STATE.PREFERENCEBUTTON || this.props.state.currentPageState === FLOW_STATE.MAINPAGE )&& this.props.state.genreButtonState == null) {
+
+
+            return (
+                <div>
+                    <GameGrid
+                        GameList={games.filter(function(game){
+                                return game;
+
+
+                        })}
+                    />
+
+                </div>
+            )
+
+        }*/
+
 
 
         if (this.props.state.mainButtonState === BUTTON_STATE.COMPUTERPAGEBUTTON && this.props.state.genreButtonState == null) {
@@ -786,7 +804,7 @@ class SelectedGamesComponent extends React.Component {
 
 
 const mapStateToProps = (currentPageState) => {
-
+console.log(currentPageState)
     return {
         state: currentPageState,
     };

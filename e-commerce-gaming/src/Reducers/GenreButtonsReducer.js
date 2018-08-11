@@ -45,6 +45,9 @@ function GenreButtonsReducer(state = null, action) {
         case "ALL_GAMES_BUTTON_SELECTED":
             newState = null;
             return newState;
+        case 'PREFERENCE_BUTTON_SELECTED':
+            newState = null;
+            return newState;
 
         default :
 

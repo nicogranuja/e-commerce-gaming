@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, Tab } from '@material-ui/core';
 import { connect } from 'react-redux'
-import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick, allGamesClick } from '../../Actions/MainButtonAction';
+import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick, allGamesClick, preferenceClick} from '../../Actions/MainButtonAction';
 import FLOW_STATE from '../../Constants/buttonStates'
 
 const tabStyle = {
@@ -33,6 +33,7 @@ class ConsoleButtons extends React.Component {
 				fullWidth
 				centered
 			>
+				<Tab label="Preferences" onClick={this.props.preferenceClick} />
 				<Tab label="All" onClick={this.props.allGamesClick} />
 				<Tab label="Xbox One" onClick={this.props.xBoxClick} />
 				<Tab label="PS4" onClick={this.props.playStationClick} />
@@ -53,12 +54,14 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
 	return {
-    allGamesClick: () => dispatch(allGamesClick(FLOW_STATE.ALLGAMESPAGEBUTTON)),
+		preferenceClick: () => dispatch(preferenceClick(FLOW_STATE.PREFERENCEBUTTON)),
+    	allGamesClick: () => dispatch(allGamesClick(FLOW_STATE.ALLGAMESPAGEBUTTON)),
 		xBoxClick: () => dispatch(xBoxClick(FLOW_STATE.XBOXPAGEBUTTON)),
 		playStationClick: () => dispatch(playStationClick(FLOW_STATE.PS4PAGEBUTTON)),
 		nintendoClick: () => dispatch(nintendoClick(FLOW_STATE.NINTENDOBUTTON)),
 		computerClick: () => dispatch(computerClick(FLOW_STATE.COMPUTERPAGEBUTTON)),
 		handHeldClick: () => dispatch(handHeldClick(FLOW_STATE.HANDHELDPAGEBUTTON)),
+
 	}
 }
 

@@ -51,3 +51,12 @@ export function nintendoClick(click) {
 
     }
 }
+
+export function preferenceClick(click) {
+
+    return {
+        type: 'PREFERENCE_BUTTON_SELECTED',
+        click
+
+    }
+}
