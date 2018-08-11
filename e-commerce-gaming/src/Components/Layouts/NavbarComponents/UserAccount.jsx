@@ -67,20 +67,10 @@ class UserAccount extends React.Component {
           </Tabs>
             <DialogContent>
               { (this.state.selectedTab === 0) 
-                ? <UserSettings userObj={this.props.userObj} handleUserDeleted={this.handleUserDeleted}/>
+                ? <UserSettings userObj={this.props.userObj} handleUserDeleted={this.handleUserDeleted} handleClose={this.handleClose}/>
                 : <UserOrders userObj={this.props.userObj} />
               }
             </DialogContent>
-          {this.state.selectedTab === 0 && 
-            <DialogActions>
-              <Button onClick={this.handleClose} color="primary">
-                Close
-              </Button>
-              <Button onClick={this.handleClose} color="primary" variant="contained">
-                Update
-              </Button>
-            </DialogActions>
-          }
         </Dialog>
       </div>
     )

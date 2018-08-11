@@ -4,9 +4,12 @@ import {
   Button, 
   TextField,
   Select,
-  MenuItem
+  MenuItem,
+  DialogActions
 } from '@material-ui/core';
 import { Delete as DeleteIcon } from '@material-ui/icons';
+import { updateLoggedInUser } from '../../../../Actions/LoggedInUserAction';
+import Cryptr from 'cryptr';
 
 const styles = {
   textWidth: {
@@ -18,6 +21,10 @@ const styles = {
     width: 170, 
     marginTop: 15,
     marginBottom: 15
+  },
+  successMessage: {
+    display: 'none',
+    color: 'green'
   }
 };
 
@@ -25,6 +32,7 @@ class UserSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: {},
       tabValue: 0,
       name: '',
       nameErr: false,
@@ -34,8 +42,13 @@ class UserSettings extends React.Component {
       newPasswordErr: false,
       newPasswordConfirm: '',
       newPasswordConfirmErr: false,
+      passwordHelperText: '',
+      newPasswordHelperText: '',
+      newPasswordConfirmHelperText: '',
       address: '1600 Pennsylvania Ave',
-      stateSelected: 'NW'
+      stateSelected: 'TX',
+      encryptionKey: 'myTotalySecretKey',
+      successMessage: 'Update successfull!',
     };
   }
 
@@ -43,7 +56,7 @@ class UserSettings extends React.Component {
     let currentUserHandler = this.props.state.currentUserHandler;
     if (currentUserHandler.isLoggedIn) {
       let user = currentUserHandler.user;
-      this.setState({ name: user.name, address: user.address, stateSelected: 'TX' });
+      this.setState({ user: user, name: user.name, address: user.address, stateSelected: 'TX' });
     }
   };
 
@@ -80,6 +93,85 @@ class UserSettings extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  handleUpdateClick = () => {
+    if (this.thereAreEmptyValuesInForm()) {
+      return;
+    } else if (this.passwordsAreInvalid()) {
+      return;
+    }
+    this.updateUser();
+  };
+
+  updateUser = () => {
+    let user = this.state.user;
+    let hashedPassword = this.encryptPassword(this.state.newPassword);
+    user.password = hashedPassword;
+    user.address = this.state.address;
+    user.name = this.state.name;
+    this.props.updateLoggedInUser(user);
+    this.setState({password: '', newPassword: '',  newPasswordConfirm: '' });
+    this.showSuccessMessage();
+  };
+
+  showSuccessMessage = () => {
+    this.refs.successDiv.style.display = 'block';
+    setTimeout(() => {
+      this.refs.successDiv.style.display = 'none';
+    }, 1000);
+  };
+
+  encryptPassword = (password) => {
+    const cryptr = new Cryptr(this.state.encryptionKey);
+    let passEncrypted = cryptr.encrypt(password);
+    return passEncrypted;
+  };
+
+  handleClose = () => {
+    this.props.handleClose();
+  }
+
+  thereAreEmptyValuesInForm = () => {
+    let hasEmptyValues = false;
+    let valuesToCheck = ['name', 'password', 'newPassword', 'newPasswordConfirm'];
+    for (let i = 0; i < valuesToCheck.length; i++) {
+      let propValue = valuesToCheck[i];
+      let errorName = propValue + 'Err';
+      this.setState({ [errorName]: false });
+      if (this.state[propValue] === '') {
+        this.setState({ [errorName]: true });
+        hasEmptyValues = true;
+      }
+    }
+    return hasEmptyValues;
+  };
+
+  passwordsAreInvalid = () => {
+    let isInvalid = false;
+    if (this.isInvalidCurrentPassword()) {
+      isInvalid = true;
+    } else if (this.state.newPassword !== this.state.newPasswordConfirm) {
+      this.setState({ newPasswordConfirmHelperText: 'New passwords do not match' });
+      this.setState({ newPasswordConfirmErr: true });
+      isInvalid = true;
+    } else if (this.state.newPassword.length < 8) {
+      this.setState({ newPasswordHelperText: 'Please use a password that contains more than 8 characters' });
+      this.setState({ newPasswordConfirmErr: true });
+      this.setState({ newPasswordErr: true });
+      isInvalid = true;
+    }
+    return isInvalid;
+  };
+
+  isInvalidCurrentPassword = () => {
+    const cryptr = new Cryptr(this.state.encryptionKey);
+    let storedPassword = cryptr.decrypt(this.state.user.password);
+    if (storedPassword !== this.state.password) {
+      this.setState({ passwordHelperText: 'Incorrect passwrod.', passwordErr: true });
+      return true;
+    }
+    return false;
+  };
+
   render() {
     return (
       <Fragment>
@@ -90,14 +182,17 @@ class UserSettings extends React.Component {
         <TextField value={this.state.password} onChange={this.handlePasswordChange} error={this.state.passwordErr}
           margin="dense" id="password-register" label="Password" type="password" required
           style={styles.textWidth}
+          helperText={this.state.passwordHelperText}
         />
         <TextField value={this.state.newPassword} onChange={this.handleNewPasswordChange} error={this.state.newPasswordErr}
           margin="dense" id="new-password-register" label="New Password" type="password"
           style={styles.textWidth}
+          helperText={this.state.newPasswordHelperText}
         />
         <TextField value={this.state.newPasswordConfirm} onChange={this.handleNewPasswordConfirmationChange} error={this.state.newPasswordConfirmErr}
           margin="dense" id="new-password-confirm-register" label="New Password Confirmation" type="password"
           style={styles.textWidth}
+          helperText={this.state.newPasswordConfirmHelperText}
         />
         <TextField value={this.state.address} onChange={this.handleAddressChange}
           margin="dense" id="new-address-register" label="Shipping Address" type="text"
@@ -115,15 +210,25 @@ class UserSettings extends React.Component {
             <em>None</em>
           </MenuItem>
           <MenuItem value={'TX'}>TX</MenuItem>
-          <MenuItem value={'NW'}>NW</MenuItem>
         </Select>
         <Button
           onClick={this.handleDeleteBtnAction}
           variant="contained" color="secondary" style={ styles.deleteBtn }
         >
           Delete Account
-        <DeleteIcon />
-      </Button>
+          <DeleteIcon />
+        </Button>
+        
+        <DialogActions>
+          <div ref="successDiv" style={styles.successMessage}>{this.state.successMessage}</div>
+          <Button onClick={this.handleClose} color="primary">
+            Close
+          </Button>
+          <Button onClick={this.handleUpdateClick} color="primary" variant="contained">
+            Update
+          </Button>
+        </DialogActions>
+   
       </Fragment>
     )
   }
@@ -135,4 +240,10 @@ const mapStateToProps = (currentPageState) => {
   };
 };
 
-export default connect(mapStateToProps, null)(UserSettings);
+function mapDispatchToProps(dispatch) {
+  return {
+    updateLoggedInUser: (user) => dispatch(updateLoggedInUser(user))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserSettings);

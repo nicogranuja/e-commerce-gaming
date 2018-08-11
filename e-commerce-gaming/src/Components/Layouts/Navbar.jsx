@@ -107,7 +107,7 @@ class Navbar extends Component {
             ContentProps={{
               'aria-describedby': 'message-id',
             }}
-            autoHideDuration={5000}
+            autoHideDuration={3500}
             onClose={this.handleSnackbarClose}
             message={<span id="message-id">{this.state.loginMessage}</span>}
           />
