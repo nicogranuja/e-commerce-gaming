@@ -44,7 +44,7 @@ const styles1 = theme => ({
 const styles = {
   card: {
     position: 'relative',
-    width: '32%',
+    width: '17%',
     margin: '5px'
   },
   img: {
