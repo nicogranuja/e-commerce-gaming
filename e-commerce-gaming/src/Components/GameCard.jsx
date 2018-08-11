@@ -44,7 +44,7 @@ const styles1 = theme => ({
 const styles = {
   card: {
     position: 'relative',
-    width: '32%',
+    width: '17%',
     margin: '5px'
   },
   img: {
@@ -64,7 +64,8 @@ const styles = {
   },
   Title: {
     padding: 5,
-
+    height: 50,
+    maxHeight: 150
 
   },
   Price: {
@@ -186,13 +187,13 @@ class GameCard extends React.Component{
           <img src={classes.imgURL} className={classes.classes.img}/>
         </CardMedia>
         <CardContent >
-          <Typography  gutterBottom style={styles.Title} align='center' variant="body1" >
-            {classes.Title}
+          <Typography  gutterBottom style={styles.Title} align='center'>
+            <h2>{classes.Title}</h2>
           </Typography>
         </CardContent>
         <CardContent >
-          <Typography gutterBottom  style={styles.Price} align='center'  variant="body1">
-            {classes.price}
+          <Typography gutterBottom  style={styles.Price} align='center'>
+            <h2>{classes.price}</h2>
           </Typography>
         </CardContent>
         <CardActions>
