@@ -7,7 +7,16 @@ import games from '../gamesList.json'
 import GameGrid from './GameGrid'
 
 
+const styles = {
+    notLoggedIn: {
+        position: "absolute",
+        left: 200,
+        right: 200,
 
+
+    },
+
+}
 
 class SelectedGamesComponent extends React.Component {
 
@@ -17,34 +26,31 @@ class SelectedGamesComponent extends React.Component {
         const wordSearch = this.props.state.searchState.name;
 
         if(this.props.state.currentPageState === FLOW_STATE.SEARCH ) {
-
-
             return (
-
                 <div>
-
                     <GameGrid
                         GameList={games.filter(function(game){
-
                             if(game.title.includes(wordSearch)){
-
                                 return game;
                             }
-
-
                         })}
                     />
-
                 </div>
-
             )
-
         }
 
-        /*if ((this.props.state.mainButtonState === BUTTON_STATE.PREFERENCEBUTTON || this.props.state.currentPageState === FLOW_STATE.MAINPAGE )&& this.props.state.genreButtonState == null) {
+        if ((this.props.state.mainButtonState === "PREFERENCE_BUTTON" && this.props.state.currentPageState === FLOW_STATE.MAINPAGE )&& this.props.state.genreButtonState == null) {
 
+            if (this.props.state.currentUserHandler.isLoggedIn == false) {
+                return (
+                    <h1 style={styles.notLoggedIn}>
+                        Not Logged in. To view preferences please log in.
 
-            return (
+                    </h1>
+                )
+            } else {
+
+                return (
                 <div>
                     <GameGrid
                         GameList={games.filter(function(game){
@@ -56,8 +62,9 @@ class SelectedGamesComponent extends React.Component {
 
                 </div>
             )
+        }
 
-        }*/
+        }
 
 
 

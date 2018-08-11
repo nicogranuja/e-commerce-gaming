@@ -24,7 +24,10 @@ class ConsoleButtons extends React.Component {
 	};
 
 	render() {
+
 		return (
+
+
 			<Tabs
        			value={this.state.selectedTab} onChange={this.handleChange}
 				style={tabStyle.Tabs}
@@ -33,20 +36,21 @@ class ConsoleButtons extends React.Component {
 				fullWidth
 				centered
 			>
-				<Tab label="Preferences" onClick={this.props.preferenceClick} />
+
 				<Tab label="All" onClick={this.props.allGamesClick} />
 				<Tab label="Xbox One" onClick={this.props.xBoxClick} />
 				<Tab label="PS4" onClick={this.props.playStationClick} />
 				<Tab label="Wii U" onClick={this.props.nintendoClick} />
 				<Tab label="PC" onClick={this.props.computerClick} />
 				<Tab label="Switch" onClick={this.props.handHeldClick} />
+				<Tab label="Preferences" onClick={this.props.preferenceClick} />
 			</Tabs>
 		);
 	}
 }
 
 const mapStateToProps = (state) => {
-	console.log("The mapStateToProps in ConsoleButtons is " + state);
+	console.log("The mapStateToProps in ConsoleButtons is");
 	return {
 		state: state,
 	};
