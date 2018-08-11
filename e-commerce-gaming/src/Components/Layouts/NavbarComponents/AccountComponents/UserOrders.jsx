@@ -7,7 +7,13 @@ import OrderCard from './OrderComponents/OrderCard';
 const styles = {
   ordersFilter: {
     marginBottom: 10
-  } 
+  },
+  orderCardsContainer: {
+    display: 'grid',
+    gridGap: '20px',
+    gridTemplateColumns: '250px 250px',
+    justifyContent: 'center'
+  }
 }
 
 class UserSettings extends React.Component {
@@ -51,15 +57,17 @@ class UserSettings extends React.Component {
             </Select>
           </span>
         </div>
-        {orders.map((order, i) => {
-          return <OrderCard 
-            key={i}
-            imgURL={order.url}
-            gameTitle={order.title}
-            price={order.price}
-            orderPlacedOn={'August 14th 2018'}
-          />
-        })}
+        <div style={styles.orderCardsContainer}>
+          {orders.map((order, i) => {
+            return <OrderCard 
+              key={i}
+              imgURL={order.url}
+              gameTitle={order.title}
+              price={order.price}
+              orderPlacedOn={'August 14th 2018'}
+            />
+          })}
+        </div>
       </Fragment>
     )
   }
