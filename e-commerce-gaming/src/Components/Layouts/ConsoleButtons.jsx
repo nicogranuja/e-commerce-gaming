@@ -6,21 +6,22 @@ import FLOW_STATE from '../../Constants/buttonStates'
 
 const tabStyle = {
 	Tabs: {
-		margin: 15
+		margin: '0 10px 5px 10px'
 	}
 };
 
 class ConsoleButtons extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			selectedTab: 0
 		};
-  }
+  	}
   
-  handleChange = (event, selectedTab) => {
-    this.setState({ selectedTab });
-  };
+	handleChange = (event, selectedTab) => {
+		this.setState({ selectedTab });
+	};
 
 	render() {
 		return (
