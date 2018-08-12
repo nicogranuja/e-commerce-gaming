@@ -41,9 +41,7 @@ const styles = {
     padding: 5,
     height: 50,
     maxHeight: 150,
-    color: '#3748AC',
-    // textDecoration: 'underline',
-    // cursor: 'pointer'
+    color: '#3748AC'
   },
   Price: {
     fontWeight: 'bold',
