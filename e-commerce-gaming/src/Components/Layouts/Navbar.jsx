@@ -10,6 +10,7 @@ import UserAccount from './NavbarComponents/UserAccount';
 import { AppBar, Toolbar, Typography, Snackbar } from '@material-ui/core';
 import { updateLoggedInUserStatus } from '../../Actions/LoggedInStatusAction';
 import { updateLoggedInUser } from '../../Actions/LoggedInUserAction';
+import MySnackbarContent from '../CustomSnackbar';
 
 const styles = {
   root: {
@@ -99,7 +100,6 @@ class Navbar extends Component {
           </Toolbar>
           <Snackbar
             open={this.state.openSnackbarMessage}
-            styles={styles.snackbarText}
             anchorOrigin={{
               vertical: 'top',
               horizontal: 'center',
@@ -107,10 +107,15 @@ class Navbar extends Component {
             ContentProps={{
               'aria-describedby': 'message-id',
             }}
-            autoHideDuration={3500}
+            autoHideDuration={3000}
             onClose={this.handleSnackbarClose}
-            message={<span id="message-id">{this.state.loginMessage}</span>}
-          />
+          >
+            <MySnackbarContent
+              variant="success"
+              message={<span id="message-id">{this.state.loginMessage}</span>}
+            />
+          </Snackbar>
+            
         </AppBar>
       </div>
     );
