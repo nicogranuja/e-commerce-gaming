@@ -49,7 +49,9 @@ class ShoppingCart extends React.Component {
           <DialogContent>
             {items.length > 0 ?
               <CartProgress itemObjects={items} closeDialog={this.handleClose} />
-            : 'Shopping cart is empty. Add items by clicking on the ADD button'
+            : <div>
+                <img style={{ position:'relative', left: '25%' }} src="https://www.chocogrid.com/img/images/cart-empty.jpg"/>
+              </div>
             }
           </DialogContent>
         </Dialog>

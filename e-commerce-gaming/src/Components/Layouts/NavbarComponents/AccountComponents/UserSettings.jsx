@@ -46,6 +46,7 @@ class UserSettings extends React.Component {
       newPasswordHelperText: '',
       newPasswordConfirmHelperText: '',
       address: '1600 Pennsylvania Ave',
+      addressErr: false,
       stateSelected: 'TX',
       encryptionKey: 'myTotalySecretKey',
       successMessage: 'Update successfull!',
@@ -104,8 +105,10 @@ class UserSettings extends React.Component {
 
   updateUser = () => {
     let user = this.state.user;
-    let hashedPassword = this.encryptPassword(this.state.newPassword);
-    user.password = hashedPassword;
+    if (this.state.newPassword.length > 0) {
+      let hashedPassword = this.encryptPassword(this.state.newPassword);
+      user.password = hashedPassword;
+    }
     user.address = this.state.address;
     user.name = this.state.name;
     this.props.updateLoggedInUser(user);
@@ -132,7 +135,10 @@ class UserSettings extends React.Component {
 
   thereAreEmptyValuesInForm = () => {
     let hasEmptyValues = false;
-    let valuesToCheck = ['name', 'password', 'newPassword', 'newPasswordConfirm'];
+    let valuesToCheck = ['name', 'password', 'address'];
+    if (this.state.newPassword.length > 0 ||  this.state.newPasswordConfirm.length > 0) {
+      valuesToCheck.push('newPassword', 'newPasswordConfirm');
+    }
     for (let i = 0; i < valuesToCheck.length; i++) {
       let propValue = valuesToCheck[i];
       let errorName = propValue + 'Err';
@@ -153,7 +159,7 @@ class UserSettings extends React.Component {
       this.setState({ newPasswordConfirmHelperText: 'New passwords do not match' });
       this.setState({ newPasswordConfirmErr: true });
       isInvalid = true;
-    } else if (this.state.newPassword.length < 8) {
+    } else if (this.state.newPassword.length > 0 && this.state.newPassword.length < 8) {
       this.setState({ newPasswordHelperText: 'Please use a password that contains more than 8 characters' });
       this.setState({ newPasswordConfirmErr: true });
       this.setState({ newPasswordErr: true });
@@ -194,7 +200,7 @@ class UserSettings extends React.Component {
           style={styles.textWidth}
           helperText={this.state.newPasswordConfirmHelperText}
         />
-        <TextField value={this.state.address} onChange={this.handleAddressChange}
+        <TextField value={this.state.address} onChange={this.handleAddressChange} error={this.state.addressErr}
           margin="dense" id="new-address-register" label="Shipping Address" type="text"
           style={styles.textWidth}
         />
