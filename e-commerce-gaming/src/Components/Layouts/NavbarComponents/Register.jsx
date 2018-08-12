@@ -154,8 +154,23 @@ class Register extends React.Component {
 
   handleSavingUser = () => {
     let hashedPassword = this.encryptPassword(this.state.password);
-    let user = { name: this.state.name, address: this.state.address, email: this.state.email, password: hashedPassword, gamePreferences: this.state.gamePreferences };
+    let user = { name: this.state.name, address: this.state.address, email: this.state.email, password: hashedPassword, gamePreferences: this.customizePreferencesBasedOnJSON() };
     this.props.updateUserObject(user);
+  };
+
+  customizePreferencesBasedOnJSON = () => {
+    let customizedPreferences = [];
+    for (let i = 0; i < this.state.gamePreferences.length; i++) {
+      if (this.state.gamePreferences[i] == 'PC') {
+        customizedPreferences.push('computer');
+      } else if (this.state.gamePreferences[i] != 'PS4') {
+        customizedPreferences.push(this.state.gamePreferences[i].toLowerCase());
+      } else {
+        // PS4
+        customizedPreferences.push(this.state.gamePreferences[i]);
+      }
+    }
+    return customizedPreferences;
   };
 
   updateUIForLoggedUser = () => {
