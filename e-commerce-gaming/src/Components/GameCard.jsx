@@ -40,11 +40,16 @@ const styles = {
   Title: {
     padding: 5,
     height: 50,
-    maxHeight: 150
+    maxHeight: 150,
+    color: '#3748AC',
+    // textDecoration: 'underline',
+    // cursor: 'pointer'
   },
   Price: {
-    marginTop: -20,
-    marginBottom: 20
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#B12805',
+    fontSize: 27
   },
   More: {
     padding: 5,
@@ -106,7 +111,11 @@ class GameCard extends React.Component{
         </CardContent>
         <CardContent >
           <Typography gutterBottom  style={styles.Price} align='center'>
-            <h2>{classes.price}</h2>
+            <div>
+              <img style={{ width: 27, height: 27 }} src="https://cdn2.iconfinder.com/data/icons/e-commerce-4/256/Price_Tag-512.png" />
+              {classes.price.slice(1, 3)}
+              <div style={{ fontSize: 17, display: 'inline', position: 'relative', bottom: 12 }}>{classes.price.slice(4, classes.price.length)}</div>
+            </div>
           </Typography>
         </CardContent>
         <CardActions>
