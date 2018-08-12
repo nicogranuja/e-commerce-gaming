@@ -10,7 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import {Grid} from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
-import {Add} from '@material-ui/icons';
+import {AddShoppingCart as Add} from '@material-ui/icons';
 import { addItem } from '../Actions/AddItemsToCart';
 import Snackbar from '@material-ui/core/Snackbar';
 import GameInfo from './GameInfo'
@@ -126,8 +126,8 @@ class GameCard extends React.Component{
 
             <Grid item style={styles.Cart} xs='12' sm='6'>
               <Button onClick={(e) => this.handleClick(classes.Title,classes.price)} className={classes.classes.button} >
-                CART
-                <Add width='auto'/>
+                cart
+                <Add style={{ marginLeft: 5 }} width='auto'/>
               </Button>
             </Grid>
           </Grid>

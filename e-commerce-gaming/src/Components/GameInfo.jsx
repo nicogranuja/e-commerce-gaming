@@ -61,7 +61,7 @@ class GameInfo extends React.Component {
   <div>
     <Button onClick={(e) => this.handleClickOpen(classes.Title,classes.price)} className={this.props.classButtonName} >
     MORE
-    <Info width='auto'/>
+    <Info style={{ marginLeft: 5 }} width='auto'/>
   </Button>
   <Dialog
           open={this.state.open}
