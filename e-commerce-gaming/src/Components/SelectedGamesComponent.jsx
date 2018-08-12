@@ -24,6 +24,7 @@ class SelectedGamesComponent extends React.Component {
     render() {
 
         const wordSearch = this.props.state.searchState.name;
+        const preferenceGames = this.props.state.currentUserHandler.user.gamePreferences;
 
         if(this.props.state.currentPageState === FLOW_STATE.SEARCH ) {
             return (
@@ -49,20 +50,42 @@ class SelectedGamesComponent extends React.Component {
                     </h1>
                 )
             } else {
+                if (this.props.state.currentUserHandler.user.gamePreferences != undefined) {
+                    var [one = '', two = '', three = '', four = '', five = ''] = preferenceGames;
 
-                return (
-                <div>
-                    <GameGrid
-                        GameList={games.filter(function(game){
+
+                    return (
+                        <div>
+                            <GameGrid
+                                GameList={games.filter(function(game){
+
+                                if(game.console == one){
                                 return game;
+                                }
+                                if(game.console == two){
+                                return game;
+                                }
+                                if(game.console == three){
+                                return game;
+                                }
+                                if(game.console == four){
+                                return game;
+                                }
+                                if(game.console == five){
+                                return game;
+                                }
+
 
 
                         })}
-                    />
+                            />
 
-                </div>
-            )
-        }
+                        </div>
+                    )
+
+                }
+
+            }
 
         }
 
