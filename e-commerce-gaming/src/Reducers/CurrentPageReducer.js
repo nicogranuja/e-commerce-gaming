@@ -15,8 +15,26 @@ function CurrentPageReducer(state = flowState.MAINPAGE, action) {
         case 'CART_PAGE_ACTION':
             newState = action.click;
             return newState;
-        case 'SEARCH_PAGE_ACTION':
+        case 'SEARCH_ACTION':
             newState = action.click;
+            return newState;
+        case "PLAYSTATION_BUTTON_SELECTED":
+            newState = flowState.MAINPAGE;
+            return newState;
+        case "COMPUTER_BUTTON_SELECTED":
+            newState = flowState.MAINPAGE;
+            return newState;
+        case "NINTENDO_BUTTON_SELECTED":
+            newState = flowState.MAINPAGE;
+            return newState;
+        case "HANDHELD_BUTTON_SELECTED":
+            newState = flowState.MAINPAGE;
+            return newState;
+        case "ALL_GAMES_BUTTON_SELECTED":
+            newState = flowState.MAINPAGE;
+            return newState;
+        case 'PREFERENCE_BUTTON_SELECTED':
+            newState = flowState.MAINPAGE;
             return newState;
         default :
 

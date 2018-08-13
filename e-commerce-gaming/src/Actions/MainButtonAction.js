@@ -1,4 +1,11 @@
+export function allGamesClick(click) {
 
+    return {
+        type: 'ALL_GAMES_BUTTON_SELECTED',
+        click
+
+    }
+}
 
 export function xBoxClick(click) {
     
@@ -40,6 +47,15 @@ export function nintendoClick(click) {
 
     return {
         type: 'NINTENDO_BUTTON_SELECTED',
+        click
+
+    }
+}
+
+export function preferenceClick(click) {
+
+    return {
+        type: 'PREFERENCE_BUTTON_SELECTED',
         click
 
     }

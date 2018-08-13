@@ -28,9 +28,10 @@ export  function cartPageState(click) {
     }
 }
 
-export  function searchPageState(click) {
+export  function searchMainState(click) {
     return {
-        type: 'SEARCH_PAGE_ACTION',
+        type: 'SEARCH_ACTION',
         click
     }
 }
+

@@ -1,11 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import Login from './NavbarElements/Login';
-import Register from './NavbarElements/Register';
-import SearchBar from './NavbarElements/SearchBar';
-import ShoppingCart from './NavbarElements/ShoppingCart';
-import Logout from './NavbarElements/Logout';
-import UserAccount from './NavbarElements/UserAccount';
+import { connect } from 'react-redux';
+import Login from './NavbarComponents/Login';
+import Register from './NavbarComponents/Register';
+import FAQ from './NavbarComponents/FAQ';
+import SearchBar from './NavbarComponents/SearchBar';
+import ShoppingCart from './NavbarComponents/ShoppingCart';
+import Logout from './NavbarComponents/Logout';
+import UserAccount from './NavbarComponents/UserAccount';
 import { AppBar, Toolbar, Typography, Snackbar } from '@material-ui/core';
+import { updateLoggedInUserStatus } from '../../Actions/LoggedInStatusAction';
+import { updateLoggedInUser } from '../../Actions/LoggedInUserAction';
+import MySnackbarContent from '../CustomSnackbar';
 
 const styles = {
   root: {
@@ -25,8 +30,7 @@ const styles = {
   snackbarText: {
     textAlign: 'center'
   }
-}
-
+};
 
 class Navbar extends Component {
   constructor(props) {
@@ -46,6 +50,7 @@ class Navbar extends Component {
   
   handleLoginStatusChange = (isLoggedIn, message) => {
     this.setState({ userIsLoggedIn: isLoggedIn });
+    this.props.updateLoggedInUserStatus(isLoggedIn);
     this.handleLoginLogoutPopUpMessage(message);
   };
 
@@ -55,6 +60,7 @@ class Navbar extends Component {
 
   handleUpdateCurrentUserObj = (userObj) => {
     this.setState({ user: userObj });
+    this.props.updateLoggedInUser(userObj);
   };
 
   render() {
@@ -64,7 +70,7 @@ class Navbar extends Component {
           <Toolbar>
             <Typography variant="title" color="inherit" style={styles.title}>
               Swagoo - The Worlds Okayest Online Gaming Retailer
-            </Typography>
+            </Typography>          
             <SearchBar />
             <ShoppingCart styles={styles}/>
             {!this.state.userIsLoggedIn ? (
@@ -88,10 +94,12 @@ class Navbar extends Component {
                 />
               </Fragment>
             )}
+             <Fragment>
+              <FAQ styles={styles}/>
+              </Fragment>
           </Toolbar>
           <Snackbar
             open={this.state.openSnackbarMessage}
-            styles={styles.snackbarText}
             anchorOrigin={{
               vertical: 'top',
               horizontal: 'center',
@@ -99,14 +107,26 @@ class Navbar extends Component {
             ContentProps={{
               'aria-describedby': 'message-id',
             }}
-            autoHideDuration={5000}
+            autoHideDuration={3000}
             onClose={this.handleSnackbarClose}
-            message={<span id="message-id">{this.state.loginMessage}</span>}
-          />
+          >
+            <MySnackbarContent
+              variant="success"
+              message={<span id="message-id">{this.state.loginMessage}</span>}
+            />
+          </Snackbar>
+            
         </AppBar>
       </div>
     );
   }
 }
 
-export default Navbar;
+function mapDispatchToProps(dispatch) {
+  return {
+    updateLoggedInUserStatus: (isLoggedIn) => dispatch(updateLoggedInUserStatus(isLoggedIn)),
+    updateLoggedInUser: (user) => dispatch(updateLoggedInUser(user))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Navbar);

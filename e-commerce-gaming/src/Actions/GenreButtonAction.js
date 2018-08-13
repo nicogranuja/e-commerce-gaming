@@ -44,3 +44,21 @@ export function adventureClick(click) {
 
     }
 }
+
+export function racingClick(click) {
+
+    return {
+        type: GENRESTATE.RACINGBUTTON,
+        click
+
+    }
+}
+
+export function allGenresClick(click) {
+
+    return {
+        type: GENRESTATE.RACINGBUTTON,
+        click
+
+    }
+}

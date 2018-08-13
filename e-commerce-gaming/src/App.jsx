@@ -3,6 +3,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import ConsoleButtons from './Components/Layouts/ConsoleButtons';
 import Navbar from './Components/Layouts/Navbar';
 import Games from './Components/Games'
+import GenreButtons from './Components/GenreButtons'
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <MuiThemeProvider theme={muiTheme}>
         <Navbar />
         <ConsoleButtons/>
+        <GenreButtons />
         <Games />     
       </MuiThemeProvider>
     );

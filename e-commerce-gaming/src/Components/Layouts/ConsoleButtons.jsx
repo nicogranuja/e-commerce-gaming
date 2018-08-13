@@ -1,53 +1,56 @@
 import React from 'react';
-import Tabs from '@material-ui/core/Tabs';
-import Button from '@material-ui/core/Tab';
+import { Tabs, Tab } from '@material-ui/core';
 import { connect } from 'react-redux'
-import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick } from '../../Actions/MainButtonAction';
+import { playStationClick,computerClick,handHeldClick,xBoxClick,nintendoClick, allGamesClick, preferenceClick} from '../../Actions/MainButtonAction';
 import FLOW_STATE from '../../Constants/buttonStates'
 
-const styles = theme => ({
-	button: {
-		margin: theme.spacing.unit,
-	},
-	input: {
-		display: 'none',
-	},
-});
+const tabStyle = {
+	Tabs: {
+		margin: '0 10px 5px 10px'
+	}
+};
 
 class ConsoleButtons extends React.Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			selectedTab: 0
+		};
+  	}
+  
+	handleChange = (event, selectedTab) => {
+		this.setState({ selectedTab });
+	};
 
 	render() {
 
-
 		return (
 
-			<Tabs
 
+			<Tabs
+       			value={this.state.selectedTab} onChange={this.handleChange}
+				style={tabStyle.Tabs}
 				indicatorColor="primary"
 				textColor="primary"
 				fullWidth
+				centered
 			>
-				<Button  label="Xbox One"  onClick={this.props.xBoxClick}/>
-				<Button label="PS 4" onClick={this.props.playStationClick}/>
-				<Button label="Nintendo" onClick={this.props.nintendoClick}/>
-				<Button label="Computer" onClick={this.props.computerClick}/>
-				<Button label="Game Boy" onClick={this.props.handHeldClick}/>
+
+				<Tab label="All" onClick={this.props.allGamesClick} />
+				<Tab label="Xbox One" onClick={this.props.xBoxClick} />
+				<Tab label="PS4" onClick={this.props.playStationClick} />
+				<Tab label="Wii U" onClick={this.props.nintendoClick} />
+				<Tab label="PC" onClick={this.props.computerClick} />
+				<Tab label="Switch" onClick={this.props.handHeldClick} />
+				<Tab label="Preferences" onClick={this.props.preferenceClick} />
 			</Tabs>
-		)
-
-
+		);
 	}
-
-
-
-
 }
 
-
-
 const mapStateToProps = (state) => {
-	console.log("The mapStateToProps in ConsoleButtons is " + state);
+	console.log("The mapStateToProps in ConsoleButtons is");
 	return {
 		state: state,
 	};
@@ -55,6 +58,8 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
 	return {
+		preferenceClick: () => dispatch(preferenceClick(FLOW_STATE.PREFERENCEBUTTON)),
+    	allGamesClick: () => dispatch(allGamesClick(FLOW_STATE.ALLGAMESPAGEBUTTON)),
 		xBoxClick: () => dispatch(xBoxClick(FLOW_STATE.XBOXPAGEBUTTON)),
 		playStationClick: () => dispatch(playStationClick(FLOW_STATE.PS4PAGEBUTTON)),
 		nintendoClick: () => dispatch(nintendoClick(FLOW_STATE.NINTENDOBUTTON)),
