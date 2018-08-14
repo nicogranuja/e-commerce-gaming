@@ -5,7 +5,9 @@ import {Grid} from '@material-ui/core'
 import GameCard from './GameCard'
 
 const styles = {
-
+    grid:{
+        width: '100vw'
+    }
 }
 
 
@@ -13,7 +15,7 @@ const styles = {
 
 
 class GameGrid extends React.Component{
-
+    styles = this.props.styles;
     render() {
         let gameList = [
             {name: "Nier Automata", url: "https://images-na.ssl-images-amazon.com/images/I/51b7HIBTKNL.jpg"},
@@ -30,7 +32,7 @@ class GameGrid extends React.Component{
            <GameCard price={game.price} imgURL={game.url} Title={game.title} Description={game.description} youtubeId ={game.youtubeId}/> 
         );
         return(
-            <Grid container justify="center">
+            <Grid style={styles.grid} container justify="center">
                 {gameCards}
             </Grid>
         );
